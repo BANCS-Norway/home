@@ -1,3 +1,22 @@
+# [1.1.0](https://github.com/BANCS-Norway/home/compare/v1.0.4...v1.1.0) (2025-10-21)
+
+
+### Bug Fixes
+
+* configure git credentials for semantic-release ([3fb4352](https://github.com/BANCS-Norway/home/commit/3fb4352edc333f3a84a0e79b1472e0b5a452ca0f)), closes [#10](https://github.com/BANCS-Norway/home/issues/10)
+* configure git user for semantic-release commits ([23db2d8](https://github.com/BANCS-Norway/home/commit/23db2d8a2c334afb1b1c276d062b8d6c94801c07)), closes [#10](https://github.com/BANCS-Norway/home/issues/10)
+* migrate to Playwright test runner with proper CI integration ([c50ad34](https://github.com/BANCS-Norway/home/commit/c50ad3414878a8f3a5f75e939c85af56df4f4b35)), closes [#17](https://github.com/BANCS-Norway/home/issues/17)
+* revert to GH_TOKEN in release workflow ([0f3b435](https://github.com/BANCS-Norway/home/commit/0f3b4358779923270b993c0cc504139eab644ff1))
+* simplify semantic-release config to use default commit message ([0c7546b](https://github.com/BANCS-Norway/home/commit/0c7546b0496332e51c53abe83700b92406512161)), closes [#10](https://github.com/BANCS-Norway/home/issues/10)
+* skip git hooks during semantic-release commits ([2fae2f8](https://github.com/BANCS-Norway/home/commit/2fae2f836f14380b193c5ba88c2a84fe08fa3a7d)), closes [#20](https://github.com/BANCS-Norway/home/issues/20)
+* use correct token name for semantic-release ([4e280f2](https://github.com/BANCS-Norway/home/commit/4e280f2e6394f8d7768765af3dd00a8fefe08626)), closes [#10](https://github.com/BANCS-Norway/home/issues/10)
+
+
+### Features
+
+* add manual trigger capability to release workflow ([45d88b2](https://github.com/BANCS-Norway/home/commit/45d88b2f8aeb55068d95a7794d698f78c8415e59)), closes [#13](https://github.com/BANCS-Norway/home/issues/13)
+* implement axe-core accessibility compliance testing ([b124368](https://github.com/BANCS-Norway/home/commit/b1243681074bb47210fae1674fcdf2dde65ccd36)), closes [#4f46e5](https://github.com/BANCS-Norway/home/issues/4f46e5) [#5](https://github.com/BANCS-Norway/home/issues/5)
+
 ## [1.0.4](https://github.com/BANCS-Norway/home/compare/v1.0.3...v1.0.4) (2025-10-21)
 
 
