@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json.schemastore.org/axe-core.json",
+  "description": "axe-core accessibility testing configuration for BANCS",
+  "rules": {
+    "color-contrast": {
+      "enabled": true
+    },
+    "heading-order": {
+      "enabled": true
+    },
+    "landmark-one-main": {
+      "enabled": true
+    },
+    "page-has-heading-one": {
+      "enabled": true
+    },
+    "region": {
+      "enabled": true
+    },
+    "html-has-lang": {
+      "enabled": true
+    },
+    "valid-lang": {
+      "enabled": true
+    },
+    "label": {
+      "enabled": true
+    },
+    "button-name": {
+      "enabled": true
+    },
+    "link-name": {
+      "enabled": true
+    }
+  },
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa"
+  ],
+  "locale": "en"
+}
