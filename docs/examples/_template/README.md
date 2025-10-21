@@ -83,4 +83,4 @@ your-blog-post-title/
 
 ## License
 
-MIT - See [../LICENSE](../LICENSE)
+MIT - See [LICENSE](../LICENSE)

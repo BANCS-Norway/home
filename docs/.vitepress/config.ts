@@ -14,6 +14,13 @@ export default defineConfig({
   title: 'BANCS',
   description: 'Professional software development and consulting',
   base: '/',
+  ignoreDeadLinks: [
+    // Example READMEs reference files outside docs/ (LICENSE, CONTRIBUTING.md, etc.)
+    // These are meant for developers viewing in the repo, not the built site
+    /\/LICENSE$/,
+    /\/CONTRIBUTING$/,
+    /\.vitepress\/plugins\/README$/,
+  ],
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/bancs.png' }],
