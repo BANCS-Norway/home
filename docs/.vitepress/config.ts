@@ -26,7 +26,29 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/png', href: '/bancs.png' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap', rel: 'stylesheet' }]
+    ['link', { href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap', rel: 'stylesheet' }],
+    [
+      'script',
+      {},
+      `
+      // Fix VitePress theme toggle accessibility
+      if (typeof window !== 'undefined') {
+        window.addEventListener('DOMContentLoaded', function() {
+          function addAriaLabel() {
+            const themeToggle = document.querySelector('.VPSwitchAppearance');
+            if (themeToggle) {
+              themeToggle.setAttribute('aria-label', 'Toggle dark mode');
+              themeToggle.setAttribute('title', 'Toggle dark mode');
+            } else {
+              // Retry if not found
+              setTimeout(addAriaLabel, 100);
+            }
+          }
+          addAriaLabel();
+        });
+      }
+      `
+    ]
   ],
 
   themeConfig: {

@@ -38,6 +38,15 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run accessibility tests
+        run: |
+          npm run preview &
+          sleep 5
+          npm run test:a11y
+
       - name: Verify commit message format
         run: |
           # Get all commits in the PR

@@ -5,11 +5,17 @@
 
 /* Root variables for Bancs color scheme */
 :root {
-  --vp-c-brand: #6366f1;
-  --vp-c-brand-light: #8b5cf6;
-  --vp-c-brand-lighter: #a78bfa;
-  --vp-c-brand-dark: #4f46e5;
-  --vp-c-brand-darker: #4338ca;
+  /* Override VitePress indigo colors for WCAG AA compliance */
+  /* These map to brand button colors: brand-1 (active), brand-2 (hover), brand-3 (default) */
+  --vp-c-indigo-1: #3730a3;  /* Darkest - for active state */
+  --vp-c-indigo-2: #4338ca;  /* Medium - for hover state */
+  --vp-c-indigo-3: #4338ca;  /* Default button background - WCAG AA compliant */
+
+  --vp-c-brand: #4338ca;
+  --vp-c-brand-light: #4f46e5;
+  --vp-c-brand-lighter: #6366f1;
+  --vp-c-brand-dark: #3730a3;
+  --vp-c-brand-darker: #312e81;
 
   --vp-c-bg: #ffffff;
   --vp-c-bg-alt: #f8fafc;
@@ -52,18 +58,23 @@ div[class*='language-'] {
 .custom-button {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
+  font-size: 1.125rem;
   transition: all 200ms;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  color: white;
+  background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+  color: #0f172a;
   text-decoration: none;
+  border: 2px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.4);
 }
 
 .custom-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 30px rgba(167, 139, 250, 0.6);
+  background: linear-gradient(135deg, #c4b5fd 0%, #f9a8d4 100%);
+  color: #0f172a;
 }
 
 /* Project cards */
