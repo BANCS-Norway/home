@@ -40,6 +40,11 @@ Thumbs.db
 *.tmp
 *.temp
 
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
 # Lock files (keep package-lock.json for consistency)
 # pnpm-lock.yaml
 # yarn.lock
