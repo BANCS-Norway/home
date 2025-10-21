@@ -78,5 +78,5 @@ npx tsx docs/examples/code-import-demo/demo.ts
 
 ## See Also
 
-- [VitePress Plugins README](../../.vitepress/plugins/README.md)
-- [CONTRIBUTING.md](../../../CONTRIBUTING.md)
+- [VitePress Plugins README](/.vitepress/plugins/README)
+- [CONTRIBUTING.md](/CONTRIBUTING)

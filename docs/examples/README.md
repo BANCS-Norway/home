@@ -156,7 +156,7 @@ Examples can use custom styles since they're demonstrations. The style validatio
 
 ## 📜 License
 
-All examples are licensed under the [MIT License](./LICENSE).
+All examples are licensed under the [MIT License](LICENSE).
 
 By contributing:
 - ✅ You grant BANCS permission to use and modify your examples
@@ -165,6 +165,6 @@ By contributing:
 
 ## ❓ Questions?
 
-- Read [CONTRIBUTING.md](../../CONTRIBUTING.md)
-- Check [VitePress Plugins README](../.vitepress/plugins/README.md)
+- Read [CONTRIBUTING.md](/CONTRIBUTING)
+- Check [VitePress Plugins README](/.vitepress/plugins/README)
 - Open an issue on GitHub
