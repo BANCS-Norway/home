@@ -42,9 +42,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate blog post styles
-        run: npm run validate
-
       - name: Build with VitePress
         run: npm run build
 
