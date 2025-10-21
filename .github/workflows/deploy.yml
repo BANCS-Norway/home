@@ -1,7 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
     branches:
       - main
   workflow_dispatch:
@@ -18,11 +21,14 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Only deploy if release workflow succeeded or was skipped
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'skipped' || github.event_name == 'workflow_dispatch' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: main  # Always checkout main to get latest version after release
 
       - name: Setup Node
         uses: actions/setup-node@v4
