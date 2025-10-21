@@ -27,6 +27,8 @@ jobs:
           cache: npm
 
       - name: Install dependencies
+        env:
+          HUSKY: 0
         run: npm ci
 
       - name: Validate blog styles
