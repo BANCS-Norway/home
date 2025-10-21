@@ -1,0 +1,66 @@
+MIT License
+
+Copyright (c) 2025 BANCS and Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## About This License
+
+All code examples in this directory are licensed under the MIT License.
+
+This means:
+- ✅ You can freely use these examples in your own projects
+- ✅ You can modify and distribute them
+- ✅ Commercial use is allowed
+- ✅ Attribution is appreciated but not required
+
+## For Contributors
+
+By contributing code examples to this directory, you agree that:
+1. You have the right to license the code under MIT
+2. Your contribution will be licensed under MIT
+3. BANCS can freely use, modify, and display your examples on the website
+4. You retain copyright to your original work
+
+## Attribution
+
+While not required by the license, we encourage attribution:
+
+```typescript
+/**
+ * Example: User Authentication
+ * Author: Your Name
+ * Source: https://github.com/BANCS-Norway/home
+ * License: MIT
+ */
+```
+
+## External Code
+
+If you're including code from external sources:
+1. Ensure it's MIT-compatible
+2. Include proper attribution
+3. Note the original source in comments
+4. Get permission if the license requires it
+
+## Questions?
+
+See CONTRIBUTING.md or open an issue.

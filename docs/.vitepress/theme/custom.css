@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+/* Import JetBrains Mono font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* Root variables for Bancs color scheme */
+:root {
+  --vp-c-brand: #6366f1;
+  --vp-c-brand-light: #8b5cf6;
+  --vp-c-brand-lighter: #a78bfa;
+  --vp-c-brand-dark: #4f46e5;
+  --vp-c-brand-darker: #4338ca;
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f8fafc;
+  --vp-c-bg-elv: #ffffff;
+
+  --vp-c-text-1: #0f172a;
+  --vp-c-text-2: #475569;
+  --vp-c-text-3: #64748b;
+
+  --vp-font-family-mono: 'JetBrains Mono', monospace;
+}
+
+/* Dark mode */
+.dark {
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #1e293b;
+  --vp-c-bg-elv: #1e1b4b;
+
+  --vp-c-text-1: #e2e8f0;
+  --vp-c-text-2: #cbd5e1;
+  --vp-c-text-3: #94a3b8;
+}
+
+/* Custom styling for code blocks */
+div[class*='language-'] {
+  border-radius: 0.5rem;
+  background-color: var(--vp-c-bg-alt) !important;
+}
+
+/* Logo styling */
+.VPNavBarTitle .logo {
+  transition: transform 300ms;
+}
+
+.VPNavBarTitle .logo:hover {
+  transform: scale(1.1);
+}
+
+/* Custom button styles */
+.custom-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 200ms;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  text-decoration: none;
+}
+
+.custom-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+/* Project cards */
+.project-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--vp-c-divider);
+  transition: all 300ms;
+  border-color: var(--vp-c-divider);
+  background-color: var(--vp-c-bg-alt);
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-0.25rem);
+  border-color: var(--vp-c-brand);
+}
+
+/* Blog post cards */
+.blog-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--vp-c-divider);
+  transition: all 300ms;
+  cursor: pointer;
+  background-color: var(--vp-c-bg-alt);
+}
+
+.blog-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-0.25rem);
+  border-color: var(--vp-c-brand);
+}
+
+/* Code example highlighting */
+.example-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--vp-c-bg-alt);
+  border-left: 4px solid var(--vp-c-brand);
+}
+
+/* Hero section gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+
+/* Responsive container */
+.container-custom {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Link hover effects */
+a {
+  transition: color 200ms;
+}
+
+a:hover {
+  color: var(--vp-c-brand);
+}

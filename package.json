@@ -1,0 +1,52 @@
+{
+  "name": "@bancs/pages",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BANCS professional homepage and technical blog",
+  "author": "Benny (BANCS)",
+  "license": "MIT",
+  "homepage": "https://www.bancs.no",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BANCS-Norway/home.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BANCS-Norway/home/issues"
+  },
+  "keywords": [
+    "vitepress",
+    "blog",
+    "typescript",
+    "tailwind",
+    "professional-website"
+  ],
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "validate:styles": "tsx scripts/validate-blog-styles.ts",
+    "validate:licenses": "tsx scripts/validate-example-licenses.ts",
+    "validate": "npm run validate:styles && npm run validate:licenses",
+    "semantic-release": "semantic-release",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.0",
+    "@tailwindcss/postcss": "^4.1.15",
+    "@types/node": "^24.9.1",
+    "autoprefixer": "^10.4.21",
+    "husky": "^9.1.7",
+    "postcss": "^8.5.6",
+    "semantic-release": "^25.0.1",
+    "tailwindcss": "^4.1.15",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.22"
+  }
+}

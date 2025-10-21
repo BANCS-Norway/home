@@ -1,0 +1,17 @@
+{
+  "name": "example-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Template for BANCS code examples",
+  "license": "MIT",
+  "scripts": {
+    "demo": "tsx demo.ts"
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  }
+}
