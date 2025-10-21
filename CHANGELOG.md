@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/BANCS-Norway/home/compare/v1.0.2...v1.0.3) (2025-10-21)
+
+
+### Bug Fixes
+
+* deploy workflow should run after release workflow ([b9027f1](https://github.com/BANCS-Norway/home/commit/b9027f19cc9a058743266a072e36745095de5f93))
+
 ## [1.0.2](https://github.com/BANCS-Norway/home/compare/v1.0.1...v1.0.2) (2025-10-21)
 
 
