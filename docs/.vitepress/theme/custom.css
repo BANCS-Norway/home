@@ -111,6 +111,15 @@ div[class*='language-'] {
 /* Hero section gradient background */
 .hero-gradient {
   background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  color: #e2e8f0;
+}
+
+.hero-gradient h2 {
+  color: #ffffff;
+}
+
+.hero-gradient p {
+  color: #cbd5e1;
 }
 
 /* Responsive container */
