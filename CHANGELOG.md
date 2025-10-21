@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/BANCS-Norway/home/compare/v1.0.3...v1.0.4) (2025-10-21)
+
+
+### Bug Fixes
+
+* enable package.json version updates in semantic-release ([ac926ac](https://github.com/BANCS-Norway/home/commit/ac926ac3db4a1d69a05daf4917902f4d251d4917))
+
 ## [1.0.3](https://github.com/BANCS-Norway/home/compare/v1.0.2...v1.0.3) (2025-10-21)
 
 
