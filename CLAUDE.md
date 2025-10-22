@@ -27,14 +27,17 @@ This guide has been split into focused documents for easier navigation:
 
 ### Quick Reference
 
-**Git Safety**: Claude will NEVER push to GitHub without explicit permission. You maintain full control.
+**Workflow (3 Phases):**
+1. **Issue-First** - Every feature starts with issue + feature branch ([details](./docs/claude/workflow.md#1-issue-first-workflow-primary))
+2. **Batch Development** - Work in batches: 3-4 tasks → Commit (after approval) → Repeat
+3. **Completion** - Rebase → YOU push → YOU create PR
+
+**Git Safety**: Claude will NEVER push or pull to/from GitHub. You always push and pull yourself.
 
 **Commit Format**: Use [Conventional Commits](https://www.conventionalcommits.org/) for semantic versioning
 - `feat:` → Minor version (1.0.0 → 1.1.0)
 - `fix:` → Patch version (1.0.0 → 1.0.1)
 - `BREAKING CHANGE:` → Major version (1.0.0 → 2.0.0)
-
-**Workflow**: Work in batches of 3-4 tasks → Commit → Push → Repeat
 
 ## Questions?
 

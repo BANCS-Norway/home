@@ -8,7 +8,14 @@ See [CONTRIBUTING.md](../../CONTRIBUTING.md) for the standard contribution workf
 
 This is the workflow for BANCS team members working with Claude Code on features.
 
-### Claude Code Convention: Issue-First Workflow
+**Three-Phase Workflow:**
+1. **[Issue-First Workflow](#1-issue-first-workflow-primary)** ← START HERE (PRIMARY)
+2. **[Batch Development Workflow](#3-batch-development-workflow)** (Work in batches of 3-4 tasks)
+3. **[Completion Workflow](#5-completion-workflow)** (Rebase, YOU push, Create PR)
+
+---
+
+## 1. Issue-First Workflow (PRIMARY)
 
 **When a user requests work, Claude MUST follow this protocol:**
 
@@ -76,9 +83,13 @@ Claude: "Branch created. Ready to start work on issue #42?"
 - ✅ Consistent branch naming makes navigation easier
 - ✅ Labels help organize and filter work
 
-### 0. Initial Repository Setup
+---
 
-**IMPORTANT: Protect the main branch after first commit**
+## 2. Initial Repository Setup (One-Time)
+
+**IMPORTANT: This is a one-time setup for new repositories. For regular feature work, skip to [Section 3: Batch Development Workflow](#3-batch-development-workflow).**
+
+**Protect the main branch after first commit**
 
 After pushing the initial commit to `main`, immediately protect the branch on GitHub:
 
@@ -134,6 +145,12 @@ And GitHub Actions workflow uses the `GH_TOKEN`:
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 ```
+
+---
+
+## 3. Batch Development Workflow
+
+This is the core workflow for feature development. You'll repeat the batch cycle (work → commit) until the feature is complete.
 
 ### 1. Create GitHub Issue
 
@@ -248,9 +265,47 @@ git push
 - ✅ Future pushes can use just `git push` without specifying remote/branch
 - ✅ `git status` shows if branch is ahead/behind remote
 
-### 5. Complete Feature
+---
 
-When all tasks are done:
+## 4. Workflow Summary
+
+Here's the complete workflow from start to finish:
+
+```
+0. Initial setup (one-time): YOU push first commit → Protect main branch
+   ↓
+1. Issue-First Workflow (EVERY feature starts here):
+   ├─ Check current branch (on main?)
+   ├─ Ask about issue (create or use existing)
+   ├─ Create feature branch: {type}/{issue-number}_descriptive-title
+   └─ Add "status: in progress" label
+   ↓
+2. BATCH CYCLE (Repeat until all tasks done):
+   ├─ Work on 3-4 tasks
+   ├─ Claude commits (after your approval)
+   └─ More tasks? → Repeat step 2
+   ↓
+3. COMPLETION (YOU control):
+   ├─ Rebase all batch commits into one
+   ├─ YOU push to remote
+   └─ YOU create PR (closes issue)
+   ↓
+4. Merge → Deploys automatically
+```
+
+**Key Points:**
+- **Issue-First** - Every feature starts with an issue and feature branch
+- **Claude commits** frequently (after approval) to protect your work
+- **YOU push** when you're ready (after all batches are complete and rebased)
+- **YOU create PR** to merge into main
+
+---
+
+## 5. Completion Workflow
+
+When all batch work is complete, YOU take control to finish the feature.
+
+### Step 1: Rebase and Clean Up
 
 1. **Review all commits** in the feature branch
 2. **Test the complete feature**
@@ -259,20 +314,25 @@ When all tasks are done:
    ```bash
    gh issue edit {issue-number} --remove-label "status: in progress"
    ```
-5. **Update the issue** to mark complete
 
 ```bash
-# Interactive rebase to clean up commits
+# Interactive rebase to clean up commits (Claude can help, or you do it)
 git rebase -i main
+```
 
-# Force push the cleaned up branch
+### Step 2: YOU Push to Remote
+
+**Claude NEVER pushes. You always control this step.**
+
+```bash
+# YOU push the cleaned up branch (use --force after rebase)
 git push --force origin feature/123-add-blog-search
 ```
 
-### 6. Create Pull Request
+### Step 3: YOU Create Pull Request
 
 ```bash
-# Create PR that references the issue
+# YOU create PR that references the issue
 gh pr create --title "feat: add blog search functionality" \
   --body "Closes #123
 
@@ -287,9 +347,9 @@ gh pr create --title "feat: add blog search functionality" \
 - [x] Accessibility verified"
 ```
 
-**The PR will automatically close when merged.**
+**The PR will automatically close the issue when merged.**
 
-### 7. Merge and Deploy
+### Step 4: Merge and Deploy
 
 - PR gets reviewed (if needed)
 - Merge to `main`
@@ -297,33 +357,9 @@ gh pr create --title "feat: add blog search functionality" \
 - Semantic release handles versioning
 - Issue closes automatically via PR
 
-## Batch Workflow Summary
+---
 
-```
-0. Initial setup: Push first commit → Protect main branch
-   ↓
-1. Create Issue with todos
-   ↓
-2. Create feature branch
-   ↓
-3. Work on 3-4 tasks
-   ↓
-4. Commit batch
-   ↓
-5. Push batch
-   ↓
-6. More tasks? → Go to step 3
-   ↓
-7. All done? → Rebase commits
-   ↓
-8. Create PR (closes issue)
-   ↓
-9. Merge → Deploys automatically
-```
-
-**Remember: After initial setup, ALL changes must go through feature branches and PRs. No direct commits to `main`.**
-
-## Why This Workflow?
+## 6. Why This Workflow?
 
 - ✅ **Progress tracking**: Issues show what's being worked on
 - ✅ **Small commits**: Easier to review and revert if needed
@@ -332,7 +368,9 @@ gh pr create --title "feat: add blog search functionality" \
 - ✅ **Automatic closure**: PR closes issue automatically
 - ✅ **Never lose work**: Frequent commits protect progress
 
-## Testing
+---
+
+## 7. Testing
 
 Between batches and before final rebase:
 
@@ -347,7 +385,9 @@ npm run build
 npm run validate
 ```
 
-## Deployment
+---
+
+## 8. Deployment
 
 - Only happens when you merge to `main` branch
 - GitHub Actions automatically deploys to GitHub Pages

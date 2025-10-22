@@ -76,28 +76,31 @@ When starting a new Claude session to continue work on an existing issue:
 
 ### Example Workflow
 ```bash
-# Batch 1
+# Batch 1 (Claude commits after your approval)
 git add file1.ts file2.ts file3.ts
 git commit -m "feat: add JSDoc to processors (batch 1/4) #46"
 
-# Batch 2
+# Batch 2 (Claude commits after your approval)
 git add file4.ts file5.ts file6.ts
 git commit -m "feat: add JSDoc to processors (batch 2/4) #46"
 
-# Batch 3
+# Batch 3 (Claude commits after your approval)
 git add file7.ts file8.ts file9.ts
 git commit -m "feat: add JSDoc to processors (batch 3/4) #46"
 
-# Batch 4
+# Batch 4 (Claude commits after your approval)
 git add file10.ts
 git commit -m "feat: add JSDoc to processors (batch 4/4) #46"
 
-# Rebase into single commit
+# Rebase into single commit (Claude can help, or you do it)
 git rebase -i HEAD~4
 # (squash all commits into one)
 
-# Push and auto-close issue
-git push origin feature/jsdoc-processors-batch1
+# YOU push when ready (Claude NEVER pushes)
+git push -u origin feature/jsdoc-processors-batch1
+
+# YOU create PR to close issue
+gh pr create --title "..." --body "Closes #46..."
 ```
 
 ## Communication Patterns
