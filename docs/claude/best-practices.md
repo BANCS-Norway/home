@@ -30,6 +30,45 @@ pages/
 └── *.md                      # Documentation
 ```
 
+## Resource Management
+
+**IMPORTANT: Always Check for Existing Resources Before Creating New Ones**
+
+Claude should ALWAYS check if a resource exists before creating it:
+
+### Labels
+```bash
+# Check existing labels before creating new ones
+gh label list
+
+# Search for specific label patterns
+gh label list | grep "status:"
+```
+
+### Branches
+```bash
+# Check all branches (local and remote) before creating
+git branch -a
+
+# Search for specific branch patterns
+git branch -a | grep "feature/"
+```
+
+### Files and Directories
+```bash
+# Use glob patterns to find existing files
+# Use grep to search for existing patterns
+# Use read to check file contents
+```
+
+### Why This Matters
+- ❌ Prevents duplicate resources (labels, branches, files)
+- ✅ Maintains consistency across the project
+- ✅ Reduces confusion and cleanup work
+- ✅ Respects existing project structure
+
+**Apply this principle across ALL resource types: labels, branches, files, configurations, issues, etc.**
+
 ## File Operations
 
 - Claude prefers editing existing files over creating new ones
