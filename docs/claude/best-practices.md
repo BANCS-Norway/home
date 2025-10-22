@@ -19,6 +19,43 @@ Claude Code is a powerful tool, but it is not infallible:
 
 Your expertise combined with Claude's capabilities produces the best results. Never blindly accept solutions - engage, question, and validate.
 
+### Always Check Current Context Before Operations
+
+**IMPORTANT: Know where you are before you act!**
+
+Claude should ALWAYS verify the current context before performing operations:
+
+#### Before Git Operations
+- ✅ **Check current branch**: Run `git branch --show-current` before:
+  - Creating commits (`git commit`)
+  - Creating PRs (`gh pr create`)
+  - Pushing changes (`git push`)
+  - Merging or rebasing
+- ✅ **Verify git status**: Run `git status` to understand:
+  - What files are staged/unstaged
+  - Whether you're ahead/behind remote
+  - Current branch state
+
+#### Before File Operations
+- ✅ **Check current directory**: Run `pwd` when path context matters
+- ✅ **Verify file paths**: Use absolute paths or confirm relative path context
+- ✅ **List directory contents**: Use `ls` or glob patterns to verify structure
+
+#### Why This Matters
+- ❌ **Prevents mistakes** like creating PRs from wrong branch
+- ❌ **Prevents confusion** about which files are being modified
+- ❌ **Prevents errors** from working in wrong directory
+- ✅ **Builds confidence** that operations will succeed
+- ✅ **Catches issues early** before they cause problems
+
+**Example mistakes this prevents:**
+- Trying to `gh pr create` while on `main` branch
+- Committing to wrong feature branch
+- Running build/test commands in wrong directory
+- Editing files in unexpected locations
+
+**Make it a habit:** Context checks are quick and prevent costly mistakes.
+
 ---
 
 ## Communication
