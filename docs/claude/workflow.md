@@ -44,7 +44,14 @@ This is the workflow for BANCS team members working with Claude Code on features
      - `feature/23_add-search-functionality`
      - `style/15_update-button-colors`
 
-5. **Ready to Start**
+5. **Add Status Label**
+   - Mark issue with `status: in progress` label:
+   ```bash
+   gh issue edit {issue-number} --add-label "status: in progress"
+   ```
+   - This signals to the team that work has started
+
+6. **Ready to Start**
    - Confirm with user: "Branch created. Ready to start work on issue #{number}?"
 
 **Example Flow:**
@@ -57,6 +64,7 @@ Claude: "What type of work is this? (docs/style/feature)"
 User: "docs"
 Claude: *creates issue #42*
 Claude: *creates branch docs/42_split-claude-md*
+Claude: *adds "status: in progress" label to issue #42*
 Claude: "Branch created. Ready to start work on issue #42?"
 ```
 
@@ -194,8 +202,16 @@ Batch 3: Testing and Polish
 
 After completing 3-4 tasks:
 
+**IMPORTANT: Always ask for approval before committing**
+
+1. **Show what was done**: Present a summary of completed tasks
+2. **Show the commit message**: Display the full commit message you plan to use
+3. **Ask for approval**: "Are you satisfied with these changes? Should I commit?"
+4. **Wait for confirmation**: Only proceed after user approves
+5. **Commit the batch**: Create the commit after approval
+
 ```bash
-# Claude prepares the commit
+# Claude prepares the commit (after receiving approval)
 git add .
 git commit -m "feat(search): add search component and styling
 
@@ -209,10 +225,28 @@ Part of #123
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
 Co-Authored-By: Claude <noreply@anthropic.com>"
-
-# Push the batch
-git push origin feature/123-add-blog-search
 ```
+
+**Why ask before committing?**
+- ✅ You review the work before it's saved
+- ✅ Frequent commits protect against data loss
+- ✅ You maintain oversight of all changes
+- ✅ Easier to undo if something is wrong
+
+**You control when to push:**
+```bash
+# First push: Use -u flag to set up tracking
+git push -u origin feature/123-add-blog-search
+
+# Subsequent pushes: Can use shorthand
+git push
+```
+
+**Why use `-u` flag on first push?**
+- ✅ Sets up tracking relationship between local and remote branch
+- ✅ Makes `gh pr create` easier (automatically knows the branch)
+- ✅ Future pushes can use just `git push` without specifying remote/branch
+- ✅ `git status` shows if branch is ahead/behind remote
 
 ### 5. Complete Feature
 
@@ -221,7 +255,11 @@ When all tasks are done:
 1. **Review all commits** in the feature branch
 2. **Test the complete feature**
 3. **Rebase commits together** (squash into logical commits)
-4. **Update the issue** to mark complete
+4. **Remove status label** from the issue:
+   ```bash
+   gh issue edit {issue-number} --remove-label "status: in progress"
+   ```
+5. **Update the issue** to mark complete
 
 ```bash
 # Interactive rebase to clean up commits
