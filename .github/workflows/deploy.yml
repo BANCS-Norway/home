@@ -19,10 +19,40 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Check if a release was actually created
+  check-release:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch' }}
+    outputs:
+      should-deploy: ${{ steps.check.outputs.should-deploy }}
+    steps:
+      - name: Check if release was created
+        id: check
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Manual trigger - deploying"
+            echo "should-deploy=true" >> $GITHUB_OUTPUT
+          else
+            # Get the commit SHA from the workflow run that triggered this
+            COMMIT_SHA="${{ github.event.workflow_run.head_sha }}"
+            echo "Checking if commit $COMMIT_SHA has a release tag..."
+
+            # Check if this commit has a tag (semantic-release creates tags)
+            TAG=$(git ls-remote --tags origin | grep "$COMMIT_SHA" | grep -v '\^{}' | awk '{print $2}' | sed 's|refs/tags/||' || echo "")
+
+            if [ -n "$TAG" ]; then
+              echo "Release tag found: $TAG - will deploy"
+              echo "should-deploy=true" >> $GITHUB_OUTPUT
+            else
+              echo "No release tag found - skipping deployment"
+              echo "should-deploy=false" >> $GITHUB_OUTPUT
+            fi
+          fi
+
   build:
     runs-on: ubuntu-latest
-    # Only deploy if release workflow succeeded or was skipped
-    if: ${{ github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'skipped' || github.event_name == 'workflow_dispatch' }}
+    needs: check-release
+    if: ${{ needs.check-release.outputs.should-deploy == 'true' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
