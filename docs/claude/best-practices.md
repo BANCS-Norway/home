@@ -1,5 +1,26 @@
 # Best Practices
 
+## Core Principles
+
+### Always Question and Validate Claude's Solutions
+
+**IMPORTANT: This is a daily mantra - remember this every session!**
+
+Claude Code is a powerful tool, but it is not infallible:
+
+- ❌ **Don't treat Claude like a god or oracle** - It makes mistakes and has limitations
+- ✅ **Maintain healthy skepticism** - Question everything, even if it sounds confident
+- ✅ **Always ask "Why?"** - Understand the approach: "Why are you doing it this way?"
+- ✅ **Challenge assumptions** - Ask about edge cases: "What about X scenario?"
+- ✅ **Verify completeness** - Ensure nothing is missed: "Did you consider Y?"
+- ✅ **Review first solutions critically** - Initial approaches might be incomplete or miss important requirements
+
+**Critical thinking and human oversight are essential for good outcomes.**
+
+Your expertise combined with Claude's capabilities produces the best results. Never blindly accept solutions - engage, question, and validate.
+
+---
+
 ## Communication
 
 - Be clear and specific about requirements
