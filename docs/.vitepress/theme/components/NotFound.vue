@@ -3,12 +3,12 @@
     <div class="max-w-3xl mx-auto">
       <!-- Viking Bear Image -->
       <div class="flex flex-col items-center mb-12">
-        <picture class="block w-full max-w-xs sm:max-w-sm">
+        <picture class="flex justify-center w-full max-h-[40vh]">
           <source srcset="/images/404_viking_bear.webp" type="image/webp" />
           <img
             src="/images/404_viking_bear.png"
             alt="A Viking and a bear sitting together by a campfire at night, having fallen asleep while building the page - symbolizing collaboration across differences"
-            class="w-full h-auto"
+            class="w-auto h-auto max-h-[40vh] mx-auto"
           />
         </picture>
         <p class="text-xs text-[var(--vp-c-text-3)] mt-2 italic">
