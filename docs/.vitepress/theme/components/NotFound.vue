@@ -4,9 +4,13 @@
       <!-- Viking Bear Image -->
       <div class="flex flex-col items-center mb-12">
         <picture class="flex justify-center w-full max-h-[40vh]">
-          <source srcset="/images/404_viking_bear.webp" type="image/webp" />
+          <source
+            srcset="/images/404_viking_bear.webp 1x, /images/404_viking_bear@2x.webp 2x"
+            type="image/webp"
+          />
           <img
             src="/images/404_viking_bear.png"
+            srcset="/images/404_viking_bear.png 1x, /images/404_viking_bear@2x.png 2x"
             alt="A Viking and a bear sitting together by a campfire at night, having fallen asleep while building the page - symbolizing collaboration across differences"
             class="w-auto h-auto max-h-[40vh] mx-auto"
           />
