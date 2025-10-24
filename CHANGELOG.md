@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/BANCS-Norway/home/compare/v1.2.0...v1.3.0) (2025-10-24)
+
+
+### Features
+
+* add custom 404 page with Viking Bear illustration ([9be369b](https://github.com/BANCS-Norway/home/commit/9be369b93843d7c85ccbcce39c3c320dffedc5fc))
+
 # [1.2.0](https://github.com/BANCS-Norway/home/compare/v1.1.0...v1.2.0) (2025-10-24)
 
 
