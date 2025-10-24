@@ -3,6 +3,7 @@ import './custom.css'
 import type { Theme } from 'vitepress'
 import { h } from 'vue'
 import Footer from './components/Footer.vue'
+import NotFound from './components/NotFound.vue'
 
 export default {
   extends: DefaultTheme,
@@ -11,7 +12,8 @@ export default {
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(Footer)
+      'layout-bottom': () => h(Footer),
+      'not-found': () => h(NotFound)
     })
   }
 } satisfies Theme
