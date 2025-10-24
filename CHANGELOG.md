@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/BANCS-Norway/home/compare/v1.1.0...v1.2.0) (2025-10-24)
+
+
+### Features
+
+* implement Norwegian legal compliance requirements ([db754e3](https://github.com/BANCS-Norway/home/commit/db754e3f9df2c8174b4b4b92aa2edff045c1ede5)), closes [#37](https://github.com/BANCS-Norway/home/issues/37)
+
 # [1.1.0](https://github.com/BANCS-Norway/home/compare/v1.0.4...v1.1.0) (2025-10-21)
 
 
