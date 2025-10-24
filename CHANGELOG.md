@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/BANCS-Norway/home/compare/v1.4.0...v1.5.0) (2025-10-24)
+
+
+### Features
+
+* add 2x DPI resolution sourceset for 404 Viking Bear image ([7e8991c](https://github.com/BANCS-Norway/home/commit/7e8991cb971169bc778287d2000b5978494201ff)), closes [hi#DPI](https://github.com/hi/issues/DPI) [#44](https://github.com/BANCS-Norway/home/issues/44)
+
 # [1.4.0](https://github.com/BANCS-Norway/home/compare/v1.3.0...v1.4.0) (2025-10-24)
 
 
