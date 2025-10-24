@@ -27,8 +27,17 @@ See our [Contributing Guidelines](https://github.com/BANCS-Norway/home/blob/main
 
 ## Office
 
-**BANCS**
+**BANCS AS**
+Allegaten 6
+4400 Flekkefjord
 Norway
+
+## Foretaksinformasjon (Company Information)
+
+**Organisasjonsnummer:** 927 177 579
+**Registrert adresse:** Allegaten 6, 4400 Flekkefjord
+**E-post:** contact@bancs.no
+**MVA-registrert:** Nei (terskel er 50 000 NOK)
 
 ## Response Time
 

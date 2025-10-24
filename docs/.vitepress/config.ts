@@ -11,7 +11,7 @@ const packageJson = JSON.parse(
 )
 
 export default defineConfig({
-  title: 'BANCS',
+  title: 'BANCS AS',
   description: 'Professional software development and consulting',
   base: '/',
   ignoreDeadLinks: [
@@ -78,11 +78,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/BANCS-Norway' },
       { icon: 'linkedin', link: 'https://linkedin.com/in/virtueme' }
     ],
-
-    footer: {
-      message: `Built with VitePress and Tailwind CSS • Developed with Claude by Anthropic • v${packageJson.version}`,
-      copyright: `Copyright © ${new Date().getFullYear()} BANCS`
-    },
 
     search: {
       provider: 'local'
