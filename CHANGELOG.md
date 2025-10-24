@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/BANCS-Norway/home/compare/v1.3.0...v1.4.0) (2025-10-24)
+
+
+### Features
+
+* improve 404 Viking Bear image scaling for 4K displays ([b40c10e](https://github.com/BANCS-Norway/home/commit/b40c10ee4a7a08e813260365e08a2c6f3a2db653)), closes [#42](https://github.com/BANCS-Norway/home/issues/42)
+
 # [1.3.0](https://github.com/BANCS-Norway/home/compare/v1.2.0...v1.3.0) (2025-10-24)
 
 
