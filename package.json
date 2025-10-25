@@ -1,6 +1,6 @@
 {
   "name": "@bancs/pages",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "private": true,
   "type": "module",
   "description": "BANCS professional homepage and technical blog",

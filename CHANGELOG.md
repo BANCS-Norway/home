@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/BANCS-Norway/home/compare/v1.5.0...v1.5.1) (2025-10-25)
+
+
+### Bug Fixes
+
+* re-introduce version number in footer ([02011c7](https://github.com/BANCS-Norway/home/commit/02011c7aa3e0eb988627d364ea6323201d4924d4)), closes [#48](https://github.com/BANCS-Norway/home/issues/48)
+
 # [1.5.0](https://github.com/BANCS-Norway/home/compare/v1.4.0...v1.5.0) (2025-10-24)
 
 
