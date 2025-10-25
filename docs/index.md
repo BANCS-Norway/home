@@ -40,22 +40,31 @@ features:
     details: Delivering high-quality solutions that meet business objectives and user needs
 ---
 
-<div class="container-custom py-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
 ## About BANCS
 
 BANCS is a professional software development company focused on building modern, scalable solutions. We specialize in full-stack development, AI integration, and technical consulting.
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+
+<div>
 
 ### Our Approach
+
 We believe in:
 - **Quality over quantity** - Building things right, not just fast
 - **Open collaboration** - Sharing knowledge and learning together
 - **Modern tooling** - Using the best tools for the job
 - **Continuous learning** - Staying current with technology trends
 
+</div>
+
+<div>
+
 ### What We Build
+
+We specialize in:
 - Full-stack web applications
 - AI-powered tools and integrations
 - Developer tooling and automation
@@ -65,51 +74,18 @@ We believe in:
 
 </div>
 
-<div class="hero-gradient py-16 mt-16">
-<div class="container-custom text-center">
+</div>
 
-## Ready to Work Together?
+<!-- Call-to-Action Gradient Section -->
+<div class="bg-gradient-to-br from-slate-900 to-indigo-950 py-16 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-Whether you have a project in mind or just want to discuss technology, we'd love to hear from you.
+<h2 class="text-white border-0! pt-0! mt-0!">Ready to Work Together?</h2>
 
-<a href="/contact" class="custom-button mt-8">Contact Us</a>
+<p class="text-slate-300">Whether you have a project in mind or just want to discuss technology, we'd love to hear from you.</p>
+
+<a href="/contact" class="inline-flex items-center px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 bg-linear-to-r from-purple-400 to-pink-400 text-slate-900 border-2 border-purple-400/30 shadow-lg shadow-purple-400/40 hover:scale-105 hover:shadow-xl hover:shadow-purple-400/60 hover:from-purple-300 hover:to-pink-300 mt-8">Contact Us</a>
 
 </div>
 </div>
 
-<style scoped>
-.grid {
-  display: grid;
-}
-
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-@media (min-width: 768px) {
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.gap-8 {
-  gap: 2rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
-}
-
-.mt-16 {
-  margin-top: 4rem;
-}
-
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-.text-center {
-  text-align: center;
-}
-</style>
