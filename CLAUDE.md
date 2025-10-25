@@ -34,6 +34,8 @@ Claude Code is a powerful AI assistant that enhances human productivity and code
 - **Transparency**: We're open about our use of AI tools in development
 - **Question and Validate**: Always maintain healthy skepticism and verify Claude's solutions. If something doesn't look right, investigate and challenge it.
 
+> For more detailed principles and practices, see [Best Practices](./docs/claude/best-practices.md).
+
 ## Documentation
 
 This guide has been split into focused documents for easier navigation:
