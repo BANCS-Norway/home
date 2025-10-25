@@ -11,7 +11,7 @@
         <a href="mailto:contact@bancs.no">contact@bancs.no</a>
       </div>
       <div class="attribution">
-        Built with VitePress and Tailwind CSS · Developed with Claude by Anthropic
+        Built with VitePress and Tailwind CSS · <a href="https://github.com/BANCS-Norway/home/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">{{ version }}</a> · Developed with Claude by Anthropic
       </div>
       <div class="copyright">
         Copyright © {{ new Date().getFullYear() }} BANCS AS
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-// Empty script setup to enable template expressions
+import { version } from '../../../../package.json'
 </script>
 
 <style scoped>
@@ -74,6 +74,15 @@
   margin-bottom: 0.25rem;
   font-size: 0.8rem;
   color: var(--vp-c-text-3);
+}
+
+.attribution a {
+  color: var(--vp-c-brand);
+  text-decoration: underline;
+}
+
+.attribution a:hover {
+  text-decoration: none;
 }
 
 .copyright {
