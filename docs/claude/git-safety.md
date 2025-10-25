@@ -49,6 +49,68 @@ When working with git:
 - ❌ Amending other developers' commits
 - ❌ Running commands that could lose data
 
+## Git Worktrees and Safety
+
+Git worktrees are safe to use with Claude Code, following the same principles:
+
+### Safe Worktree Operations
+
+Claude can help with worktree management:
+
+```bash
+# ✅ Claude can help create worktrees
+git worktree add worktrees/feature-123 -b feature/123-new-feature
+
+# ✅ Claude can list worktrees
+git worktree list
+
+# ✅ Claude can remove worktrees
+git worktree remove worktrees/feature-123
+
+# ✅ Claude can prune stale worktree references
+git worktree prune
+```
+
+### Safety Considerations
+
+1. **One Claude Session Per Worktree**
+   - Avoid running multiple Claude Code sessions in different worktrees simultaneously
+   - This prevents confusion about which context Claude is operating in
+   - Complete work in one worktree before switching to another
+
+2. **Worktree-Specific Operations**
+   - All git operations in a worktree are local to that directory
+   - Commits made in one worktree don't affect the working state of others
+   - Each worktree maintains its own working directory and index
+
+3. **YOU Still Control Push/Pull**
+   - Even with worktrees, Claude NEVER pushes or pulls
+   - You push from whichever worktree you're working in
+   - Example workflow:
+     ```bash
+     # In worktree directory
+     cd ~/projects/worktrees/feature-123
+
+     # Claude commits locally
+     # (After you review and approve)
+
+     # YOU push when ready
+     git push -u origin feature/123-new-feature
+     ```
+
+4. **Cleanup After Merging**
+   - Remove worktrees promptly after PRs are merged
+   - Prevents confusion and disk space waste
+   - Use `git worktree remove` (not manual directory deletion)
+
+### Worktree Safety Checklist
+
+Before working in a worktree:
+- ✅ Verify current directory: `pwd`
+- ✅ Check current branch: `git branch --show-current`
+- ✅ List all worktrees: `git worktree list`
+- ✅ Confirm correct worktree context before operations
+
 ## Emergency Recovery
 
 If something goes wrong:
@@ -66,4 +128,9 @@ git checkout -- <file>
 # View remote status
 git remote -v
 git branch -vv
+
+# Worktree-specific recovery
+git worktree list           # See all worktrees
+git worktree prune          # Clean up stale references
+git worktree repair         # Fix worktree links after moving
 ```
