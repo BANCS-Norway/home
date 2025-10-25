@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/BANCS-Norway/home/compare/v1.5.2...v1.5.3) (2025-10-25)
+
+
+### Bug Fixes
+
+* improve landing page grid layout and replace custom CSS with Tailwind utilities ([950c95f](https://github.com/BANCS-Norway/home/commit/950c95f2bf3c32ad5c921944458866dc64c3e8b1)), closes [#59](https://github.com/BANCS-Norway/home/issues/59)
+
 ## [1.5.2](https://github.com/BANCS-Norway/home/compare/v1.5.1...v1.5.2) (2025-10-25)
 
 
