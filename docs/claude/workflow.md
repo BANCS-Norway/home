@@ -370,7 +370,258 @@ gh pr create --title "feat: add blog search functionality" \
 
 ---
 
-## 7. Testing
+## 7. Using Git Worktrees for Parallel Work (Advanced)
+
+Git worktrees allow you to work on multiple branches simultaneously without constantly switching branches or stashing changes. This is particularly useful when working on multiple issues in parallel or when you need to quickly switch between feature work and urgent hotfixes.
+
+### What are Git Worktrees?
+
+A git worktree allows you to have multiple working directories attached to the same repository, each checked out to a different branch. This means you can:
+
+- Work on multiple features simultaneously
+- Review code on one branch while developing on another
+- Handle urgent hotfixes without disrupting current work
+- Avoid the overhead of stashing/unstashing changes
+
+### When to Use Worktrees
+
+**Good Use Cases:**
+- 🔥 **Hotfix scenarios**: Need to fix production bug while feature work is in progress
+- 👀 **Code reviews**: Review a colleague's PR without switching branches
+- 🔀 **Parallel features**: Work on multiple independent features simultaneously
+- 🧪 **Testing approaches**: Try different implementation approaches in parallel
+
+**When NOT to use:**
+- ⚠️ Working on a single feature (just use regular branch switching)
+- ⚠️ When branches have interdependencies
+- ⚠️ If you're new to Git (master regular workflow first)
+
+### Directory Structure Best Practice
+
+Keep your worktrees organized in a dedicated directory:
+
+```
+~/projects/
+└── bancs-home/               # Main repository (bare or regular)
+    ├── main/                 # Main worktree (if using bare repo)
+    └── worktrees/            # All feature worktrees
+        ├── feature-123-search/
+        ├── docs-42-refactor/
+        └── hotfix-99-critical/
+```
+
+### Setting Up Worktrees
+
+#### Option 1: Standard Repository Setup (Recommended for beginners)
+
+If you already have a cloned repository:
+
+```bash
+# Navigate to your repository
+cd ~/projects/bancs-home
+
+# Create a new worktree for a feature branch
+git worktree add ../worktrees/feature-123-search -b feature/123-add-blog-search
+
+# Work in the new worktree
+cd ../worktrees/feature-123-search
+```
+
+#### Option 2: Bare Repository Setup (Recommended for advanced users)
+
+For a cleaner setup where all branches are worktrees:
+
+```bash
+# Clone as bare repository
+git clone --bare git@github.com:BANCS-Norway/home.git ~/projects/bancs-home
+
+# Create main worktree
+cd ~/projects/bancs-home
+git worktree add main main
+
+# Create feature worktrees
+git worktree add worktrees/feature-123-search -b feature/123-add-blog-search
+```
+
+### Worktree Workflow Integration
+
+Git worktrees integrate seamlessly with the existing Issue-First workflow:
+
+#### 1. Standard Workflow (Single Issue)
+
+```bash
+# On main branch in primary working directory
+git checkout -b feature/123-add-blog-search
+# ... work on feature ...
+```
+
+#### 2. Parallel Workflow (Multiple Issues with Worktrees)
+
+```bash
+# Currently working on feature #123 in primary directory
+# Urgent issue #99 comes in
+
+# Create worktree for hotfix
+git worktree add ../worktrees/hotfix-99 -b feature/99-critical-fix
+
+# Work on hotfix in separate directory
+cd ../worktrees/hotfix-99
+# ... fix the bug, commit, push ...
+
+# Return to feature work (no stashing needed!)
+cd ~/projects/bancs-home
+# Continue working on feature #123
+```
+
+### Managing Worktrees
+
+#### List All Worktrees
+
+```bash
+git worktree list
+```
+
+Example output:
+```
+/home/user/projects/bancs-home                    1201401 [main]
+/home/user/projects/worktrees/feature-123-search  abc1234 [feature/123-add-blog-search]
+/home/user/projects/worktrees/hotfix-99           def5678 [feature/99-critical-fix]
+```
+
+#### Remove Worktree (After Branch is Merged)
+
+**IMPORTANT: Always clean up worktrees after merging branches**
+
+```bash
+# Option 1: Remove worktree and delete branch (recommended after merge)
+git worktree remove worktrees/feature-123-search
+git branch -d feature/123-add-blog-search
+
+# Option 2: If worktree directory was manually deleted
+git worktree prune
+```
+
+#### Move or Rename Worktree
+
+```bash
+# Move the directory
+mv worktrees/old-name worktrees/new-name
+
+# Update Git's records
+git worktree repair
+```
+
+### Best Practices for Worktrees
+
+1. **Consistent Naming**: Use the same naming convention as branches
+   ```bash
+   # Branch: feature/123-add-blog-search
+   # Worktree: worktrees/feature-123-search
+   ```
+
+2. **Dedicated Directory**: Keep all worktrees in a `worktrees/` subdirectory
+   - Easier to find and manage
+   - Avoids confusion with the main working directory
+   - Clearer organization when listing
+
+3. **Regular Cleanup**: Remove worktrees promptly after branches are merged
+   ```bash
+   # After PR is merged, clean up
+   git worktree remove worktrees/feature-123-search
+   git branch -d feature/123-add-blog-search
+   ```
+
+4. **Track Your Worktrees**: Use `git worktree list` regularly
+   - Identify stale worktrees
+   - See which branches are being worked on
+   - Verify correct branch checkout in each worktree
+
+5. **One Branch, One Worktree**: Never checkout the same branch in multiple worktrees
+   - Git prevents this by default
+   - Ensures data integrity
+
+### Common Issues and Solutions
+
+#### Issue: "Branch already checked out"
+
+```bash
+# Error: fatal: 'feature/123' is already checked out at '...'
+
+# Solution: You can't checkout the same branch in multiple worktrees
+# Use git worktree list to find where it's checked out
+git worktree list
+
+# Switch to different branch or remove the other worktree
+```
+
+#### Issue: Worktree Directory Deleted Manually
+
+```bash
+# If you deleted the directory without using 'git worktree remove'
+# Git still tracks it
+
+# Clean up the references
+git worktree prune
+```
+
+#### Issue: Lost Track of Worktrees
+
+```bash
+# List all worktrees to see what exists
+git worktree list
+
+# Repair worktrees if directories were moved
+git worktree repair
+```
+
+### Worktrees with Claude Code
+
+When using git worktrees with Claude Code:
+
+1. **Start Claude in the Worktree Directory**
+   ```bash
+   cd ~/projects/worktrees/feature-123-search
+   claude-code
+   ```
+
+2. **Each Worktree is Independent**
+   - Claude works in the current worktree's context
+   - Changes in one worktree don't affect others
+   - Each worktree has its own working directory state
+
+3. **Avoid Running Multiple Claude Sessions in Same Repository**
+   - Claude might get confused by multiple concurrent sessions
+   - Work on one worktree at a time
+   - Complete batch work in one worktree before switching
+
+### Quick Reference: Worktree Commands
+
+```bash
+# Create new worktree
+git worktree add <path> -b <branch-name>
+
+# List all worktrees
+git worktree list
+
+# Remove worktree
+git worktree remove <path>
+
+# Prune stale worktree references
+git worktree prune
+
+# Repair worktree references (after moving directories)
+git worktree repair
+
+# Lock worktree (prevent accidental removal)
+git worktree lock <path>
+
+# Unlock worktree
+git worktree unlock <path>
+```
+
+---
+
+## 8. Testing
 
 Between batches and before final rebase:
 
