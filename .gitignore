@@ -48,3 +48,6 @@ playwright/.cache/
 # Lock files (keep package-lock.json for consistency)
 # pnpm-lock.yaml
 # yarn.lock
+
+# Git worktrees
+worktrees/
