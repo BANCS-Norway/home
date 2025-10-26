@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/BANCS-Norway/home/compare/v1.5.3...v1.5.4) (2025-10-26)
+
+
+### Bug Fixes
+
+* convert repetitive card patterns to reusable Vue components with Tailwind CSS ([1e6b00f](https://github.com/BANCS-Norway/home/commit/1e6b00fc06678c9cd224c204ee367217dee6df1d)), closes [#57](https://github.com/BANCS-Norway/home/issues/57)
+
 ## [1.5.3](https://github.com/BANCS-Norway/home/compare/v1.5.2...v1.5.3) (2025-10-25)
 
 
