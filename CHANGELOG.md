@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/BANCS-Norway/home/compare/v1.5.4...v1.6.0) (2025-10-26)
+
+
+### Features
+
+* add "The Pause Isn't Procrastination" blog post ([2175b97](https://github.com/BANCS-Norway/home/commit/2175b97b495cc08d41bb2dab7c2a2a778ffda9e7)), closes [#68](https://github.com/BANCS-Norway/home/issues/68)
+
 ## [1.5.4](https://github.com/BANCS-Norway/home/compare/v1.5.3...v1.5.4) (2025-10-26)
 
 
