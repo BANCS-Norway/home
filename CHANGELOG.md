@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/BANCS-Norway/home/compare/v1.6.1...v1.6.2) (2025-10-26)
+
+
+### Bug Fixes
+
+* add reusable DisclaimerBox component for blog post disclaimers ([2076b3c](https://github.com/BANCS-Norway/home/commit/2076b3c1d8ddf2ae870a78f5f38ae1ea5639f00d)), closes [#75](https://github.com/BANCS-Norway/home/issues/75)
+
 ## [1.6.1](https://github.com/BANCS-Norway/home/compare/v1.6.0...v1.6.1) (2025-10-26)
 
 
