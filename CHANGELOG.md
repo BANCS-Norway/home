@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/BANCS-Norway/home/compare/v1.6.0...v1.6.1) (2025-10-26)
+
+
+### Bug Fixes
+
+* add missing blog post to blog index ([b7762a1](https://github.com/BANCS-Norway/home/commit/b7762a1f7943e4709b136f11bfb52799016942c1)), closes [#73](https://github.com/BANCS-Norway/home/issues/73)
+
 # [1.6.0](https://github.com/BANCS-Norway/home/compare/v1.5.4...v1.6.0) (2025-10-26)
 
 
