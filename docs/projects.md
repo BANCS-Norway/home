@@ -2,7 +2,7 @@
 
 ## Current Projects
 
-<div class="project-card mb-6">
+<ProjectCard>
 
 ### BANCS Website & Blog
 A professional homepage and technical blog built with VitePress, TypeScript, and Tailwind CSS. Features include:
@@ -15,9 +15,9 @@ A professional homepage and technical blog built with VitePress, TypeScript, and
 
 [View Repository →](https://github.com/BANCS-Norway/home)
 
-</div>
+</ProjectCard>
 
-<div class="project-card mb-6">
+<ProjectCard>
 
 ### Liberalistene.org - Political Party Website
 **Modern Rebuild (October 2024)**
@@ -38,9 +38,9 @@ A complete modernization of the Liberalistene (Norwegian political party) websit
 
 [View Repository →](https://github.com/Liberalistene-Developers/lib.no)
 
-</div>
+</ProjectCard>
 
-<div class="project-card mb-6">
+<ProjectCard>
 
 ### Working with Claude
 A comprehensive documentation of experiences and best practices when working with Claude AI. Includes:
@@ -53,20 +53,20 @@ A comprehensive documentation of experiences and best practices when working wit
 
 [Read Blog Posts →](/blog/)
 
-</div>
+</ProjectCard>
 
 ## Past Projects
 
 **[This section will be populated with completed projects]**
 
-<div class="project-card mb-6">
+<ProjectCard>
 
 ### Project Templates
 Collection of project templates and starters for rapid development.
 
 **Coming Soon**
 
-</div>
+</ProjectCard>
 
 ## Open Source Contributions
 
@@ -75,9 +75,3 @@ We actively contribute to the open-source community. Check out our [GitHub profi
 ## Want to Collaborate?
 
 We're always interested in new projects and collaborations. [Contact us](/contact) to discuss your ideas.
-
-<style scoped>
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-</style>

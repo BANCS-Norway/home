@@ -4,7 +4,7 @@ Welcome to the BANCS blog, where we share insights about software development, A
 
 ## Recent Posts
 
-<div class="blog-card mb-6">
+<BlogCard>
 
 ### [From Problem-Solver to Systems Builder](/blog/from-problem-solver-to-systems-builder)
 **Date**: September 2024
@@ -15,9 +15,9 @@ How Claude Code transformed me from solving individual problems to building syst
 
 [Read more →](/blog/from-problem-solver-to-systems-builder)
 
-</div>
+</BlogCard>
 
-<div class="blog-card mb-6">
+<BlogCard>
 
 ### [Working with Claude: An AI Pair Programming Experience](/blog/working-with-claude)
 **Date**: October 21, 2025
@@ -28,9 +28,9 @@ Discover how AI-powered development with Claude transforms the way we build soft
 
 [Read more →](/blog/working-with-claude)
 
-</div>
+</BlogCard>
 
-<div class="blog-card mb-6">
+<BlogCard>
 
 ### Building a Modern Blog with VitePress
 **Date**: Coming Soon
@@ -41,7 +41,7 @@ A comprehensive guide to setting up a professional blog using VitePress, TypeScr
 
 *Coming Soon*
 
-</div>
+</BlogCard>
 
 ## Topics
 
@@ -58,9 +58,3 @@ We accept guest blog posts! If you have knowledge to share, we'd love to feature
 ## Subscribe
 
 Stay updated with our latest posts by following us on [GitHub](https://github.com/BANCS-Norway) or [LinkedIn](https://linkedin.com/in/virtueme).
-
-<style scoped>
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-</style>

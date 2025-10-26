@@ -84,7 +84,9 @@ We specialize in:
 
 <p class="text-slate-300">Whether you have a project in mind or just want to discuss technology, we'd love to hear from you.</p>
 
-<a href="/contact" class="inline-flex items-center px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-200 bg-linear-to-r from-purple-400 to-pink-400 text-slate-900 border-2 border-purple-400/30 shadow-lg shadow-purple-400/40 hover:scale-105 hover:shadow-xl hover:shadow-purple-400/60 hover:from-purple-300 hover:to-pink-300 mt-8">Contact Us</a>
+<div class="mt-8">
+<CustomButton href="/contact" text="Contact Us" />
+</div>
 
 </div>
 </div>

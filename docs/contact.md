@@ -49,7 +49,7 @@ We typically respond to inquiries within 24-48 hours during business days.
 
 ### Let's Build Something Great Together
 
-<a href="mailto:contact@bancs.no" class="custom-button">Send Email</a>
+<CustomButton href="mailto:contact@bancs.no" text="Contact Us" />
 
 </div>
 
