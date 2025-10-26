@@ -4,11 +4,17 @@ import type { Theme } from 'vitepress'
 import { h } from 'vue'
 import Footer from './components/Footer.vue'
 import NotFound from './components/NotFound.vue'
+import ProjectCard from './components/ProjectCard.vue'
+import BlogCard from './components/BlogCard.vue'
+import CustomButton from './components/CustomButton.vue'
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app, router, siteData }) {
-    // App level enhancements can be added here
+    // Register global components
+    app.component('ProjectCard', ProjectCard)
+    app.component('BlogCard', BlogCard)
+    app.component('CustomButton', CustomButton)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
