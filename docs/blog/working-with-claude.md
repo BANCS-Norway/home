@@ -10,6 +10,8 @@
 
 Working with AI has transformed how we approach software development. In this post, I share my experiences using Claude as an AI pair programming partner, covering real-world use cases, best practices, and lessons learned.
 
+<DisclaimerBox type="claude" />
+
 ## What is Claude?
 
 Claude is an AI assistant created by Anthropic. Unlike traditional code generation tools, Claude excels at:

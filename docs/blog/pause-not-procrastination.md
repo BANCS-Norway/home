@@ -11,6 +11,8 @@
 ![Ripples in calm water](/images/ripples-grayscale.jpg)
 *Photo by Pixabay from Pexels, grayscale adjustment by Claude*
 
+<DisclaimerBox type="claude" />
+
 ## The Old World: When Pauses Were Mandatory
 
 Let me tell you about the worst two weeks of my professional life.
