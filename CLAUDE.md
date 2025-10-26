@@ -85,6 +85,27 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) for semantic ve
 - `fix:` → Patch version (1.0.0 → 1.0.1)
 - `BREAKING CHANGE:` → Major version (1.0.0 → 2.0.0)
 
+#### 💡 Optional Slash Commands
+
+This repository includes optional slash command templates to streamline your workflow.
+
+**To get started**, simply run:
+```
+/project-setup
+```
+
+This interactive command lets you select which templates to install:
+
+- **`/workflow`** - Quick 3-phase workflow reference
+- **`/new-feature`** - Interactive feature starter (creates issue, branch, worktree)
+- **`/git-safety`** - Git safety rules reminder
+- **`/worktree`** - Worktree workflow guide (optional)
+- **`/cleanup`** - Clean up worktree after merge (optional)
+
+See [`.claude/commands-templates/README.md`](./.claude/commands-templates/README.md) for full details.
+
+These commands are **completely optional** - use what helps your workflow!
+
 ## Common Pitfalls
 
 Learn from real-world experience. Here are common mistakes and how to avoid them:

@@ -51,3 +51,10 @@ playwright/.cache/
 
 # Git worktrees
 worktrees/
+
+# Claude Code (ignore personal commands but include templates and project-setup)
+.claude/*
+!.claude/commands/
+.claude/commands/*
+!.claude/commands/project-setup.md
+!.claude/commands-templates/
