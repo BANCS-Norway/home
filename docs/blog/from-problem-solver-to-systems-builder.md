@@ -8,6 +8,8 @@
 
 *This post itself was crafted through the collaborative process I'm describing*
 
+<DisclaimerBox type="claude" />
+
 ## The Catalyst
 
 As a system integrator, I've always been methodical - testing locally with Docker Compose, using proper staging environments, maintaining changelogs. But when a missing `package-lock.json` broke our CI pipeline, debugging it with Claude Code sparked something unexpected.

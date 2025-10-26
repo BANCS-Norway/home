@@ -7,6 +7,7 @@ import NotFound from './components/NotFound.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import BlogCard from './components/BlogCard.vue'
 import CustomButton from './components/CustomButton.vue'
+import DisclaimerBox from './components/DisclaimerBox.vue'
 
 export default {
   extends: DefaultTheme,
@@ -15,6 +16,7 @@ export default {
     app.component('ProjectCard', ProjectCard)
     app.component('BlogCard', BlogCard)
     app.component('CustomButton', CustomButton)
+    app.component('DisclaimerBox', DisclaimerBox)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
