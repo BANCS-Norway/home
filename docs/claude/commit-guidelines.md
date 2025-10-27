@@ -16,8 +16,8 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/) a
 
 - `feat`: New feature → **MINOR version bump** (1.0.0 → 1.1.0)
 - `fix`: Bug fix → **PATCH version bump** (1.0.0 → 1.0.1)
+- `style`: Visual/CSS changes → **PATCH version bump** (1.0.0 → 1.0.1)
 - `docs`: Documentation changes → No version bump
-- `style`: Formatting, typos → No version bump
 - `refactor`: Code restructuring → No version bump
 - `test`: Adding tests → No version bump
 - `chore`: Maintenance tasks → No version bump
