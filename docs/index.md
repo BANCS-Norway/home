@@ -47,31 +47,27 @@ features:
 BANCS is a professional software development company focused on building modern, scalable solutions. We specialize in full-stack development, AI integration, and technical consulting.
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+  <InfoSection
+    title="Our Approach"
+    intro="We believe in:"
+    :items="[
+      '<strong>Quality over quantity</strong> - Building things right, not just fast',
+      '<strong>Open collaboration</strong> - Sharing knowledge and learning together',
+      '<strong>Modern tooling</strong> - Using the best tools for the job',
+      '<strong>Continuous learning</strong> - Staying current with technology trends'
+    ]"
+  />
 
-<div>
-
-### Our Approach
-
-We believe in:
-- **Quality over quantity** - Building things right, not just fast
-- **Open collaboration** - Sharing knowledge and learning together
-- **Modern tooling** - Using the best tools for the job
-- **Continuous learning** - Staying current with technology trends
-
-</div>
-
-<div>
-
-### What We Build
-
-We specialize in:
-- Full-stack web applications
-- AI-powered tools and integrations
-- Developer tooling and automation
-- Technical documentation and guides
-
-</div>
-
+  <InfoSection
+    title="What We Build"
+    intro="We specialize in:"
+    :items="[
+      'Full-stack web applications',
+      'AI-powered tools and integrations',
+      'Developer tooling and automation',
+      'Technical documentation and guides'
+    ]"
+  />
 </div>
 
 </div>
