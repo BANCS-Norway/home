@@ -81,9 +81,22 @@ After that, subsequent pushes can just use `git push`.
 
 Use [Conventional Commits](https://www.conventionalcommits.org/) for semantic versioning:
 
-- `feat:` → Minor version (1.0.0 → 1.1.0)
-- `fix:` → Patch version (1.0.0 → 1.0.1)
+**Triggers Version Bump (Site Deployment):**
+> **ONLY for VitePress site changes**
+- `feat:` → Minor version (1.0.0 → 1.1.0) - New site features
+- `fix:` → Patch version (1.0.0 → 1.0.1) - Site bug fixes
+- `style:` → Patch version (1.0.0 → 1.0.1) - CSS/visual changes to site
 - `BREAKING CHANGE:` → Major version (1.0.0 → 2.0.0)
+
+**No Version Bump (Internal Changes):**
+> **For tooling, docs, configs, internal code**
+- `docs:` - Documentation only (CLAUDE.md, README, workflow docs)
+- `chore:` - Build/tooling/dependencies/configs
+- `refactor:` - Code restructuring (internal)
+- `test:` - Tests only
+- `ci:` - CI/CD changes
+
+**Key:** `style:` = visual changes (bump), `refactor:` = code changes (no bump)
 
 #### 💡 Optional Slash Commands
 
