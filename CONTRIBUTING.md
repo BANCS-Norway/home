@@ -183,7 +183,34 @@ here's our take on OAuth:
 <<< @/docs/examples/oauth-tutorial/demo.ts
 ```
 
-#### 4. Follow Style Guidelines
+#### 4. Add Your Post to the Blog Index
+
+**IMPORTANT**: After creating your blog post file, you must add it to the blog index so it appears on the main blog page.
+
+Edit `docs/blog/index.md` and add your post at the **top** of the "Recent Posts" section (newest first):
+
+```markdown
+## Recent Posts
+
+<BlogCard>
+
+### [Your Post Title](/blog/your-post-title)
+**Date**: YYYY-MM-DD
+
+Brief description of your post (1-2 sentences).
+
+**Topics**: Topic1, Topic2, Topic3
+
+[Read more →](/blog/your-post-title)
+
+</BlogCard>
+
+<!-- Existing posts below -->
+```
+
+**Remember**: Posts should be listed in **reverse chronological order** (newest first).
+
+#### 5. Follow Style Guidelines
 
 **Markdown**:
 - Use proper heading hierarchy (H1 for title, H2 for sections)
@@ -216,7 +243,7 @@ here's our take on OAuth:
 - Provide working code examples
 - Include troubleshooting sections
 
-### 5. Test Locally
+### 6. Test Locally
 
 ```bash
 npm run dev
@@ -240,7 +267,7 @@ This will check that your blog post:
 - Follows the site's design guidelines
 - Uses only allowed markdown and VitePress components
 
-### 6. Submit Pull Request
+### 7. Submit Pull Request
 
 ```bash
 git checkout -b blog/your-post-title
