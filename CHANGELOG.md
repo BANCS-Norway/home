@@ -1,3 +1,5 @@
+## [1.6.3](https://github.com/BANCS-Norway/home/compare/v1.6.2...v1.6.3) (2025-10-27)
+
 ## [1.6.2](https://github.com/BANCS-Norway/home/compare/v1.6.1...v1.6.2) (2025-10-26)
 
 
