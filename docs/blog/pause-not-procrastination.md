@@ -1,8 +1,8 @@
-# The Pause Isn't Procrastination - It's Part of Your Process
-
-**Published**: October 26, 2025
-**Author**: Benny (BANCS)
-**Reading Time**: 12 minutes
+<BlogHeading
+  title="The Pause Isn't Procrastination - It's Part of Your Process"
+  publishDate="October 26, 2025"
+  readingTime="12 minutes"
+/>
 
 ---
 

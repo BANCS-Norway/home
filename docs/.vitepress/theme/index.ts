@@ -9,6 +9,7 @@ import BlogCard from './components/BlogCard.vue'
 import CustomButton from './components/CustomButton.vue'
 import DisclaimerBox from './components/DisclaimerBox.vue'
 import GradientCTA from './components/GradientCTA.vue'
+import BlogHeading from './components/BlogHeading.vue'
 
 export default {
   extends: DefaultTheme,
@@ -19,6 +20,7 @@ export default {
     app.component('CustomButton', CustomButton)
     app.component('DisclaimerBox', DisclaimerBox)
     app.component('GradientCTA', GradientCTA)
+    app.component('BlogHeading', BlogHeading)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
