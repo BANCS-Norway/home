@@ -4,6 +4,20 @@
 **Author**: Benny (BANCS)
 **Reading Time**: 10 minutes
 
+<picture>
+  <source
+    srcset="/images/working-with-claude-header.webp 1x, /images/working-with-claude-header@2x.webp 2x"
+    type="image/webp"
+  />
+  <img
+    src="/images/working-with-claude-header.jpg"
+    srcset="/images/working-with-claude-header.jpg 1x, /images/working-with-claude-header@2x.jpg 2x"
+    alt="Black and white bridge through misty forest representing collaboration and connection"
+  />
+</picture>
+
+*Photo by [Engin Akyurt](https://www.pexels.com/@enginakyurt/) on [Pexels](https://www.pexels.com/)*
+
 ---
 
 ## Introduction
