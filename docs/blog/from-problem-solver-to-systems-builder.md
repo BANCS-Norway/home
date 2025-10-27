@@ -4,6 +4,20 @@
   readingTime="7 minutes"
 />
 
+<picture>
+  <source
+    srcset="/images/problem-solver-header.webp 1x, /images/problem-solver-header@2x.webp 2x"
+    type="image/webp"
+  />
+  <img
+    src="/images/problem-solver-header.jpg"
+    srcset="/images/problem-solver-header.jpg 1x, /images/problem-solver-header@2x.jpg 2x"
+    alt="Aerial view of Arctic river delta in black and grey, representing transformation and systems thinking"
+  />
+</picture>
+
+*Photo by [Jeremy Bishop](https://www.pexels.com/@jeremy-bishop-1260133/) on [Pexels](https://www.pexels.com/)*
+
 ---
 
 *This post itself was crafted through the collaborative process I'm describing*
