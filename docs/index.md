@@ -76,18 +76,11 @@ We specialize in:
 
 </div>
 
-<!-- Call-to-Action Gradient Section -->
-<div class="bg-gradient-to-br from-slate-900 to-indigo-950 py-16 mt-16">
-<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-<h2 class="text-white border-0! pt-0! mt-0!">Ready to Work Together?</h2>
-
-<p class="text-slate-300">Whether you have a project in mind or just want to discuss technology, we'd love to hear from you.</p>
-
-<div class="mt-8">
-<CustomButton href="/contact" text="Contact Us" />
-</div>
-
-</div>
-</div>
+<GradientCTA
+  heading="Ready to Work Together?"
+  description="Whether you have a project in mind or just want to discuss technology, we'd love to hear from you."
+  buttonHref="/contact"
+  buttonAriaLabel="Navigate to contact page"
+  buttonTitle="Visit our contact page to get in touch"
+/>
 
