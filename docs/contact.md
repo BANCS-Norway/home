@@ -45,20 +45,9 @@ We typically respond to inquiries within 24-48 hours during business days.
 
 ---
 
-<div class="text-center mt-12">
-
-### Let's Build Something Great Together
-
-<CustomButton href="mailto:contact@bancs.no" text="Contact Us" />
-
-</div>
-
-<style scoped>
-.text-center {
-  text-align: center;
-}
-
-.mt-12 {
-  margin-top: 3rem;
-}
-</style>
+<GradientCTA
+  heading="Let's Build Something Great Together"
+  description="Ready to discuss your project or explore how we can work together? Get in touch and let's start the conversation."
+  buttonAriaLabel="Send email to BANCS at contact@bancs.no"
+  buttonTitle="Send us an email to discuss your project"
+/>

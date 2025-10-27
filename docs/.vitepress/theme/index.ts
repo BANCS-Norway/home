@@ -8,6 +8,7 @@ import ProjectCard from './components/ProjectCard.vue'
 import BlogCard from './components/BlogCard.vue'
 import CustomButton from './components/CustomButton.vue'
 import DisclaimerBox from './components/DisclaimerBox.vue'
+import GradientCTA from './components/GradientCTA.vue'
 
 export default {
   extends: DefaultTheme,
@@ -17,6 +18,7 @@ export default {
     app.component('BlogCard', BlogCard)
     app.component('CustomButton', CustomButton)
     app.component('DisclaimerBox', DisclaimerBox)
+    app.component('GradientCTA', GradientCTA)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
