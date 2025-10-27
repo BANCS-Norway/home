@@ -10,6 +10,7 @@ import CustomButton from './components/CustomButton.vue'
 import DisclaimerBox from './components/DisclaimerBox.vue'
 import GradientCTA from './components/GradientCTA.vue'
 import BlogHeading from './components/BlogHeading.vue'
+import InfoSection from './components/InfoSection.vue'
 
 export default {
   extends: DefaultTheme,
@@ -21,6 +22,7 @@ export default {
     app.component('DisclaimerBox', DisclaimerBox)
     app.component('GradientCTA', GradientCTA)
     app.component('BlogHeading', BlogHeading)
+    app.component('InfoSection', InfoSection)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
