@@ -1,8 +1,8 @@
-# Working with Claude: An AI Pair Programming Experience
-
-**Published**: October 21, 2025
-**Author**: Benny (BANCS)
-**Reading Time**: 10 minutes
+<BlogHeading
+  title="Working with Claude: An AI Pair Programming Experience"
+  publishDate="October 21, 2025"
+  readingTime="10 minutes"
+/>
 
 <picture>
   <source

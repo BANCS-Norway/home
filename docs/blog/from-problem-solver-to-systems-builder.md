@@ -1,8 +1,8 @@
-# From Problem-Solver to Systems Builder: My Claude Code Transformation
-
-**Published**: September 2024
-**Author**: Benny (BANCS)
-**Reading Time**: 7 minutes
+<BlogHeading
+  title="From Problem-Solver to Systems Builder: My Claude Code Transformation"
+  publishDate="September 2024"
+  readingTime="7 minutes"
+/>
 
 ---
 
