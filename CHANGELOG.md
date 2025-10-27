@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/BANCS-Norway/home/compare/v1.6.3...v1.7.0) (2025-10-27)
+
+
+### Features
+
+* add BlogHeading component for responsive mobile title wrapping ([54c9f5f](https://github.com/BANCS-Norway/home/commit/54c9f5ffccea11a8210c79520268ef3452d6f802)), closes [#82](https://github.com/BANCS-Norway/home/issues/82)
+
 ## [1.6.3](https://github.com/BANCS-Norway/home/compare/v1.6.2...v1.6.3) (2025-10-27)
 
 ## [1.6.2](https://github.com/BANCS-Norway/home/compare/v1.6.1...v1.6.2) (2025-10-26)
