@@ -111,6 +111,7 @@ This interactive command lets you select which templates to install:
 
 - **`/workflow`** - Quick 3-phase workflow reference
 - **`/new-feature`** - Interactive feature starter (creates issue, branch, worktree)
+- **`/new-blog-post`** - Interactive blog post creator (includes index update)
 - **`/git-safety`** - Git safety rules reminder
 - **`/worktree`** - Worktree workflow guide (optional)
 - **`/cleanup`** - Clean up worktree after merge (optional)

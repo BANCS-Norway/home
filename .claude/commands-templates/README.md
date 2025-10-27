@@ -71,6 +71,13 @@ After installation, you can see your available commands by typing `/` in Claude 
   - Adds status labels automatically
   - Use: `/new-feature`
 
+- **`new-blog-post.md`** - Interactive helper to create new blog posts
+  - Creates blog post file with template
+  - Sets up examples directory
+  - **Automatically updates blog index** (critical step!)
+  - Provides checklist for completion
+  - Use: `/new-blog-post`
+
 ### Git Commands
 
 - **`git-safety.md`** - Git safety rules and guidelines reminder
