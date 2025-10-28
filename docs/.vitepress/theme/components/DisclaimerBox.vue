@@ -1,12 +1,12 @@
 <template>
   <div
-    class="my-6 p-4 rounded-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-950/30 dark:border-blue-400"
+    class="my-6 p-4 rounded-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/50 dark:border-blue-400 dark:shadow-lg dark:shadow-blue-500/10"
   >
     <div class="flex items-start gap-3">
       <p class="m-0">
         <span class="text-blue-600 dark:text-blue-400 text-xl shrink-0">ℹ️</span>
       </p>
-      <div class="text-sm text-blue-900 dark:text-blue-100 leading-relaxed">
+      <div class="text-sm text-blue-900 dark:text-blue-50 leading-relaxed">
         <p class="m-0">
           <strong>Disclaimer:</strong>
           <slot>
