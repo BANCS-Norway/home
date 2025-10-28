@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Import JetBrains Mono font */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
-
 /* Root variables for Bancs color scheme */
 :root {
   /* Override VitePress indigo colors for WCAG AA compliance */
@@ -113,4 +110,15 @@ a {
 
 a:hover {
   color: var(--vp-c-brand);
+}
+
+/* Blog post images - use @apply for Tailwind utilities */
+.vp-doc picture img,
+.vp-doc img {
+  @apply w-full h-auto;
+}
+
+/* Lazy loading images - prevent layout shift */
+img[loading="lazy"] {
+  @apply min-h-[200px];
 }
