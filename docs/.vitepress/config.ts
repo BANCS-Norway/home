@@ -24,35 +24,53 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/bancs.png' }],
+    // Security headers (meta tag fallback - GitHub Pages doesn't support custom HTTP headers)
+    ['meta', {
+      'http-equiv': 'Content-Security-Policy',
+      content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
+    }],
+    ['meta', { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' }],
+    ['meta', { 'http-equiv': 'X-Frame-Options', content: 'DENY' }],
+    ['meta', { 'http-equiv': 'Referrer-Policy', content: 'strict-origin-when-cross-origin' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap', rel: 'stylesheet' }],
+    ['link', { href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap', rel: 'stylesheet', media: 'print', onload: "this.media='all'" }],
+    ['noscript', {}, '<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">'],
     [
       'script',
-      {},
+      { defer: '' },
       `
       // Fix VitePress theme toggle accessibility
-      if (typeof window !== 'undefined') {
-        window.addEventListener('DOMContentLoaded', function() {
-          function addAriaLabel() {
-            const themeToggle = document.querySelector('.VPSwitchAppearance');
-            if (themeToggle) {
-              themeToggle.setAttribute('aria-label', 'Toggle dark mode');
-              themeToggle.setAttribute('title', 'Toggle dark mode');
-            } else {
-              // Retry if not found
-              setTimeout(addAriaLabel, 100);
-            }
+      (function() {
+        if (typeof window === 'undefined') return;
+
+        function addAriaLabel() {
+          const themeToggle = document.querySelector('.VPSwitchAppearance');
+          if (themeToggle) {
+            themeToggle.setAttribute('aria-label', 'Toggle dark mode');
+            themeToggle.setAttribute('title', 'Toggle dark mode');
+          } else {
+            // Retry if not found
+            setTimeout(addAriaLabel, 100);
           }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', addAriaLabel);
+        } else {
           addAriaLabel();
-        });
-      }
+        }
+      })();
       `
     ]
   ],
 
   themeConfig: {
-    logo: '/bancs.png',
+    logo: {
+      src: '/bancs.png',
+      alt: 'BANCS Logo'
+    },
+    siteTitle: 'BANCS AS',
 
     nav: [
       { text: 'Home', link: '/' },
@@ -75,8 +93,8 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/BANCS-Norway' },
-      { icon: 'linkedin', link: 'https://linkedin.com/in/virtueme' }
+      { icon: 'github', link: 'https://github.com/BANCS-Norway', ariaLabel: 'Visit BANCS on GitHub' },
+      { icon: 'linkedin', link: 'https://linkedin.com/in/virtueme', ariaLabel: 'Connect with BANCS on LinkedIn' }
     ],
 
     search: {
@@ -98,6 +116,12 @@ export default defineConfig({
     },
     plugins: [
       codeSnippetsPlugin({ root: __root })
-    ]
+    ],
+    build: {
+      // Increase chunk size warning limit (VitePress bundles can be large)
+      chunkSizeWarningLimit: 1000,
+      // Enable CSS code splitting for better caching
+      cssCodeSplit: true
+    }
   }
 })

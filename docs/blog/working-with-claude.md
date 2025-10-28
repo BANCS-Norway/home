@@ -13,6 +13,9 @@
     src="/images/working-with-claude-header.jpg"
     srcset="/images/working-with-claude-header.jpg 1x, /images/working-with-claude-header@2x.jpg 2x"
     alt="Black and white bridge through misty forest representing collaboration and connection"
+    loading="lazy"
+    width="800"
+    height="600"
   />
 </picture>
 
