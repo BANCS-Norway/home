@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/BANCS-Norway/home/compare/v1.9.0...v1.9.1) (2025-10-29)
+
+
+### Bug Fixes
+
+* move internal docs outside public site directory ([d3a4784](https://github.com/BANCS-Norway/home/commit/d3a4784febdf43006d8df68baa9da0d6bca38950)), closes [#130](https://github.com/BANCS-Norway/home/issues/130)
+
 # [1.9.0](https://github.com/BANCS-Norway/home/compare/v1.8.0...v1.9.0) (2025-10-29)
 
 
