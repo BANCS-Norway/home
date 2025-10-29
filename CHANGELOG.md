@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/BANCS-Norway/home/compare/v1.7.11...v1.8.0) (2025-10-29)
+
+
+### Features
+
+* add robots.txt for SEO and crawler management ([5c4ca31](https://github.com/BANCS-Norway/home/commit/5c4ca31baab759210aeb00c2fffa385f09c2a7a7)), closes [#126](https://github.com/BANCS-Norway/home/issues/126)
+
 ## [1.7.11](https://github.com/BANCS-Norway/home/compare/v1.7.10...v1.7.11) (2025-10-29)
 
 ## [1.7.10](https://github.com/BANCS-Norway/home/compare/v1.7.9...v1.7.10) (2025-10-29)
