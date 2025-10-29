@@ -12,5 +12,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <DefaultTheme.Layout />
+  <DefaultTheme.Layout>
+    <template #not-found>
+      <slot name="not-found" />
+    </template>
+    <template #layout-bottom>
+      <slot name="layout-bottom" />
+    </template>
+  </DefaultTheme.Layout>
 </template>
