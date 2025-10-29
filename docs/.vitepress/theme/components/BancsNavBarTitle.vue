@@ -22,13 +22,13 @@ const target = computed(() =>
     : theme.value.logoLink?.target
 )
 
-// Get logo paths - assume WebP is configured, create PNG fallback
+// Get logo paths - use navbar-optimized versions (48x48)
 const webpSrc = computed(() => {
   if (typeof theme.value.logo === 'string') {
-    return theme.value.logo
+    return theme.value.logo.replace(/\.webp$/i, '-navbar.webp')
   }
   if (theme.value.logo && typeof theme.value.logo === 'object' && 'src' in theme.value.logo) {
-    return theme.value.logo.src
+    return theme.value.logo.src.replace(/\.webp$/i, '-navbar.webp')
   }
   return null
 })
@@ -55,7 +55,7 @@ const logoAlt = computed(() => {
     >
       <picture v-if="theme.logo" class="logo">
         <source :srcset="webpSrc" type="image/webp">
-        <img :src="pngSrc" :alt="logoAlt" width="1024" height="1024">
+        <img :src="pngSrc" :alt="logoAlt" width="48" height="48">
       </picture>
       <span v-if="theme.siteTitle" v-html="theme.siteTitle"></span>
       <span v-else-if="theme.siteTitle === undefined">{{ site.title }}</span>
