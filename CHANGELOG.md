@@ -1,3 +1,10 @@
+## [1.7.9](https://github.com/BANCS-Norway/home/compare/v1.7.8...v1.7.9) (2025-10-29)
+
+
+### Bug Fixes
+
+* forward slots in LayoutWithMain to display custom 404 page ([ae774e1](https://github.com/BANCS-Norway/home/commit/ae774e1369fcb55208117dbbe173d611da98ff0e)), closes [#120](https://github.com/BANCS-Norway/home/issues/120)
+
 ## [1.7.8](https://github.com/BANCS-Norway/home/compare/v1.7.7...v1.7.8) (2025-10-29)
 
 ## [1.7.7](https://github.com/BANCS-Norway/home/compare/v1.7.6...v1.7.7) (2025-10-29)
