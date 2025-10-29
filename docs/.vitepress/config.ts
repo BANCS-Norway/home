@@ -23,14 +23,15 @@ export default defineConfig({
   ],
 
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/bancs.png' }],
+    ['link', { rel: 'icon', type: 'image/webp', href: '/bancs.webp' }],
+    ['link', { rel: 'alternate icon', type: 'image/png', href: '/bancs.png' }],
     // Security headers (meta tag fallback - GitHub Pages doesn't support custom HTTP headers)
+    // Note: X-Frame-Options removed - it has no effect when set via meta tag (must be HTTP header)
     ['meta', {
       'http-equiv': 'Content-Security-Policy',
-      content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
+      content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';"
     }],
     ['meta', { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' }],
-    ['meta', { 'http-equiv': 'X-Frame-Options', content: 'DENY' }],
     ['meta', { 'http-equiv': 'Referrer-Policy', content: 'strict-origin-when-cross-origin' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
@@ -67,7 +68,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: {
-      src: '/bancs.png',
+      src: '/bancs.webp',
       alt: 'BANCS Logo'
     },
     siteTitle: 'BANCS AS',
@@ -117,6 +118,16 @@ export default defineConfig({
     plugins: [
       codeSnippetsPlugin({ root: __root })
     ],
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPNavBarTitle\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/components/BancsNavBarTitle.vue', import.meta.url)
+          )
+        }
+      ]
+    },
     build: {
       // Increase chunk size warning limit (VitePress bundles can be large)
       chunkSizeWarningLimit: 1000,

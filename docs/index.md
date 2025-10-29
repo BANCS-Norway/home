@@ -5,9 +5,6 @@ hero:
   name: "BANCS"
   text: "Building Tomorrow's Solutions"
   tagline: Professional software development, AI integration, and technical consulting
-  image:
-    src: /bancs.png
-    alt: BANCS Logo
   actions:
     - theme: brand
       text: View Projects
