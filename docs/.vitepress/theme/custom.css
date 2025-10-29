@@ -122,12 +122,3 @@ a:hover {
 img[loading="lazy"] {
   @apply min-h-[200px];
 }
-
-/* Force GPU compositing for VitePress navbar animations to prevent jank */
-.VPNavBar,
-.VPNavBar .divider,
-.VPNavBar .divider-line {
-  will-change: background-color;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
