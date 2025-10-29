@@ -1,3 +1,5 @@
+## [1.7.8](https://github.com/BANCS-Norway/home/compare/v1.7.7...v1.7.8) (2025-10-29)
+
 ## [1.7.7](https://github.com/BANCS-Norway/home/compare/v1.7.6...v1.7.7) (2025-10-29)
 
 
