@@ -1,3 +1,10 @@
+## [1.7.6](https://github.com/BANCS-Norway/home/compare/v1.7.5...v1.7.6) (2025-10-29)
+
+
+### Reverts
+
+* remove ineffective GPU compositing fix for navbar animations ([a7d60b1](https://github.com/BANCS-Norway/home/commit/a7d60b16966f0ed46da247ceaecab49188614168)), closes [#113](https://github.com/BANCS-Norway/home/issues/113)
+
 ## [1.7.5](https://github.com/BANCS-Norway/home/compare/v1.7.4...v1.7.5) (2025-10-29)
 
 ## [1.7.4](https://github.com/BANCS-Norway/home/compare/v1.7.3...v1.7.4) (2025-10-29)
