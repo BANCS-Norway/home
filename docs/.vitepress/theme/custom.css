@@ -122,3 +122,27 @@ a:hover {
 img[loading="lazy"] {
   @apply min-h-[200px];
 }
+
+/* Override VitePress navbar animations to use composited properties */
+/* Replace non-composited background-color transitions with opacity */
+.VPNavBar .divider-line {
+  /* Override VitePress default background-color transition */
+  transition: opacity 0.5s !important;
+  /* Set solid background color */
+  background-color: var(--vp-c-gutter) !important;
+}
+
+/* Hide divider on home page top */
+.VPNavBar.home.top .divider-line {
+  opacity: 0;
+}
+
+/* Show divider when not at top or not on home page */
+.VPNavBar:not(.home.top) .divider-line {
+  opacity: 1;
+}
+
+/* Also override VPNavBar background transitions */
+.VPNavBar {
+  transition: backdrop-filter 0.5s !important;
+}
