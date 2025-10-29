@@ -5,5 +5,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap location (for future implementation)
-# Sitemap: https://www.bancs.no/sitemap.xml
+# Sitemap location
+Sitemap: https://www.bancs.no/sitemap.xml
