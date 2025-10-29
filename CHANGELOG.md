@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/BANCS-Norway/home/compare/v1.8.0...v1.9.0) (2025-10-29)
+
+
+### Features
+
+* add sitemap.xml for SEO ([310516b](https://github.com/BANCS-Norway/home/commit/310516bf2a2742cd2a78ccc2181e102dcfa666e3)), closes [#128](https://github.com/BANCS-Norway/home/issues/128)
+
 # [1.8.0](https://github.com/BANCS-Norway/home/compare/v1.7.11...v1.8.0) (2025-10-29)
 
 
