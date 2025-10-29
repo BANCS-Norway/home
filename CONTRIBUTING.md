@@ -69,14 +69,14 @@ Summary and key takeaways...
 Create a directory for working code examples:
 
 ```bash
-mkdir -p docs/examples/your-post-title
-cd docs/examples/your-post-title
+mkdir -p docs-internal/examples/your-post-title
+cd docs-internal/examples/your-post-title
 ```
 
 Add working, testable code files with MIT license header:
 
 ```typescript
-// docs/examples/your-post-title/demo.ts
+// docs-internal/examples/your-post-title/demo.ts
 
 /**
  * Example: Your Feature Description
@@ -95,7 +95,7 @@ export function example() {
 - ✅ You must have the right to license the code
 - ✅ BANCS can freely use, modify, and display your examples
 - ✅ Include license header in all code files
-- ✅ See `docs/examples/LICENSE` for full details
+- ✅ See `docs-internal/examples/LICENSE` for full details
 
 **Import code into your blog post** using the snippet syntax:
 
@@ -104,13 +104,13 @@ export function example() {
 
 Here's a basic example:
 
-<<< @/docs/examples/your-post-title/demo.ts
+<<< @/docs-internal/examples/your-post-title/demo.ts
 ```
 
 **Import specific lines:**
 
 ```markdown
-<<< @/docs/examples/your-post-title/demo.ts{5-10}
+<<< @/docs-internal/examples/your-post-title/demo.ts{5-10}
 ```
 
 **Import named regions:**
@@ -124,7 +124,7 @@ export function login() { /* ... */ }
 
 ```markdown
 // In your blog post:
-<<< @/docs/examples/your-post-title/demo.ts#authentication
+<<< @/docs-internal/examples/your-post-title/demo.ts#authentication
 ```
 
 Add a README for your examples:
@@ -180,7 +180,7 @@ Example with attribution:
 Inspired by [this excellent implementation](https://github.com/example/oauth),
 here's our take on OAuth:
 
-<<< @/docs/examples/oauth-tutorial/demo.ts
+<<< @/docs-internal/examples/oauth-tutorial/demo.ts
 ```
 
 #### 4. Add Your Post to the Blog Index
@@ -227,7 +227,7 @@ Brief description of your post (1-2 sentences).
 - ✅ **USE VitePress components** (:::tip, :::warning, etc.)
 - ✅ **USE code blocks** with proper syntax highlighting
 
-**Exception**: The `docs/examples/` directory CAN have custom styles for demonstration purposes.
+**Exception**: The `docs-internal/examples/` directory CAN have custom styles for demonstration purposes.
 
 **Automated Validation**: Run `npm run validate` to check your post follows these guidelines.
 

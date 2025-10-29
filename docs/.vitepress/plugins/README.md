@@ -11,7 +11,7 @@ Imports code snippets directly from repository files, ensuring examples stay in 
 In your markdown files, use the `<<< @/` syntax to import code:
 
 ```markdown
-<<< @/docs/examples/my-example/demo.ts
+<<< @/docs-internal/examples/my-example/demo.ts
 ```
 
 This will:
@@ -24,7 +24,7 @@ This will:
 Import only certain line ranges:
 
 ```markdown
-<<< @/docs/examples/my-example/demo.ts{5-10}
+<<< @/docs-internal/examples/my-example/demo.ts{5-10}
 ```
 
 This imports only lines 5-10 from the file.
@@ -32,7 +32,7 @@ This imports only lines 5-10 from the file.
 Multiple ranges:
 
 ```markdown
-<<< @/docs/examples/my-example/demo.ts{1-5,10-15,20}
+<<< @/docs-internal/examples/my-example/demo.ts{1-5,10-15,20}
 ```
 
 ### Import Named Regions
@@ -40,7 +40,7 @@ Multiple ranges:
 Use region markers in your source files:
 
 ```typescript
-// docs/examples/my-example/demo.ts
+// docs-internal/examples/my-example/demo.ts
 
 // #region authentication
 export function login(user: string, password: string) {
@@ -54,7 +54,7 @@ export function login(user: string, password: string) {
 Then import just that region:
 
 ```markdown
-<<< @/docs/examples/my-example/demo.ts#authentication
+<<< @/docs-internal/examples/my-example/demo.ts#authentication
 ```
 
 ### Supported Languages
@@ -106,11 +106,11 @@ In `my-tutorial.md`:
 
 Here's a basic example:
 
-<<< @/docs/examples/my-tutorial/demo.ts
+<<< @/docs-internal/examples/my-tutorial/demo.ts
 
 And here's the advanced version:
 
-<<< @/docs/examples/my-tutorial/advanced.ts{10-25}
+<<< @/docs-internal/examples/my-tutorial/advanced.ts{10-25}
 ```
 
 ### Region Markers
@@ -135,7 +135,7 @@ Both comment styles work:
 
 All paths are relative to the project root:
 
-- `@/docs/examples/...` - Examples directory
+- `@/docs-internal/examples/...` - Examples directory
 - `@/docs/.vitepress/...` - VitePress config
 - `@/scripts/...` - Build scripts
 - `@/package.json` - Package file

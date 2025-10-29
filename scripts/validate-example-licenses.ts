@@ -3,7 +3,7 @@
 /**
  * Validates that code examples include proper MIT license headers
  *
- * Ensures all code in docs/examples/ has licensing information,
+ * Ensures all code in docs-internal/examples/ has licensing information,
  * protecting BANCS and contributors.
  */
 
@@ -15,7 +15,7 @@ import { dirname } from 'path'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const rootDir = join(__dirname, '..')
-const examplesDir = join(rootDir, 'docs', 'examples')
+const examplesDir = join(rootDir, 'docs-internal', 'examples')
 
 interface ValidationError {
   file: string
@@ -140,7 +140,7 @@ if (errors.length > 0) {
   console.log('   * License: MIT')
   console.log('   */')
   console.log('')
-  console.log('📖 See docs/examples/LICENSE for details\n')
+  console.log('📖 See docs-internal/examples/LICENSE for details\n')
 
   process.exit(1)
 } else {

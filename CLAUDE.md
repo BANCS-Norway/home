@@ -9,9 +9,9 @@ This project was developed in collaboration with Claude Code by Anthropic. This 
 **Quick Start (5 minutes):**
 
 1. ⏱️ **Read this document** (5 min) - Get the big picture
-2. 🚨 **Review [Git Safety Guidelines](./docs/claude/git-safety.md)** (critical!)
-3. 🔄 **Scan [Development Workflow](./docs/claude/workflow.md)** - Understand the 3 phases
-4. 📚 **Optional**: [Best Practices](./docs/claude/best-practices.md) for deeper insights
+2. 🚨 **Review [Git Safety Guidelines](./docs-internal/claude/git-safety.md)** (critical!)
+3. 🔄 **Scan [Development Workflow](./docs-internal/claude/workflow.md)** - Understand the 3 phases
+4. 📚 **Optional**: [Best Practices](./docs-internal/claude/best-practices.md) for deeper insights
 
 **That's it!** You're ready to start collaborating with Claude Code.
 
@@ -22,7 +22,7 @@ Before you begin, ensure you have:
 - ✅ **Claude Code CLI installed** - See [Claude Code Documentation](https://docs.claude.com/claude-code)
 - ✅ **Git configured** with your GitHub account
 - ✅ **Familiarity with Conventional Commits** - See [conventionalcommits.org](https://www.conventionalcommits.org/)
-- ✅ **Understanding of Git Safety Guidelines** - Read [docs/claude/git-safety.md](./docs/claude/git-safety.md)
+- ✅ **Understanding of Git Safety Guidelines** - Read [docs-internal/claude/git-safety.md](./docs-internal/claude/git-safety.md)
 
 ## Philosophy
 
@@ -34,7 +34,7 @@ Claude Code is a powerful AI assistant that enhances human productivity and code
 - **Transparency**: We're open about our use of AI tools in development
 - **Question and Validate**: Always maintain healthy skepticism and verify Claude's solutions. If something doesn't look right, investigate and challenge it.
 
-> For more detailed principles and practices, see [Best Practices](./docs/claude/best-practices.md).
+> For more detailed principles and practices, see [Best Practices](./docs-internal/claude/best-practices.md).
 
 ## Documentation
 
@@ -42,17 +42,17 @@ This guide has been split into focused documents for easier navigation:
 
 ### Core Guides
 
-- **[Git and GitHub Safety](./docs/claude/git-safety.md)** - Git workflow and safety guidelines
-- **[Commit Guidelines](./docs/claude/commit-guidelines.md)** - Conventional commits and semantic versioning
-- **[Development Workflow](./docs/claude/workflow.md)** - Feature development process with batches
-- **[Multi-Batch Workflow](./docs/claude/multi-batch-workflow.md)** - Managing large issues across sessions
-- **[Best Practices](./docs/claude/best-practices.md)** - Code quality and project conventions
+- **[Git and GitHub Safety](./docs-internal/claude/git-safety.md)** - Git workflow and safety guidelines
+- **[Commit Guidelines](./docs-internal/claude/commit-guidelines.md)** - Conventional commits and semantic versioning
+- **[Development Workflow](./docs-internal/claude/workflow.md)** - Feature development process with batches
+- **[Multi-Batch Workflow](./docs-internal/claude/multi-batch-workflow.md)** - Managing large issues across sessions
+- **[Best Practices](./docs-internal/claude/best-practices.md)** - Code quality and project conventions
 
 ### Quick Reference
 
 #### 🔄 Workflow (3 Phases)
 
-1. **Issue-First** - Every feature starts with issue + feature branch ([details](./docs/claude/workflow.md#1-issue-first-workflow-primary))
+1. **Issue-First** - Every feature starts with issue + feature branch ([details](./docs-internal/claude/workflow.md#1-issue-first-workflow-primary))
 2. **Batch Development** - Work in small batches:
    - Complete 3-4 tasks
    - Show changes to review
@@ -159,8 +159,8 @@ Learn from real-world experience. Here are common mistakes and how to avoid them
 Need assistance? Here's where to look:
 
 - 🆕 **New to Claude Code?** → [Official Documentation](https://docs.claude.com/claude-code)
-- 🔄 **Workflow questions?** → [Development Workflow](./docs/claude/workflow.md)
-- 🚨 **Git confusion?** → [Git Safety Guidelines](./docs/claude/git-safety.md)
+- 🔄 **Workflow questions?** → [Development Workflow](./docs-internal/claude/workflow.md)
+- 🚨 **Git confusion?** → [Git Safety Guidelines](./docs-internal/claude/git-safety.md)
 - 📋 **Project questions?** → [CONTRIBUTING.md](./CONTRIBUTING.md)
 - 🤝 **Code of Conduct** → [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md)
 - 🐛 **Found an issue?** → [Open an issue](https://github.com/BANCS-Norway/home/issues/new)

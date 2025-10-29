@@ -33,7 +33,7 @@ Import code directly from files:
 
 Here's an example:
 
-<<< @/docs/examples/code-import-demo/demo.ts#basicExample
+<<< @/docs-internal/examples/code-import-demo/demo.ts#basicExample
 ```
 
 **Benefits:**
@@ -47,25 +47,25 @@ Here's an example:
 ### Import Entire File
 
 ```markdown
-<<< @/docs/examples/code-import-demo/demo.ts
+<<< @/docs-internal/examples/code-import-demo/demo.ts
 ```
 
 ### Import Specific Lines
 
 ```markdown
-<<< @/docs/examples/code-import-demo/demo.ts{1-5}
+<<< @/docs-internal/examples/code-import-demo/demo.ts{1-5}
 ```
 
 ### Import Named Region
 
 ```markdown
-<<< @/docs/examples/code-import-demo/demo.ts#basicExample
+<<< @/docs-internal/examples/code-import-demo/demo.ts#basicExample
 ```
 
 or
 
 ```markdown
-<<< @/docs/examples/code-import-demo/demo.ts#advancedExample
+<<< @/docs-internal/examples/code-import-demo/demo.ts#advancedExample
 ```
 
 ## Testing This Example
@@ -73,7 +73,7 @@ or
 You can run this example:
 
 ```bash
-npx tsx docs/examples/code-import-demo/demo.ts
+npx tsx docs-internal/examples/code-import-demo/demo.ts
 ```
 
 ## See Also
