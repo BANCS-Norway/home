@@ -1,3 +1,10 @@
+## [1.7.10](https://github.com/BANCS-Norway/home/compare/v1.7.9...v1.7.10) (2025-10-29)
+
+
+### Bug Fixes
+
+* add dynamic preconnect to origin domain from CNAME ([81592ab](https://github.com/BANCS-Norway/home/commit/81592abf13d6020f5de7aaa765658fe5d2cf8e6e)), closes [#115](https://github.com/BANCS-Norway/home/issues/115)
+
 ## [1.7.9](https://github.com/BANCS-Norway/home/compare/v1.7.8...v1.7.9) (2025-10-29)
 
 
