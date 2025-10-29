@@ -1,3 +1,10 @@
+## [1.7.7](https://github.com/BANCS-Norway/home/compare/v1.7.6...v1.7.7) (2025-10-29)
+
+
+### Bug Fixes
+
+* remove invalid frame-ancestors directive from CSP meta tag ([66c9f8f](https://github.com/BANCS-Norway/home/commit/66c9f8f7f5e2a5eb95ab681ff17e35ed97b3a7b8)), closes [#117](https://github.com/BANCS-Norway/home/issues/117)
+
 ## [1.7.6](https://github.com/BANCS-Norway/home/compare/v1.7.5...v1.7.6) (2025-10-29)
 
 
