@@ -6,8 +6,8 @@ Use this template when creating new code examples for blog posts.
 
 1. **Copy this directory:**
    ```bash
-   cp -r docs/examples/_template docs/examples/your-blog-post-title
-   cd docs/examples/your-blog-post-title
+   cp -r docs-internal/examples/_template docs-internal/examples/your-blog-post-title
+   cd docs-internal/examples/your-blog-post-title
    ```
 
 2. **Update this README** with your example details
@@ -21,7 +21,7 @@ Use this template when creating new code examples for blog posts.
 
 5. **Import into your blog post:**
    ```markdown
-   <<< @/docs/examples/your-blog-post-title/demo.ts
+   <<< @/docs-internal/examples/your-blog-post-title/demo.ts
    ```
 
 ## About This Example
@@ -64,17 +64,17 @@ your-blog-post-title/
 
 **Import entire file:**
 ```markdown
-<<< @/docs/examples/your-blog-post-title/demo.ts
+<<< @/docs-internal/examples/your-blog-post-title/demo.ts
 ```
 
 **Import specific lines:**
 ```markdown
-<<< @/docs/examples/your-blog-post-title/demo.ts{10-20}
+<<< @/docs-internal/examples/your-blog-post-title/demo.ts{10-20}
 ```
 
 **Import named region:**
 ```markdown
-<<< @/docs/examples/your-blog-post-title/demo.ts#yourRegion
+<<< @/docs-internal/examples/your-blog-post-title/demo.ts#yourRegion
 ```
 
 ## Related Blog Post

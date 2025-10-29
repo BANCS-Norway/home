@@ -40,7 +40,7 @@ npm run validate:styles
 
 **Exceptions**:
 
-- Files in `docs/examples/` directory are skipped (examples can have custom styles)
+- Files in `docs-internal/examples/` directory are skipped (examples can have custom styles)
 - Whitelisted classes: `vp-*`, `language-*`, `blog-card`, `mb-*`
 - VitePress scoped styles at the end of blog posts are allowed
 
@@ -114,7 +114,7 @@ npm run validate:licenses
 
 **What it checks**:
 
-- ✅ All `.ts`, `.tsx`, `.js`, `.jsx`, `.py`, `.rs`, `.go`, `.java` files in `docs/examples/`
+- ✅ All `.ts`, `.tsx`, `.js`, `.jsx`, `.py`, `.rs`, `.go`, `.java` files in `docs-internal/examples/`
 - ✅ Each file has "License: MIT" in the header
 - ❌ Skips `_template` and `node_modules` directories
 
@@ -135,8 +135,8 @@ npm run validate:licenses
 
 Found 5 code file(s) to validate
 
-✓ Checking: docs/examples/my-example/demo.ts
-✓ Checking: docs/examples/my-example/advanced.ts
+✓ Checking: docs-internal/examples/my-example/demo.ts
+✓ Checking: docs-internal/examples/my-example/advanced.ts
 
 ✅ All code examples have proper license headers!
 ```
@@ -148,7 +148,7 @@ Found 5 code file(s) to validate
 
 The following files are missing license headers:
 
-  docs/examples/my-example/demo.ts
+  docs-internal/examples/my-example/demo.ts
     ⚠️  Missing MIT license header. Add a comment at the top with "License: MIT"
 ```
 

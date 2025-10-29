@@ -6,7 +6,7 @@
  *
  * Allowed: Standard markdown, code blocks, VitePress components
  * Not allowed: <style> tags, inline styles, custom CSS classes
- * Exception: docs/examples/ directory can have custom styles
+ * Exception: docs-internal/examples/ directory can have custom styles
  */
 
 import { readFileSync, readdirSync } from 'fs'
@@ -18,7 +18,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const rootDir = join(__dirname, '..')
 const blogDir = join(rootDir, 'docs', 'blog')
-const examplesDir = join(rootDir, 'docs', 'examples')
+const examplesDir = join(rootDir, 'docs-internal', 'examples')
 
 interface ValidationError {
   file: string

@@ -13,7 +13,7 @@ All examples in this directory:
 ## 📁 Structure
 
 ```
-docs/examples/
+docs-internal/examples/
 ├── LICENSE                    # MIT License for all examples
 ├── README.md                  # This file
 ├── code-import-demo/          # Example of the import system
@@ -33,7 +33,7 @@ docs/examples/
 All code must be runnable:
 
 ```bash
-cd docs/examples/your-example
+cd docs-internal/examples/your-example
 npm install  # if package.json exists
 npx tsx demo.ts  # should run without errors
 ```
@@ -103,33 +103,33 @@ Import code using the snippet syntax:
 
 Here's the basic example:
 
-<<< @/docs/examples/my-example/demo.ts
+<<< @/docs-internal/examples/my-example/demo.ts
 
 Here's just the authentication part:
 
-<<< @/docs/examples/my-example/demo.ts#authentication
+<<< @/docs-internal/examples/my-example/demo.ts#authentication
 
 Here's lines 10-20:
 
-<<< @/docs/examples/my-example/demo.ts{10-20}
+<<< @/docs-internal/examples/my-example/demo.ts{10-20}
 ```
 
 See [VitePress Plugins README](../.vitepress/plugins/README.md) for details.
 
 ## 🎨 Styling Examples
 
-Examples can use custom styles since they're demonstrations. The style validation automatically skips the `docs/examples/` directory.
+Examples can use custom styles since they're demonstrations. The style validation automatically skips the `docs-internal/examples/` directory.
 
 ## 🤝 Contributing Examples
 
 1. **Create a directory** for your blog post:
    ```bash
-   mkdir -p docs/examples/your-post-title
+   mkdir -p docs-internal/examples/your-post-title
    ```
 
 2. **Write working code**:
    ```typescript
-   // docs/examples/your-post-title/demo.ts
+   // docs-internal/examples/your-post-title/demo.ts
 
    /**
     * Example: Your Feature
@@ -144,14 +144,14 @@ Examples can use custom styles since they're demonstrations. The style validatio
 
 3. **Test it**:
    ```bash
-   npx tsx docs/examples/your-post-title/demo.ts
+   npx tsx docs-internal/examples/your-post-title/demo.ts
    ```
 
 4. **Add README.md** explaining how to run it
 
 5. **Import into your blog post**:
    ```markdown
-   <<< @/docs/examples/your-post-title/demo.ts
+   <<< @/docs-internal/examples/your-post-title/demo.ts
    ```
 
 ## 📜 License
