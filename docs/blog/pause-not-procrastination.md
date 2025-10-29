@@ -8,7 +8,8 @@
 
 *A meditation on creativity, AI, and the wisdom of stepping away*
 
-![Ripples in calm water](/images/ripples-grayscale.jpg)
+<img src="/images/ripples-grayscale.jpg" alt="Ripples in calm water" width="2000" height="1129">
+
 *Photo by Pixabay from Pexels, grayscale adjustment by Claude*
 
 <DisclaimerBox type="claude" />

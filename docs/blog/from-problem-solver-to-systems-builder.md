@@ -14,8 +14,8 @@
     srcset="/images/problem-solver-header.jpg 1x, /images/problem-solver-header@2x.jpg 2x"
     alt="Aerial view of Arctic river delta in black and grey, representing transformation and systems thinking"
     loading="lazy"
-    width="800"
-    height="600"
+    width="960"
+    height="720"
   />
 </picture>
 

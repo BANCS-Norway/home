@@ -12,6 +12,8 @@
             src="/images/404_viking_bear.png"
             srcset="/images/404_viking_bear.png 1x, /images/404_viking_bear@2x.png 2x"
             alt="A Viking and a bear sitting together by a campfire at night, having fallen asleep while building the page - symbolizing collaboration across differences"
+            width="1024"
+            height="1024"
             class="w-auto h-auto max-h-[40vh] mx-auto"
           />
         </picture>
