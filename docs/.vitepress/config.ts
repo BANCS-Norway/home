@@ -19,6 +19,9 @@ export default defineConfig({
   title: 'BANCS AS',
   description: 'Professional software development and consulting',
   base: '/',
+  sitemap: {
+    hostname: 'https://www.bancs.no'
+  },
   ignoreDeadLinks: [
     // Example READMEs reference files outside docs/ (LICENSE, CONTRIBUTING.md, etc.)
     // These are meant for developers viewing in the repo, not the built site
