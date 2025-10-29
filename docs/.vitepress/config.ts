@@ -10,6 +10,11 @@ const packageJson = JSON.parse(
   readFileSync(join(__dirname, '../../package.json'), 'utf-8')
 )
 
+// Read CNAME file for dynamic origin domain preconnect
+const cnamePath = join(__dirname, '../public/CNAME')
+const cnameContent = readFileSync(cnamePath, 'utf-8').trim()
+const originDomain = `https://${cnameContent}`
+
 export default defineConfig({
   title: 'BANCS AS',
   description: 'Professional software development and consulting',
@@ -25,6 +30,8 @@ export default defineConfig({
   head: [
     ['link', { rel: 'icon', type: 'image/webp', href: '/bancs.webp' }],
     ['link', { rel: 'alternate icon', type: 'image/png', href: '/bancs.png' }],
+    // Preconnect to origin domain for faster resource loading
+    ['link', { rel: 'preconnect', href: originDomain }],
     // Security headers (meta tag fallback - GitHub Pages doesn't support custom HTTP headers)
     // Note: X-Frame-Options removed - it has no effect when set via meta tag (must be HTTP header)
     ['meta', {
