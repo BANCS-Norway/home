@@ -1,0 +1,9 @@
+# robots.txt for www.bancs.no
+# This file provides guidance to web crawlers and search engine bots
+
+# Allow all compliant crawlers to access the entire site
+User-agent: *
+Allow: /
+
+# Sitemap location (for future implementation)
+# Sitemap: https://www.bancs.no/sitemap.xml
