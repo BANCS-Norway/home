@@ -29,7 +29,7 @@ export default defineConfig({
     // Note: X-Frame-Options removed - it has no effect when set via meta tag (must be HTTP header)
     ['meta', {
       'http-equiv': 'Content-Security-Policy',
-      content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none';"
+      content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
     }],
     ['meta', { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' }],
     ['meta', { 'http-equiv': 'Referrer-Policy', content: 'strict-origin-when-cross-origin' }],
