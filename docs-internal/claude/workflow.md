@@ -685,7 +685,100 @@ git worktree unlock <path>
 
 ---
 
-## 8. Testing
+## 8. Structural Changes Checklist
+
+**IMPORTANT: Use this checklist when making changes to layout components, theme configurations, or core architecture.**
+
+When modifying structural elements (components, layouts, theme config, slots, props), follow these steps to understand the full impact:
+
+### Before Making Changes
+
+1. **Identify Dependencies**
+   ```bash
+   # Search for all files that import or use the component/file
+   grep -r "ComponentName" docs/
+   grep -r "from './path/to/file'" docs/
+   ```
+
+2. **Map Data Flow and Slot Forwarding**
+   - Trace how props are passed down the component tree
+   - Identify all slots and how they're forwarded between components
+   - Check if any slots have default content that depends on the structure
+   - Document the chain: Parent → Component → Child
+
+3. **Check Theme Configuration**
+   - Review `.vitepress/theme/index.ts` for component usage
+   - Look for layout overrides or global registrations
+   - Check if the component is used in layout slots
+
+4. **Review Prop/Slot Forwarding**
+   - Identify all props that need to be forwarded
+   - Check if removing code breaks slot forwarding chains
+   - Verify that custom components receive necessary props/slots
+
+5. **Identify Custom Features**
+   - List all custom features that might be affected
+   - Check if features rely on specific slots or props
+   - Test each custom feature individually
+
+### During Changes
+
+6. **Never Remove Code Without Understanding Why It Exists**
+   - If code seems redundant, investigate before removing
+   - Ask: "What breaks if I remove this?"
+   - Check git history: `git log -p -- path/to/file`
+   - Look for related issues or PRs
+
+7. **Make Changes Incrementally**
+   - Change one thing at a time
+   - Test after each change
+   - Commit working states frequently
+
+### After Changes
+
+8. **Test All Affected Features**
+   - Test each custom feature identified in step 5
+   - Check all pages that use the modified component
+   - Verify slot forwarding still works
+   - Test in development and production builds
+
+9. **Verification Checklist**
+   - [ ] All imports still resolve correctly
+   - [ ] No console errors in browser
+   - [ ] All slots render as expected
+   - [ ] Custom features work (404 page, custom layouts, etc.)
+   - [ ] Props are forwarded correctly
+   - [ ] Production build succeeds
+   - [ ] No TypeScript errors
+
+### Common Pitfalls
+
+- ❌ **Removing "redundant-looking" prop forwarding** - May break downstream components
+- ❌ **Assuming unused slots can be removed** - Custom components may rely on them
+- ❌ **Testing only the changed component** - Impact may be in parent or child components
+- ❌ **Not checking theme configuration** - Global registrations may depend on structure
+- ❌ **Skipping production build testing** - Some issues only appear in built output
+
+### Example: Slot Forwarding Issue
+
+**Problem:** Removed `v-bind="$attrs"` from Layout component, breaking custom 404 page.
+
+**Why it broke:**
+```
+NotFound.vue (404 page)
+  ↓ (uses slots)
+Layout.vue (needs v-bind="$attrs" to forward)
+  ↓ (forwards slots)
+VPContent.vue (renders slot content)
+```
+
+**Lesson:** Always trace the complete data/slot flow before making structural changes.
+
+For detailed guidance on analyzing structural changes, see [Impact Analysis Guide](./impact-analysis.md).
+
+---
+
+## 9. Testing
 
 Between batches and before final rebase:
 
@@ -702,7 +795,7 @@ npm run validate
 
 ---
 
-## 8. Deployment
+## 10. Deployment
 
 - Only happens when you merge to `main` branch
 - GitHub Actions automatically deploys to GitHub Pages
