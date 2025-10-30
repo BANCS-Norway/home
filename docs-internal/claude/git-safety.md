@@ -51,6 +51,8 @@ When working with git:
 
 ## Git Worktrees and Safety
 
+**Note**: Git worktrees are **optional** for most workflows. They're useful for parallel work but not required unless you're using the `/new-feature` slash command.
+
 Git worktrees are safe to use with Claude Code, following the same principles:
 
 ### Safe Worktree Operations
@@ -73,17 +75,47 @@ git worktree prune
 
 ### Safety Considerations
 
-1. **One Claude Session Per Worktree**
-   - Avoid running multiple Claude Code sessions in different worktrees simultaneously
-   - This prevents confusion about which context Claude is operating in
-   - Complete work in one worktree before switching to another
+1. **Never Work Directly on Main Branch**
+   - Always create a feature branch for any work
+   - Keep main branch clean and in sync with remote
+   - This is the most important safety rule
+   - Example:
+     ```bash
+     # ❌ WRONG - Working on main
+     git checkout main
+     # ... making changes to main
 
-2. **Worktree-Specific Operations**
+     # ✅ CORRECT - Create feature branch
+     git checkout -b feature/123-new-feature
+     # ... or use worktree:
+     git worktree add worktrees/feature-123 -b feature/123-new-feature
+     ```
+
+2. **Git's Built-in Worktree Protection**
+   - Git prevents the same branch from being checked out in multiple worktrees
+   - This is automatic protection - you cannot accidentally violate it
+   - Error message: `fatal: 'feature/123' is already checked out at '...'`
+   - This ensures you never work on the same branch in two places
+
+3. **Be Careful with Multiple Claude Sessions** ⚠️
+   - Running multiple Claude Code sessions in the same worktree/directory could lead to conflicting changes
+   - Most users run one Claude session at a time for simplicity
+   - Advanced users may run multiple sessions in different worktrees on different branches
+
+4. **Working with Worktrees**
+   - **Option 1 (Recommended)**: Claude works from main repository directory
+     - Uses full paths to access files in different worktrees
+     - No need to restart Claude when creating worktrees
+   - **Option 2 (Advanced)**: Start Claude in specific worktree directory
+     - All operations use relative paths within that worktree
+     - Requires restarting Claude to switch contexts
+
+5. **Worktree-Specific Operations**
    - All git operations in a worktree are local to that directory
    - Commits made in one worktree don't affect the working state of others
    - Each worktree maintains its own working directory and index
 
-3. **YOU Still Control Push/Pull**
+6. **YOU Still Control Push/Pull**
    - Even with worktrees, Claude NEVER pushes or pulls
    - You push from whichever worktree you're working in
    - Example workflow:
@@ -98,7 +130,7 @@ git worktree prune
      git push -u origin feature/123-new-feature
      ```
 
-4. **Cleanup After Merging**
+7. **Cleanup After Merging**
    - Remove worktrees promptly after PRs are merged
    - Prevents confusion and disk space waste
    - Use `git worktree remove` (not manual directory deletion)

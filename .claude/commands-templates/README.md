@@ -67,8 +67,10 @@ After installation, you can see your available commands by typing `/` in Claude 
   - Use: `/workflow`
 
 - **`new-feature.md`** - Interactive helper to start new feature work
+  - **Note**: This command uses worktrees (creates them automatically)
   - Creates issues, feature branches, and worktrees
   - Adds status labels automatically
+  - Navigates to the worktree directory
   - Use: `/new-feature`
 
 - **`new-blog-post.md`** - Interactive helper to create new blog posts
@@ -87,7 +89,9 @@ After installation, you can see your available commands by typing `/` in Claude 
 
 ### Worktree Commands (Optional)
 
-These commands are for developers who prefer using git worktrees:
+**Note**: Worktrees are optional for most workflows. However, if you use `/new-feature`, worktrees become mandatory as that command creates them automatically.
+
+These commands are for developers who work with git worktrees:
 
 - **`worktree.md`** - Personal worktree workflow reminder
   - Quick reference for worktree-based development
@@ -95,6 +99,7 @@ These commands are for developers who prefer using git worktrees:
 
 - **`cleanup.md`** - Clean up worktree after feature merge
   - Removes worktree and deletes local branch
+  - Essential when using `/new-feature` workflow
   - Use: `/cleanup`
 
 ## Customization
