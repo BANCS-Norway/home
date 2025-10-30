@@ -385,11 +385,16 @@ A git worktree allows you to have multiple working directories attached to the s
 
 ### When to Use Worktrees
 
+**Worktrees are OPTIONAL** for most workflows. Use them when you need parallel work contexts.
+
+**Note**: If you use the `/new-feature` slash command (installed via `/project-setup`), worktrees become mandatory as the command creates them automatically.
+
 **Good Use Cases:**
 - 🔥 **Hotfix scenarios**: Need to fix production bug while feature work is in progress
 - 👀 **Code reviews**: Review a colleague's PR without switching branches
 - 🔀 **Parallel features**: Work on multiple independent features simultaneously
 - 🧪 **Testing approaches**: Try different implementation approaches in parallel
+- 🤖 **Using `/new-feature`**: The slash command workflow requires worktrees
 
 **When NOT to use:**
 - ⚠️ Working on a single feature (just use regular branch switching)
@@ -445,33 +450,60 @@ git worktree add worktrees/feature-123-search -b feature/123-add-blog-search
 
 ### Worktree Workflow Integration
 
-Git worktrees integrate seamlessly with the existing Issue-First workflow:
+Git worktrees integrate seamlessly with the existing Issue-First workflow. You can choose which approach fits your needs:
 
-#### 1. Standard Workflow (Single Issue)
+#### 1. Standard Workflow (Regular Branches - Default)
+
+Use regular branch switching for single-feature development:
 
 ```bash
 # On main branch in primary working directory
 git checkout -b feature/123-add-blog-search
 # ... work on feature ...
+# Commit, push, create PR
 ```
 
-#### 2. Parallel Workflow (Multiple Issues with Worktrees)
+**Best for**: Most development work, single-feature focus
+
+#### 2. Worktree Workflow (Parallel Work - Optional)
+
+Use worktrees when you need to work on multiple issues simultaneously:
 
 ```bash
 # Currently working on feature #123 in primary directory
 # Urgent issue #99 comes in
 
 # Create worktree for hotfix
-git worktree add ../worktrees/hotfix-99 -b feature/99-critical-fix
+git worktree add worktrees/hotfix-99 -b feature/99-critical-fix
 
 # Work on hotfix in separate directory
-cd ../worktrees/hotfix-99
+cd worktrees/hotfix-99
 # ... fix the bug, commit, push ...
 
 # Return to feature work (no stashing needed!)
 cd ~/projects/bancs-home
 # Continue working on feature #123
 ```
+
+**Best for**: Hotfixes, parallel features, code reviews
+
+#### 3. `/new-feature` Slash Command Workflow (Worktrees - Automated)
+
+If you install the `/new-feature` command via `/project-setup`, worktrees become the standard approach:
+
+```bash
+# In Claude Code, run:
+/new-feature
+
+# This automatically:
+# 1. Creates or selects an issue
+# 2. Creates a worktree: worktrees/feature-123-description
+# 3. Creates a branch: feature/123_description
+# 4. Adds "status: in progress" label
+# 5. Navigates to the worktree directory
+```
+
+**Best for**: Consistent workflow automation, teams using slash commands
 
 ### Managing Worktrees
 
@@ -576,23 +608,55 @@ git worktree repair
 
 ### Worktrees with Claude Code
 
-When using git worktrees with Claude Code:
+**Important: Worktrees are optional** unless you're using the `/new-feature` slash command, which creates worktrees automatically.
 
-1. **Start Claude in the Worktree Directory**
-   ```bash
-   cd ~/projects/worktrees/feature-123-search
-   claude-code
-   ```
+#### Working with Claude in Worktrees
 
-2. **Each Worktree is Independent**
-   - Claude works in the current worktree's context
-   - Changes in one worktree don't affect others
-   - Each worktree has its own working directory state
+Claude Code can work with worktrees in two ways:
 
-3. **Avoid Running Multiple Claude Sessions in Same Repository**
-   - Claude might get confused by multiple concurrent sessions
-   - Work on one worktree at a time
-   - Complete batch work in one worktree before switching
+**Option 1: Work from Main Repository (Recommended)**
+- Claude can manage worktrees from the main repository directory using full paths
+- No need to restart Claude when creating or switching between worktrees
+- Simpler workflow for most scenarios
+- Example:
+  ```bash
+  # Claude working from main repository
+  pwd  # /home/user/projects/bancs-home (on main branch)
+  # Claude can read/edit files in any worktree using full paths
+  ```
+
+**Option 2: Start Claude in Worktree Directory (Advanced)**
+- Useful for long-term work isolated to one worktree
+- All file operations use relative paths within that worktree
+- Requires restarting Claude to switch contexts
+- Example:
+  ```bash
+  cd ~/projects/worktrees/feature-123-search
+  claude-code
+  ```
+
+#### Safety Rules
+
+1. **Never Work Directly on Main Branch**
+   - Always create a feature branch for your work
+   - Main branch should remain clean and in sync with remote
+   - This applies whether using worktrees or regular branches
+
+2. **Git Prevents Same Branch in Multiple Worktrees**
+   - Git automatically prevents checking out the same branch in multiple worktrees
+   - This is a built-in safety mechanism
+   - You cannot accidentally work on the same branch in two places
+   - Error: `fatal: 'feature/123' is already checked out at '...'`
+
+3. **Be Careful with Multiple Claude Sessions** ⚠️
+   - Running multiple Claude Code sessions in the same worktree/directory could lead to conflicting changes
+   - Most users run one Claude session at a time for simplicity
+   - Advanced users may run multiple sessions in different worktrees on different branches
+
+4. **When Using `/new-feature` Slash Command**
+   - Worktrees are created automatically (mandatory)
+   - Claude navigates to the worktree directory
+   - Follow the worktree-based workflow for that feature
 
 ### Quick Reference: Worktree Commands
 
