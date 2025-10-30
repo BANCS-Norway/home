@@ -127,11 +127,203 @@ git branch -a | grep "feature/"
 
 **Apply this principle across ALL resource types: labels, branches, files, configurations, issues, etc.**
 
+## What NOT to Remove: Protecting Custom Features
+
+**IMPORTANT: This section helps Claude avoid accidentally breaking custom VitePress features.**
+
+When working with VitePress theme files and components, some code may appear redundant or unused, but it serves critical purposes. Follow these guidelines to avoid breaking custom features like the 404 page or other customizations.
+
+### Never Remove Without Understanding
+
+Before removing ANY code from theme/layout files, ask these questions:
+
+1. **Why does this code exist?**
+   - Check git history: `git log -p -- path/to/file`
+   - Look for related issues/PRs that explain it
+   - Search documentation for its purpose
+
+2. **What depends on this code?**
+   - Search codebase for usage: `grep -r "code-pattern" docs/`
+   - Check theme configuration: `docs/.vitepress/theme/index.ts`
+   - Identify custom components that might rely on it
+
+3. **What breaks if I remove it?**
+   - Test all custom features (404 page, custom layouts, etc.)
+   - Test in both development AND production builds
+   - Check browser console for errors
+
+### Common "Redundant-Looking" Code That You Should NOT Remove
+
+#### 1. v-bind="$attrs" in Layout Components
+
+**Looks like:** This appears to do nothing in the component itself
+
+```vue
+<!-- DON'T remove v-bind="$attrs" without analysis! -->
+<template>
+  <VPContent v-bind="$attrs">
+    <slot />
+  </VPContent>
+</template>
+```
+
+**Why it's critical:**
+- Forwards all attributes and slots to child components
+- Required for custom pages (like NotFound.vue) to receive their props/slots
+- Breaking this breaks slot forwarding chain
+- Custom 404 page won't display without it
+
+**Before removing:**
+- Trace complete slot forwarding chain
+- Test all custom pages that use layouts
+- Verify no custom components depend on attr forwarding
+
+#### 2. Empty-Looking Slot Forwards
+
+**Looks like:** Slot is just passed through without being used
+
+```vue
+<!-- DON'T remove slot forwards without analysis! -->
+<template>
+  <div>
+    <slot name="page-top" />  <!-- Looks unused -->
+    <Content />
+    <slot name="page-bottom" />  <!-- Looks unused -->
+  </div>
+</template>
+```
+
+**Why it's critical:**
+- Allows parent components to inject content into specific positions
+- Custom components may use these slots even if theme doesn't
+- VitePress plugins may inject content via slots
+
+**Before removing:**
+- Search for all uses of the slot: `grep -r "page-top" docs/`
+- Check theme config for slot usage
+- Test with and without the slot
+
+#### 3. Theme Configuration Overrides
+
+**Looks like:** Config option that doesn't seem to change anything
+
+```typescript
+// DON'T remove theme config without analysis!
+export default defineConfig({
+  themeConfig: {
+    // Looks unused but might be critical
+    layout: 'custom',
+    // Or other seemingly redundant options
+  }
+})
+```
+
+**Why it's critical:**
+- May control behavior not visible in simple testing
+- Might affect build output or static generation
+- Could be required by custom components or plugins
+
+**Before removing:**
+- Check VitePress documentation for option purpose
+- Test production build with and without option
+- Verify all pages build correctly
+
+#### 4. Import Statements That "Aren't Used"
+
+**Looks like:** Component imported but not directly used in template
+
+```typescript
+// DON'T remove imports without analysis!
+import NotFound from './NotFound.vue'  // Looks unused
+
+export default {
+  // But it's actually registered here:
+  components: { NotFound },
+  // Or used in theme config
+}
+```
+
+**Why it's critical:**
+- May be used in theme configuration
+- Could be dynamically imported
+- Might be used by VitePress internals
+
+**Before removing:**
+- Search for component usage in entire theme directory
+- Check if it's registered globally
+- Verify it's not used in theme config
+
+### Red Flags: Signs You Should NOT Remove Code
+
+🚩 **If you see these patterns, investigate thoroughly before removing:**
+
+1. **Attribute/Prop Forwarding:**
+   - `v-bind="$attrs"`
+   - `v-on="$listeners"`
+   - `...props` spreading in script
+
+2. **Slot Forwarding:**
+   - `<slot name="anything" />`
+   - Multiple slots in layout components
+   - Slot usage in theme files
+
+3. **Component Registration:**
+   - `app.component()` calls
+   - Components object in theme config
+   - Dynamic imports
+
+4. **Theme Configuration:**
+   - Layout property assignments
+   - Custom theme options
+   - Plugin configurations
+
+5. **VitePress-Specific Patterns:**
+   - `.vitepress/theme/` files
+   - `enhanceApp` function content
+   - Theme index.ts configurations
+
+### Verification Checklist: Before Removing Code
+
+When tempted to remove code, complete this checklist:
+
+- [ ] I checked git history to understand why code was added
+- [ ] I searched entire codebase for usage of this code
+- [ ] I traced slot/prop/event flow through component tree
+- [ ] I tested custom 404 page (if touching layout/theme)
+- [ ] I tested all custom pages/components
+- [ ] I ran production build successfully
+- [ ] I verified no console errors in browser
+- [ ] I checked theme configuration for dependencies
+- [ ] I reviewed VitePress docs for this pattern
+- [ ] I documented why removal is safe (or kept the code)
+
+**If you can't check ALL boxes, keep the code until you can.**
+
+### When in Doubt: ASK First
+
+**Better to ask than to break production:**
+
+- "Why does this `v-bind="$attrs"` exist in Layout.vue?"
+- "What components use this slot?"
+- "Is it safe to remove this import?"
+- "Does the 404 page depend on this code?"
+
+**Remember:** Restoring broken functionality takes much longer than asking a clarifying question.
+
+### Related Resources
+
+For detailed guidance on analyzing structural changes:
+- [Structural Changes Checklist](./workflow.md#8-structural-changes-checklist)
+- [Impact Analysis Guide](./impact-analysis.md)
+
+---
+
 ## File Operations
 
 - Claude prefers editing existing files over creating new ones
 - Claude uses Read tool before Edit tool
 - Claude validates changes after editing
+- Claude ALWAYS checks if code is safe to remove before removing it
 
 ## Contributing with Claude Code
 
