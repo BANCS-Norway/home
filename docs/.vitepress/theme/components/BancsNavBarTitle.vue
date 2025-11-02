@@ -53,11 +53,25 @@ const logoAlt = computed(() => {
       :rel="rel"
       :target="target"
     >
-      <picture v-if="theme.logo" class="logo">
-        <source :srcset="webpSrc" type="image/webp">
-        <img :src="pngSrc" :alt="logoAlt" width="48" height="48">
+      <picture
+        v-if="theme.logo"
+        class="logo"
+      >
+        <source
+          :srcset="webpSrc"
+          type="image/webp"
+        />
+        <img
+          :src="pngSrc"
+          :alt="logoAlt"
+          width="48"
+          height="48"
+        />
       </picture>
-      <span v-if="theme.siteTitle" v-html="theme.siteTitle"></span>
+      <span
+        v-if="theme.siteTitle"
+        v-html="theme.siteTitle"
+      />
       <span v-else-if="theme.siteTitle === undefined">{{ site.title }}</span>
     </a>
   </div>

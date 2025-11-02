@@ -43,7 +43,7 @@ export const bancsColors = {
 export default {
   extends: DefaultTheme,
 
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp({ app, router }) {
     // Register custom global components
     // app.component('CustomButton', CustomButton)
     // app.component('CodeExample', CodeExample)
@@ -57,7 +57,7 @@ export default {
       // Analytics tracking can be added here
     }
 
-    router.onAfterRouteChanged = (to) => {
+    router.onAfterRouteChanged = (_to) => {
       // Scroll to top on route change
       if (typeof window !== 'undefined') {
         window.scrollTo(0, 0)

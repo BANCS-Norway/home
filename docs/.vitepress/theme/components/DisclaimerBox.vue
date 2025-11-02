@@ -1,3 +1,18 @@
+<script setup lang="ts">
+// DisclaimerBox component - reusable disclaimer box for blog posts
+// Uses Tailwind CSS utilities for consistent styling
+// Supports light/dark mode automatically
+//
+// Props:
+// - type: 'claude' for default Claude disclaimer text, or omit to use custom text via slot
+//
+// The "Disclaimer:" label is always shown, only the content is customizable
+
+defineProps<{
+  type?: 'claude' | 'custom';
+}>();
+</script>
+
 <template>
   <div
     class="my-6 p-4 rounded-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/50 dark:border-blue-400 dark:shadow-lg dark:shadow-blue-500/10"
@@ -23,18 +38,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-// DisclaimerBox component - reusable disclaimer box for blog posts
-// Uses Tailwind CSS utilities for consistent styling
-// Supports light/dark mode automatically
-//
-// Props:
-// - type: 'claude' for default Claude disclaimer text, or omit to use custom text via slot
-//
-// The "Disclaimer:" label is always shown, only the content is customizable
-
-defineProps<{
-  type?: 'claude' | 'custom';
-}>();
-</script>

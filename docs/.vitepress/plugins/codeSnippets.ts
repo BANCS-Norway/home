@@ -12,7 +12,7 @@
 
 import type { Plugin } from 'vite'
 import { readFileSync } from 'fs'
-import { resolve, join } from 'path'
+import { resolve } from 'path'
 
 interface CodeSnippetOptions {
   root?: string
@@ -120,29 +120,29 @@ function detectLanguage(filePath: string): string {
   const ext = filePath.split('.').pop()?.toLowerCase() || ''
 
   const langMap: Record<string, string> = {
-    'ts': 'typescript',
-    'tsx': 'tsx',
-    'js': 'javascript',
-    'jsx': 'jsx',
-    'vue': 'vue',
-    'py': 'python',
-    'rs': 'rust',
-    'go': 'go',
-    'java': 'java',
-    'rb': 'ruby',
-    'php': 'php',
-    'sh': 'bash',
-    'bash': 'bash',
-    'zsh': 'bash',
-    'yaml': 'yaml',
-    'yml': 'yaml',
-    'json': 'json',
-    'md': 'markdown',
-    'css': 'css',
-    'scss': 'scss',
-    'html': 'html',
-    'xml': 'xml',
-    'sql': 'sql',
+    ts: 'typescript',
+    tsx: 'tsx',
+    js: 'javascript',
+    jsx: 'jsx',
+    vue: 'vue',
+    py: 'python',
+    rs: 'rust',
+    go: 'go',
+    java: 'java',
+    rb: 'ruby',
+    php: 'php',
+    sh: 'bash',
+    bash: 'bash',
+    zsh: 'bash',
+    yaml: 'yaml',
+    yml: 'yaml',
+    json: 'json',
+    md: 'markdown',
+    css: 'css',
+    scss: 'scss',
+    html: 'html',
+    xml: 'xml',
+    sql: 'sql',
   }
 
   return langMap[ext] || ext

@@ -1,19 +1,3 @@
-<template>
-  <div class="blog-heading mb-8">
-    <!-- Title with responsive wrapping at colon -->
-    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white border-0! pt-0! mt-0! leading-tight">
-      <span v-if="mainTitle">{{ mainTitle }}</span><span v-if="subtitle" class="block md:inline"><span class="hidden md:inline">: </span><span class="text-slate-700 dark:text-slate-300">{{ subtitle }}</span></span>
-    </h1>
-
-    <!-- Metadata -->
-    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-600 dark:text-slate-400">
-      <span v-if="publishDate"><strong>Published:</strong> {{ publishDate }}</span>
-      <span v-if="author"><strong>Author:</strong> {{ author }}</span>
-      <span v-if="readingTime"><strong>Reading Time:</strong> {{ readingTime }}</span>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 
@@ -50,3 +34,22 @@ const subtitle = computed(() => {
   return props.title.substring(colonIndex + 1).trim()
 })
 </script>
+
+<template>
+  <div class="blog-heading mb-8">
+    <!-- Title with responsive wrapping at colon -->
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white border-0! pt-0! mt-0! leading-tight">
+      <span v-if="mainTitle">{{ mainTitle }}</span><span
+        v-if="subtitle"
+        class="block md:inline"
+      ><span class="hidden md:inline">: </span><span class="text-slate-700 dark:text-slate-300">{{ subtitle }}</span></span>
+    </h1>
+
+    <!-- Metadata -->
+    <div class="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-600 dark:text-slate-400">
+      <span v-if="publishDate"><strong>Published:</strong> {{ publishDate }}</span>
+      <span v-if="author"><strong>Author:</strong> {{ author }}</span>
+      <span v-if="readingTime"><strong>Reading Time:</strong> {{ readingTime }}</span>
+    </div>
+  </div>
+</template>

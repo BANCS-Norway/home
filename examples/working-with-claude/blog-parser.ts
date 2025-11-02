@@ -118,7 +118,7 @@ export function parseBlogPost(markdown: string): BlogPost {
     title: frontmatter.title || 'Untitled',
     date: frontmatter.date || new Date().toISOString(),
     author: frontmatter.author || 'Anonymous',
-    content: content,
+    content,
     tags: frontmatter.tags || [],
     readingTime: calculateReadingTime(content)
   }
