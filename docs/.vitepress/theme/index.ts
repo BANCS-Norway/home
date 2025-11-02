@@ -16,6 +16,7 @@ import PostPreview from './components/PostPreview.vue'
 import RevealStamp from './components/RevealStamp.vue'
 import SeriesNav from './components/SeriesNav.vue'
 import HeroImage from './components/HeroImage.vue'
+import ImageAttribution from './components/ImageAttribution.vue'
 
 export default {
   extends: DefaultTheme,
@@ -38,5 +39,6 @@ export default {
     app.component('RevealStamp', RevealStamp)
     app.component('SeriesNav', SeriesNav)
     app.component('HeroImage', HeroImage)
+    app.component('ImageAttribution', ImageAttribution)
   }
 } satisfies Theme

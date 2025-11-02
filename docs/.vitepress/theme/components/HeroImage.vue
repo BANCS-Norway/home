@@ -28,7 +28,7 @@ const gradientClasses = computed(() => {
 })
 
 const containerClasses = computed(() => [
-  'w-full h-64 md:h-80 rounded-lg mb-8 overflow-hidden',
+  'w-full h-64 md:h-80 rounded-lg overflow-hidden',
   {
     'blur-md': props.blurred
   }
@@ -43,24 +43,31 @@ const imageClasses = computed(() => [
 </script>
 
 <template>
-  <div :class="containerClasses">
-    <!-- Real image if src provided -->
-    <img
-      v-if="src"
-      :src="src"
-      :alt="alt"
-      :class="imageClasses"
-      loading="lazy"
-    />
+  <div class="mb-8">
+    <div :class="containerClasses">
+      <!-- Real image if src provided -->
+      <img
+        v-if="src"
+        :src="src"
+        :alt="alt"
+        :class="imageClasses"
+        loading="lazy"
+      />
 
-    <!-- Gradient placeholder if no src -->
-    <div
-      v-else
-      :class="[gradientClasses, 'w-full h-full flex items-center justify-center']"
-    >
-      <div class="text-center text-white/50 font-mono text-sm px-4">
-        {{ alt }}
+      <!-- Gradient placeholder if no src -->
+      <div
+        v-else
+        :class="[gradientClasses, 'w-full h-full flex items-center justify-center']"
+      >
+        <div class="text-center text-white/50 font-mono text-sm px-4">
+          {{ alt }}
+        </div>
       </div>
+    </div>
+
+    <!-- Attribution slot -->
+    <div v-if="$slots.default" class="text-xs text-gray-500 dark:text-gray-400 italic mt-2 text-center">
+      <slot />
     </div>
   </div>
 </template>
