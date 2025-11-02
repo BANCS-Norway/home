@@ -79,8 +79,9 @@ export default [
     rules: {
       // Vue specific rules
       'vue/multi-word-component-names': 'warn',
-      // TODO: Investigate safer alternatives (#137)
-      // Currently disabled: v-html used safely for trusted VitePress config data only
+      // v-html allowed following official VitePress pattern for theme components
+      // Usage is safe: only trusted build-time config data (theme.siteTitle)
+      // Investigation: docs-internal/v-html-investigation.md (#137)
       'vue/no-v-html': 'off',
       'vue/require-default-prop': 'off',
       'vue/require-explicit-emits': 'warn',

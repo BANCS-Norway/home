@@ -68,6 +68,11 @@ const logoAlt = computed(() => {
           height="48"
         />
       </picture>
+      <!-- Using v-html to match official VitePress pattern for siteTitle rendering.
+           This is safe because theme.siteTitle comes from config.ts (build-time only).
+           No XSS risk: value is developer-controlled and set at build time, not from user input.
+           Reference: https://github.com/vuejs/vitepress/pull/4308
+           Investigation: docs-internal/v-html-investigation.md -->
       <span
         v-if="theme.siteTitle"
         v-html="theme.siteTitle"
