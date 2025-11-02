@@ -12,6 +12,10 @@ import DisclaimerBox from './components/DisclaimerBox.vue'
 import GradientCTA from './components/GradientCTA.vue'
 import BlogHeading from './components/BlogHeading.vue'
 import InfoSection from './components/InfoSection.vue'
+import PostPreview from './components/PostPreview.vue'
+import RevealStamp from './components/RevealStamp.vue'
+import SeriesNav from './components/SeriesNav.vue'
+import HeroImage from './components/HeroImage.vue'
 
 export default {
   extends: DefaultTheme,
@@ -30,5 +34,9 @@ export default {
     app.component('GradientCTA', GradientCTA)
     app.component('BlogHeading', BlogHeading)
     app.component('InfoSection', InfoSection)
+    app.component('PostPreview', PostPreview)
+    app.component('RevealStamp', RevealStamp)
+    app.component('SeriesNav', SeriesNav)
+    app.component('HeroImage', HeroImage)
   }
 } satisfies Theme
