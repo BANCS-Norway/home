@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/BANCS-Norway/home/compare/v1.12.0...v1.13.0) (2025-11-02)
+
+
+### Features
+
+* **blog:** complete Post 2 workflow with diagram for [#105](https://github.com/BANCS-Norway/home/issues/105) ([fb4d88e](https://github.com/BANCS-Norway/home/commit/fb4d88e3729bc6bdca45af531704e37dc746ddef)), closes [#96](https://github.com/BANCS-Norway/home/issues/96) [#99](https://github.com/BANCS-Norway/home/issues/99)
+
 # [1.12.0](https://github.com/BANCS-Norway/home/compare/v1.11.0...v1.12.0) (2025-11-02)
 
 
