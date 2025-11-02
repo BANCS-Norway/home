@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/BANCS-Norway/home/compare/v1.10.0...v1.11.0) (2025-11-02)
+
+
+### Features
+
+* create Claude Code Chronicles series landing page ([34d2a83](https://github.com/BANCS-Norway/home/commit/34d2a83ee2ae66addb0312d46b3d44c8818506b1)), closes [#103](https://github.com/BANCS-Norway/home/issues/103)
+
 # [1.10.0](https://github.com/BANCS-Norway/home/compare/v1.9.2...v1.10.0) (2025-11-02)
 
 
