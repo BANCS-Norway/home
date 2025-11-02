@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/BANCS-Norway/home/compare/v1.9.1...v1.9.2) (2025-11-02)
+
+
+### Bug Fixes
+
+* resolve npm ci lockfile validation errors in GitHub Actions ([b3d2c7d](https://github.com/BANCS-Norway/home/commit/b3d2c7d3408081784bfbfe9d4039b91077cc0fea)), closes [#141](https://github.com/BANCS-Norway/home/issues/141)
+
 ## [1.9.1](https://github.com/BANCS-Norway/home/compare/v1.9.0...v1.9.1) (2025-10-29)
 
 
