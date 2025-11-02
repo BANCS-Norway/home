@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/BANCS-Norway/home/compare/v1.14.0...v1.15.0) (2025-11-02)
+
+
+### Features
+
+* **blog:** add image attribution system with reusable component ([f5a4bb8](https://github.com/BANCS-Norway/home/commit/f5a4bb8b53edc91e398d51956dc3e0bc7b6a92c0)), closes [#145](https://github.com/BANCS-Norway/home/issues/145)
+
 # [1.14.0](https://github.com/BANCS-Norway/home/compare/v1.13.0...v1.14.0) (2025-11-02)
 
 
