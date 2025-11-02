@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/BANCS-Norway/home/compare/v1.13.0...v1.14.0) (2025-11-02)
+
+
+### Features
+
+* **blog:** complete Post 3 collective with hero image for [#106](https://github.com/BANCS-Norway/home/issues/106) ([aba4054](https://github.com/BANCS-Norway/home/commit/aba40544e616405ca4ce33971727cf748eb42f0b))
+
 # [1.13.0](https://github.com/BANCS-Norway/home/compare/v1.12.0...v1.13.0) (2025-11-02)
 
 
