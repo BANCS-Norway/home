@@ -1,0 +1,121 @@
+<svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .center-circle { fill: #8B5CF6; stroke: #6D28D9; stroke-width: 3; }
+      .step-circle { fill: #4A90E2; stroke: #2E5C8A; stroke-width: 2; }
+      .human-circle { fill: #E8F4F8; stroke: #4A90E2; stroke-width: 2; }
+      .claude-circle { fill: #F0E6FF; stroke: #8B5CF6; stroke-width: 2; }
+      .title-text { font-family: Arial, sans-serif; font-size: 28px; font-weight: bold; fill: #1F2937; }
+      .center-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+      .step-number { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+      .step-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #1F2937; text-anchor: middle; }
+      .step-desc { font-family: Arial, sans-serif; font-size: 11px; fill: #4B5563; text-anchor: middle; }
+      .arrow-path { stroke: #9CA3AF; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .cycle-path { stroke: #F59E0B; stroke-width: 4; fill: none; marker-end: url(#arrowhead-cycle); }
+      .subtitle { font-family: Arial, sans-serif; font-size: 14px; fill: #6B7280; text-anchor: middle; }
+    </style>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#9CA3AF" />
+    </marker>
+    <marker id="arrowhead-cycle" markerWidth="12" markerHeight="12" refX="10" refY="3" orient="auto">
+      <polygon points="0 0, 12 3, 0 6" fill="#F59E0B" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="40" class="title-text">The Claude Code Cycle</text>
+  <text x="450" y="65" class="subtitle">Building Your Stalactite, Drop by Drop</text>
+
+  <!-- Center Circle - The Hive Mind -->
+  <circle cx="450" cy="450" r="100" class="center-circle"/>
+  <text x="450" y="440" class="center-text">GitHub</text>
+  <text x="450" y="465" class="center-text">Issues</text>
+  <text x="450" y="485" class="subtitle">The Hive Mind</text>
+
+  <!-- Step 1: Top - Create Issue (12 o'clock) -->
+  <circle cx="450" cy="170" r="70" class="human-circle"/>
+  <text x="450" y="160" class="step-number">1</text>
+  <text x="450" y="180" class="step-title">Create</text>
+  <text x="450" y="195" class="step-title">Issue</text>
+  <path d="M 450 240 L 450 340" class="arrow-path"/>
+  <text x="470" y="280" class="step-desc">"Create an issue"</text>
+  <text x="470" y="295" class="step-desc">for this problem</text>
+
+  <!-- Step 2: Upper Right - Work in Batches (2 o'clock) -->
+  <circle cx="650" cy="250" r="70" class="claude-circle"/>
+  <text x="650" y="240" class="step-number">2</text>
+  <text x="650" y="260" class="step-title">Work in</text>
+  <text x="650" y="275" class="step-title">Batches</text>
+  <path d="M 590 290 L 510 390" class="arrow-path"/>
+  <text x="560" y="330" class="step-desc">Work on 2-3</text>
+  <text x="560" y="345" class="step-desc">tasks at a time</text>
+
+  <!-- Step 3: Lower Right - Review & Commit (4 o'clock) -->
+  <circle cx="650" cy="450" r="70" class="human-circle"/>
+  <text x="650" y="440" class="step-number">3</text>
+  <text x="650" y="460" class="step-title">Review &</text>
+  <text x="650" y="475" class="step-title">Commit</text>
+  <path d="M 580 450 L 560 450" class="arrow-path"/>
+  <text x="600" y="435" class="step-desc">Fine-tune</text>
+  <text x="600" y="450" class="step-desc">& commit</text>
+
+  <!-- Cycle Arrow from 3 back to 2 -->
+  <path d="M 650 380 Q 720 365 720 250" class="cycle-path"/>
+  <text x="740" y="320" class="step-desc" fill="#F59E0B" font-weight="bold">Repeat</text>
+  <text x="740" y="335" class="step-desc" fill="#F59E0B">until</text>
+  <text x="740" y="350" class="step-desc" fill="#F59E0B">done</text>
+
+  <!-- Step 4: Lower - Squash Commits (6 o'clock) -->
+  <circle cx="450" cy="650" r="70" class="claude-circle"/>
+  <text x="450" y="640" class="step-number">4</text>
+  <text x="450" y="660" class="step-title">Squash</text>
+  <text x="450" y="675" class="step-title">Commits</text>
+  <path d="M 590 490 L 490 590" class="arrow-path"/>
+  <text x="560" y="535" class="step-desc">Clean up</text>
+  <text x="560" y="550" class="step-desc">git history</text>
+
+  <!-- Step 5: Lower Left - Create PR (8 o'clock) -->
+  <circle cx="250" cy="650" r="70" class="claude-circle"/>
+  <text x="250" y="640" class="step-number">5</text>
+  <text x="250" y="660" class="step-title">Create</text>
+  <text x="250" y="675" class="step-title">PR</text>
+  <path d="M 380 650 L 320 650" class="arrow-path"/>
+  <text x="350" y="640" class="step-desc">Push &</text>
+  <text x="350" y="655" class="step-desc">create PR</text>
+
+  <!-- Step 6: Left - Merge & Update (10 o'clock) -->
+  <circle cx="250" cy="450" r="70" class="human-circle"/>
+  <text x="250" y="440" class="step-number">6</text>
+  <text x="250" y="460" class="step-title">Merge &</text>
+  <text x="250" y="475" class="step-title">Update</text>
+  <path d="M 250 580 L 250 520" class="arrow-path"/>
+  <text x="220" y="550" class="step-desc">Merge PR,</text>
+  <text x="220" y="565" class="step-desc">update issue</text>
+
+  <!-- Arrow from 6 back to center/start -->
+  <path d="M 310 400 L 390 330" class="arrow-path"/>
+  <text x="320" y="360" class="step-desc">Issue updated,</text>
+  <text x="320" y="375" class="step-desc">ready for next</text>
+
+  <!-- Connection lines to center (representing hive mind connection) -->
+  <line x1="450" y1="240" x2="450" y2="350" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="580" y1="280" x2="510" y2="380" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="580" y1="450" x2="550" y2="450" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="490" y1="580" x2="470" y2="540" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="320" y1="620" x2="380" y2="520" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+  <line x1="320" y1="450" x2="350" y2="450" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+
+  <!-- Bottom annotation -->
+  <rect x="100" y="780" width="700" height="90" rx="8" fill="#FFF4E6" stroke="#F59E0B" stroke-width="2"/>
+  <text x="450" y="810" class="step-title" fill="#F59E0B">6 Simple Prompts → Complete Development Cycle</text>
+  <text x="450" y="835" class="step-desc">Each cycle deposits knowledge. Each drop builds the stalactite.</text>
+  <text x="450" y="855" class="step-desc">Zero manual bookkeeping. The collective consciousness grows automatically.</text>
+
+  <!-- Legend -->
+  <circle cx="80" cy="840" r="12" class="human-circle"/>
+  <text x="100" y="845" class="step-desc" text-anchor="start">You prompt</text>
+  
+  <circle cx="220" cy="840" r="12" class="claude-circle"/>
+  <text x="240" y="845" class="step-desc" text-anchor="start">Claude works</text>
+</svg>
