@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/BANCS-Norway/home/compare/v1.9.2...v1.10.0) (2025-11-02)
+
+
+### Features
+
+* implement Chronicles reveal system with Tailwind CSS ([f2c8804](https://github.com/BANCS-Norway/home/commit/f2c88044d21e13c9259d103ac038f8df1bf853d5)), closes [#102](https://github.com/BANCS-Norway/home/issues/102)
+
 ## [1.9.2](https://github.com/BANCS-Norway/home/compare/v1.9.1...v1.9.2) (2025-11-02)
 
 
