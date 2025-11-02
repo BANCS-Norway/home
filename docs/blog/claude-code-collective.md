@@ -15,7 +15,7 @@
 
 <PostPreview blurred>
   <template #stamp>
-    <RevealStamp date="Monday, November 25th" />
+    <RevealStamp date="Tuesday, November 25th" />
   </template>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.
@@ -45,7 +45,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
 
 ---
 
-📅 **Publishing Date:** Monday, November 25th, 2025
+📅 **Publishing Date:** Tuesday, November 25th, 2025
 
 🔙 [Back to Series Overview](/blog/claude-code-chronicles)
 

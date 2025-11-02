@@ -6,6 +6,19 @@ Welcome to the BANCS blog, where we share insights about software development, A
 
 <BlogCard>
 
+### [The Claude Code Chronicles - Chapter 1](/blog/claude-code-chronicles)
+**Date**: November 2, 2025
+
+A three-part series revealing the power of distributed AI development. Discover how GitHub Issues become persistent memory, enabling multiple Claude sessions to coordinate without talking. Staggered reveal: Nov 4, 11, and 25.
+
+**Topics**: Claude Code, AI Development, Distributed Systems, GitHub Workflow
+
+[Read more →](/blog/claude-code-chronicles)
+
+</BlogCard>
+
+<BlogCard>
+
 ### [The Pause Isn't Procrastination - It's Part of Your Process](/blog/pause-not-procrastination)
 **Date**: October 26, 2025
 

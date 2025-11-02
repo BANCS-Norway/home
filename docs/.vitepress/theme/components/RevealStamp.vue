@@ -5,15 +5,18 @@ interface Props {
   date: string
   text?: string
   variant?: 'default' | 'banner' | 'minimal' | 'vintage'
+  relative?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   text: 'WILL BE REVEALED',
   variant: 'default',
+  relative: false,
 })
 
 // Base classes for all stamps
-const baseClasses = 'fixed left-1/2 z-20 pointer-events-none text-center'
+const positionType = props.relative ? 'absolute' : 'fixed'
+const baseClasses = `${positionType} left-1/2 z-20 pointer-events-none text-center`
 const topPosition = 'top-1/2'
 
 // Variant-specific classes
