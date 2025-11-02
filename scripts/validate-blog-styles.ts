@@ -75,7 +75,7 @@ function getAllMarkdownFiles(dir: string): string[] {
         files.push(fullPath)
       }
     }
-  } catch (error) {
+  } catch {
     // Directory doesn't exist or can't be read
   }
 

@@ -21,7 +21,7 @@ export default {
       'not-found': () => h(NotFound)
     })
   },
-  enhanceApp({ app, router, siteData }) {
+  enhanceApp({ app }) {
     // Register global components
     app.component('ProjectCard', ProjectCard)
     app.component('BlogCard', BlogCard)

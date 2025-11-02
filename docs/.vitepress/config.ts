@@ -6,7 +6,7 @@ import { codeSnippetsPlugin } from './plugins/codeSnippets'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const __root = join(__dirname, '../..')
-const packageJson = JSON.parse(
+const _packageJson = JSON.parse(
   readFileSync(join(__dirname, '../../package.json'), 'utf-8')
 )
 

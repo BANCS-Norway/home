@@ -1,3 +1,7 @@
+<script setup lang="ts">
+// Custom 404 page component
+</script>
+
 <template>
   <div class="flex items-center justify-center min-h-[60vh] px-6 py-16 sm:py-24 text-center">
     <div class="max-w-3xl mx-auto">
@@ -61,7 +65,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-// Custom 404 page component
-</script>

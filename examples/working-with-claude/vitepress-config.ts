@@ -106,7 +106,7 @@ export default defineConfig({
     lineNumbers: true,
 
     // Code block configuration
-    config: (md) => {
+    config: (_md) => {
       // Custom markdown-it plugins can be added here
     }
   },
@@ -122,7 +122,7 @@ export default defineConfig({
   },
 
   // Build hooks
-  async buildEnd(siteConfig) {
+  async buildEnd(_siteConfig) {
     // Custom build logic can be added here
     console.log('Build completed successfully!')
   }

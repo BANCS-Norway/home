@@ -236,6 +236,7 @@ Brief description of your post (1-2 sentences).
 - Include JSDoc comments
 - Add error handling
 - Write runnable examples
+- Pass ESLint checks (`npm run lint`)
 
 **Content**:
 - Keep it technical and professional
@@ -266,6 +267,7 @@ This will check that your blog post:
 - Doesn't use custom styles or typography
 - Follows the site's design guidelines
 - Uses only allowed markdown and VitePress components
+- Passes ESLint code quality checks
 
 ### 7. Submit Pull Request
 
@@ -290,6 +292,76 @@ Create a PR with:
   - [ ] No spelling/grammar errors
   - [ ] Author bio included
   ```
+
+## Code Quality and Linting
+
+This project uses ESLint to ensure consistent code quality across all TypeScript, JavaScript, and Vue files.
+
+### Running the Linter
+
+**Check for issues:**
+```bash
+npm run lint
+```
+
+**Auto-fix issues:**
+```bash
+npm run lint:fix
+```
+
+### Pre-commit Hooks
+
+ESLint runs automatically before every commit via husky pre-commit hooks. If linting fails, the commit will be blocked until issues are fixed.
+
+### IDE Setup (Recommended)
+
+For the best development experience, configure your IDE to show ESLint warnings in real-time:
+
+**VS Code:**
+1. Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+2. ESLint will automatically use the project's `eslint.config.ts`
+3. Errors and warnings will appear as you type
+
+**Other IDEs:**
+- Most modern IDEs support ESLint
+- Configure them to use the project root's `eslint.config.ts`
+
+### Linting Rules
+
+The project uses:
+- **ESLint v9+** with flat config
+- **typescript-eslint** for TypeScript support
+- **eslint-plugin-vue** for Vue 3 components
+
+**Key rules:**
+- Prefer `const` over `let`, never use `var`
+- Use TypeScript types (warnings for `any`)
+- Minimize console.log (use `console.warn` or `console.error` for intentional logging)
+- Follow Vue 3 best practices for components
+
+**Relaxed rules for:**
+- Config files (`*.config.js/ts`)
+- Test files (`*.test.ts`, `*.spec.ts`)
+- Example files (`examples/**`, `scripts/**`)
+
+### Handling Linting Errors
+
+**If you see linting errors:**
+
+1. Run `npm run lint:fix` to auto-fix simple issues
+2. Review remaining issues and fix manually
+3. If a rule seems incorrect for your use case:
+   - Add an inline comment to disable it with justification
+   - Discuss with maintainers if it should be changed globally
+
+**Example of inline disable:**
+```typescript
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function legacyCode(data: any) {
+  // Temporary: interfacing with untyped legacy API
+  // TODO: Add proper types once API is documented
+}
+```
 
 ## Code Contributions
 
