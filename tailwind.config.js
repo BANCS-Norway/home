@@ -19,7 +19,22 @@ export default {
       },
       fontFamily: {
         mono: ['"JetBrains Mono"', 'monospace'],
-      }
+      },
+      keyframes: {
+        reveal: {
+          'from': {
+            filter: 'blur(5px)',
+            opacity: '0.7',
+          },
+          'to': {
+            filter: 'blur(0)',
+            opacity: '1',
+          },
+        },
+      },
+      animation: {
+        reveal: 'reveal 0.8s ease-out',
+      },
     },
   },
   plugins: [],
