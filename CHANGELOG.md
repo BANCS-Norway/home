@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/BANCS-Norway/home/compare/v1.11.0...v1.12.0) (2025-11-02)
+
+
+### Features
+
+* **blog:** complete Post 1 stalactite with hero image for [#104](https://github.com/BANCS-Norway/home/issues/104) ([ab93619](https://github.com/BANCS-Norway/home/commit/ab936191a77c3357a126a2a262019518dc80f9c5))
+
 # [1.11.0](https://github.com/BANCS-Norway/home/compare/v1.10.0...v1.11.0) (2025-11-02)
 
 
