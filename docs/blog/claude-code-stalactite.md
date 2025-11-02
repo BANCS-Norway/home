@@ -17,7 +17,14 @@ date: 2025-11-04
   src="/images/blog/chronicles/pexels-paulseling-12275644.jpg"
   alt="Crystal formations representing persistent knowledge accumulation"
   blurred
-/>
+>
+  <ImageAttribution
+    author="Paul Seling"
+    authorUrl="https://www.pexels.com/@paulseling/"
+    source="Pexels"
+    sourceUrl="https://www.pexels.com/"
+  />
+</HeroImage>
 
 <PostPreview blurred>
   <template #stamp>

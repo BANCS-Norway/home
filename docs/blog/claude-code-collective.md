@@ -11,7 +11,14 @@
   src="/images/blog/chronicles/the borg collective.jpg"
   alt="The Borg Collective - distributed AI consciousness"
   blurred
-/>
+>
+  <ImageAttribution
+    author="Basile Morin"
+    authorUrl="https://commons.wikimedia.org/w/index.php?curid=68889807"
+    license="CC BY-SA 4.0"
+    licenseUrl="https://creativecommons.org/licenses/by-sa/4.0/"
+  />
+</HeroImage>
 
 <PostPreview blurred>
   <template #stamp>
