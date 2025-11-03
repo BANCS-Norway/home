@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/BANCS-Norway/home/compare/v1.19.0...v1.20.0) (2025-11-03)
+
+
+### Features
+
+* add DisclaimerBox and attribution to Chronicles posts ([af929fb](https://github.com/BANCS-Norway/home/commit/af929fb5845cf31311de38ae63bf931661e48208)), closes [#154](https://github.com/BANCS-Norway/home/issues/154)
+
 # [1.19.0](https://github.com/BANCS-Norway/home/compare/v1.18.0...v1.19.0) (2025-11-03)
 
 
