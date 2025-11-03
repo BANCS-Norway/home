@@ -1,16 +1,69 @@
 <script setup lang="ts">
+/**
+ * HeroImage Component
+ *
+ * Displays hero images with automatic responsive image support.
+ * Follows naming conventions to generate picture elements with WebP and @2x variants.
+ *
+ * Convention:
+ * - Base image: /path/to/image.jpg
+ * - WebP variant: /path/to/image.webp
+ * - Retina JPEG: /path/to/image@2x.jpg
+ * - Retina WebP: /path/to/image@2x.webp
+ *
+ * The component automatically generates a <picture> element with all variants.
+ * Browser gracefully falls back if variants don't exist.
+ *
+ * @example
+ * <HeroImage
+ *   src="/images/blog/my-post.jpg"
+ *   alt="Description"
+ *   blurred
+ * >
+ *   <ImageAttribution author="..." />
+ * </HeroImage>
+ */
 import { computed } from 'vue'
 
 interface Props {
+  /** Path to the base image file (e.g., /images/photo.jpg) */
   src?: string
+  /** Alternative text for accessibility */
   alt: string
+  /** Apply blur effect to the image */
   blurred?: boolean
+  /** Gradient background for placeholder (when no src provided) */
   gradient?: 'crystal' | 'workflow' | 'collective'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   blurred: false,
   gradient: 'crystal'
+})
+
+/**
+ * Generate responsive image sources based on naming conventions.
+ * Always generates responsive sources when src is provided.
+ *
+ * Convention:
+ * - filename.jpg → filename.webp, filename@2x.jpg, filename@2x.webp
+ */
+const imageSources = computed(() => {
+  if (!props.src) {
+    return null
+  }
+
+  // Extract base path and extension
+  const lastDotIndex = props.src.lastIndexOf('.')
+  const basePath = props.src.substring(0, lastDotIndex)
+  const ext = props.src.substring(lastDotIndex) // includes the dot
+
+  return {
+    webp: `${basePath}.webp`,
+    webp2x: `${basePath}@2x.webp`,
+    base: props.src,
+    base2x: `${basePath}@2x${ext}`
+  }
 })
 
 // Gradient backgrounds for placeholder images
@@ -45,14 +98,20 @@ const imageClasses = computed(() => [
 <template>
   <div class="mb-8">
     <div :class="containerClasses">
-      <!-- Real image if src provided -->
-      <img
-        v-if="src"
-        :src="src"
-        :alt="alt"
-        :class="imageClasses"
-        loading="lazy"
-      />
+      <!-- Responsive picture element with WebP and @2x support -->
+      <picture v-if="imageSources">
+        <source
+          :srcset="`${imageSources.webp} 1x, ${imageSources.webp2x} 2x`"
+          type="image/webp"
+        />
+        <img
+          :src="imageSources.base"
+          :srcset="`${imageSources.base} 1x, ${imageSources.base2x} 2x`"
+          :alt="alt"
+          :class="imageClasses"
+          loading="lazy"
+        />
+      </picture>
 
       <!-- Gradient placeholder if no src -->
       <div
