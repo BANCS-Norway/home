@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/BANCS-Norway/home/compare/v1.16.1...v1.17.0) (2025-11-03)
+
+
+### Features
+
+* add responsive image support to HeroImage component ([9c73eed](https://github.com/BANCS-Norway/home/commit/9c73eedfc604e7ec0ba221802c6c2b90ae865477)), closes [#149](https://github.com/BANCS-Norway/home/issues/149)
+
 ## [1.16.1](https://github.com/BANCS-Norway/home/compare/v1.16.0...v1.16.1) (2025-11-03)
 
 
