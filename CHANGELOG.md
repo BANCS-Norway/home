@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/BANCS-Norway/home/compare/v1.17.0...v1.18.0) (2025-11-03)
+
+
+### Features
+
+* add metadata to Chronicles landing page ([17b436e](https://github.com/BANCS-Norway/home/commit/17b436e068054afae2acc43f8c019902c0ce5b9e)), closes [#152](https://github.com/BANCS-Norway/home/issues/152)
+
 # [1.17.0](https://github.com/BANCS-Norway/home/compare/v1.16.1...v1.17.0) (2025-11-03)
 
 
