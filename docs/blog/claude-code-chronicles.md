@@ -15,6 +15,8 @@ hero:
 
 <BlogHeading />
 
+<DisclaimerBox type="claude" />
+
 **When one AI becomes many, and GitHub Issues become persistent memory**
 
 ## The Discovery
@@ -161,6 +163,10 @@ All posts are bookmarkable now. Content reveals progressively.
 - Check out [our existing blog posts](/blog/) on AI development
 - Explore the [BANCS project](/) to see this system in action
 - Read the [open-source documentation](https://github.com/BANCS-Norway/home) that makes it work
+
+---
+
+**Attribution**: This blog post was co-written with [Claude](https://claude.ai) (Chat for ideation and outline, Code for assembly and refinement). The experiences, insights, and creative direction are human; the execution and polish are collaborative.
 
 ---
 
