@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/BANCS-Norway/home/compare/v1.18.0...v1.19.0) (2025-11-03)
+
+
+### Features
+
+* implement dynamic blog post loading ([25d541b](https://github.com/BANCS-Norway/home/commit/25d541bd5144900aa71da7190fa86e5c4221de42)), closes [#97](https://github.com/BANCS-Norway/home/issues/97)
+
 # [1.18.0](https://github.com/BANCS-Norway/home/compare/v1.17.0...v1.18.0) (2025-11-03)
 
 
