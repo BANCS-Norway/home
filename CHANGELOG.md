@@ -1,3 +1,10 @@
+## [1.16.1](https://github.com/BANCS-Norway/home/compare/v1.16.0...v1.16.1) (2025-11-03)
+
+
+### Bug Fixes
+
+* **blog:** add responsive images to pause-not-procrastination post ([14ccd36](https://github.com/BANCS-Norway/home/commit/14ccd369eb43e542ce7c15975e04fe205770956a)), closes [#156](https://github.com/BANCS-Norway/home/issues/156)
+
 # [1.16.0](https://github.com/BANCS-Norway/home/compare/v1.15.0...v1.16.0) (2025-11-03)
 
 
