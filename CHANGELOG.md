@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/BANCS-Norway/home/compare/v1.15.0...v1.16.0) (2025-11-03)
+
+
+### Features
+
+* add hero image to Chronicles landing page ([0ae835a](https://github.com/BANCS-Norway/home/commit/0ae835ae254854dea126bcce8e316480c7930938)), closes [#151](https://github.com/BANCS-Norway/home/issues/151)
+
 # [1.15.0](https://github.com/BANCS-Norway/home/compare/v1.14.0...v1.15.0) (2025-11-02)
 
 
