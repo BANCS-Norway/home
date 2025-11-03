@@ -1,30 +1,20 @@
 ---
 title: Why Claude Code is a Stalactite (And Why That Matters)
+subtitle: Part 1 of The Claude Code Chronicles
 description: Part 1 of The Claude Code Chronicles - Understanding persistent knowledge accumulation
 date: 2025-11-04
+readingTime: 8
+hero:
+  image: /images/blog/chronicles/pexels-paulseling-12275644.jpg
+  alt: Crystal formations representing persistent knowledge accumulation
+  attribution:
+    author: Paul Seling
+    authorUrl: https://www.pexels.com/@paulseling/
+    source: Pexels
+    sourceUrl: https://www.pexels.com/
 ---
 
-<BlogHeading
-  title="Why Claude Code is a Stalactite (And Why That Matters)"
-  subtitle="Part 1 of The Claude Code Chronicles"
-  publishDate="November 4, 2025"
-  readingTime="8 minutes"
-/>
-
----
-
-<HeroImage
-  src="/images/blog/chronicles/pexels-paulseling-12275644.jpg"
-  alt="Crystal formations representing persistent knowledge accumulation"
-  blurred
->
-  <ImageAttribution
-    author="Paul Seling"
-    authorUrl="https://www.pexels.com/@paulseling/"
-    source="Pexels"
-    sourceUrl="https://www.pexels.com/"
-  />
-</HeroImage>
+<BlogHeading />
 
 <PostPreview blurred>
   <template #stamp>

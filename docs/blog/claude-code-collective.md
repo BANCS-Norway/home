@@ -1,24 +1,20 @@
-<BlogHeading
-  title="The Collective - When One Claude Becomes Many"
-  subtitle="Part 3 of The Claude Code Chronicles"
-  publishDate="November 25, 2025"
-  readingTime="10 minutes"
-/>
-
+---
+title: The Collective - When One Claude Becomes Many
+subtitle: Part 3 of The Claude Code Chronicles
+description: Part 3 of The Claude Code Chronicles - When multiple Claude sessions coordinate through GitHub to build complex systems
+date: 2025-11-25
+readingTime: 10
+hero:
+  image: /images/blog/chronicles/the borg collective.jpg
+  alt: The Borg Collective - distributed AI consciousness
+  attribution:
+    author: Basile Morin
+    authorUrl: https://commons.wikimedia.org/w/index.php?curid=68889807
+    license: CC BY-SA 4.0
+    licenseUrl: https://creativecommons.org/licenses/by-sa/4.0/
 ---
 
-<HeroImage
-  src="/images/blog/chronicles/the borg collective.jpg"
-  alt="The Borg Collective - distributed AI consciousness"
-  blurred
->
-  <ImageAttribution
-    author="Basile Morin"
-    authorUrl="https://commons.wikimedia.org/w/index.php?curid=68889807"
-    license="CC BY-SA 4.0"
-    licenseUrl="https://creativecommons.org/licenses/by-sa/4.0/"
-  />
-</HeroImage>
+<BlogHeading />
 
 <PostPreview blurred>
   <template #stamp>

@@ -1,29 +1,19 @@
-<BlogHeading
-  title="The Pause Isn't Procrastination - It's Part of Your Process"
-  publishDate="October 26, 2025"
-  readingTime="12 minutes"
-/>
-
+---
+title: The Pause Isn't Procrastination - It's Part of Your Process
+description: A meditation on creativity, AI, and the wisdom of stepping away
+date: 2025-10-26
+readingTime: 12
+hero:
+  image: /images/ripples-grayscale.jpg
+  alt: Ripples in calm water
+  attribution:
+    author: Pixabay
+    source: Pexels
+    sourceUrl: https://www.pexels.com/
+    modifications: grayscale adjustment by Claude
 ---
 
-*A meditation on creativity, AI, and the wisdom of stepping away*
-
-<picture>
-  <source
-    srcset="/images/ripples-grayscale.webp 1x, /images/ripples-grayscale@2x.webp 2x"
-    type="image/webp"
-  />
-  <img
-    src="/images/ripples-grayscale.jpg"
-    srcset="/images/ripples-grayscale.jpg 1x, /images/ripples-grayscale@2x.jpg 2x"
-    alt="Ripples in calm water"
-    loading="lazy"
-    width="2000"
-    height="1129"
-  />
-</picture>
-
-*Photo by Pixabay from Pexels, grayscale adjustment by Claude*
+<BlogHeading />
 
 <DisclaimerBox type="claude" />
 

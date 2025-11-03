@@ -1,27 +1,19 @@
-<BlogHeading
-  title="From Problem-Solver to Systems Builder: My Claude Code Transformation"
-  publishDate="September 2024"
-  readingTime="7 minutes"
-/>
-
-<picture>
-  <source
-    srcset="/images/problem-solver-header.webp 1x, /images/problem-solver-header@2x.webp 2x"
-    type="image/webp"
-  />
-  <img
-    src="/images/problem-solver-header.jpg"
-    srcset="/images/problem-solver-header.jpg 1x, /images/problem-solver-header@2x.jpg 2x"
-    alt="Aerial view of Arctic river delta in black and grey, representing transformation and systems thinking"
-    loading="lazy"
-    width="960"
-    height="720"
-  />
-</picture>
-
-*Photo by [Jeremy Bishop](https://www.pexels.com/@jeremy-bishop-1260133/) on [Pexels](https://www.pexels.com/)*
-
 ---
+title: From Problem-Solver to Systems Builder - My Claude Code Transformation
+description: How Claude Code transformed me from solving individual problems to building systematic frameworks that enable entire teams
+date: 2024-09-01
+readingTime: 7
+hero:
+  image: /images/problem-solver-header.jpg
+  alt: Aerial view of Arctic river delta in black and grey, representing transformation and systems thinking
+  attribution:
+    author: Jeremy Bishop
+    authorUrl: https://www.pexels.com/@jeremy-bishop-1260133/
+    source: Pexels
+    sourceUrl: https://www.pexels.com/
+---
+
+<BlogHeading />
 
 *This post itself was crafted through the collaborative process I'm describing*
 
