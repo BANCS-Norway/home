@@ -4,6 +4,18 @@ description: A three-part series revealing the power of distributed AI developme
 date: 2025-11-02
 ---
 
+<HeroImage
+  src="/images/blog/chronicles/landing-hero-reveal.jpg"
+  alt="Progressive reveal - symbolizing the staggered content disclosure of the Chronicles series"
+>
+  <ImageAttribution
+    author="Daria Nekipelova"
+    authorUrl="https://www.pexels.com/@daria-nekipelova-112078039/"
+    source="Pexels"
+    sourceUrl="https://www.pexels.com/"
+  />
+</HeroImage>
+
 # The Claude Code Chronicles - Chapter 1
 
 **When one AI becomes many, and GitHub Issues become persistent memory**
