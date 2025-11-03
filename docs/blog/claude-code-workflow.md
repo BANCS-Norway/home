@@ -11,6 +11,8 @@ hero:
 
 <BlogHeading />
 
+<DisclaimerBox type="claude" />
+
 <PostPreview blurred>
   <template #stamp>
     <RevealStamp date="Tuesday, November 11th" />
@@ -135,6 +137,10 @@ That shift in perspective is the difference between code that works today and sy
 📅 **Publishing Date:** Tuesday, November 11th, 2025
 
 🔙 [Back to Series Overview](/blog/claude-code-chronicles)
+
+---
+
+**Attribution**: This blog post was co-written with [Claude](https://claude.ai) (Chat for ideation and outline, Code for assembly and refinement). The experiences, insights, and creative direction are human; the execution and polish are collaborative.
 
 </PostPreview>
 

@@ -16,6 +16,8 @@ hero:
 
 <BlogHeading />
 
+<DisclaimerBox type="claude" />
+
 <PostPreview blurred>
   <template #stamp>
     <RevealStamp date="Tuesday, November 25th" />
@@ -93,6 +95,10 @@ Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dic
 📅 **Publishing Date:** Tuesday, November 25th, 2025
 
 🔙 [Back to Series Overview](/blog/claude-code-chronicles)
+
+---
+
+**Attribution**: This blog post was co-written with [Claude](https://claude.ai) (Chat for ideation and outline, Code for assembly and refinement). The experiences, insights, and creative direction are human; the execution and polish are collaborative.
 
 </PostPreview>
 
