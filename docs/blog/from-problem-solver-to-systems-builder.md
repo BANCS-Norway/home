@@ -1,7 +1,7 @@
 ---
 title: From Problem-Solver to Systems Builder - My Claude Code Transformation
 description: How Claude Code transformed me from solving individual problems to building systematic frameworks that enable entire teams
-date: 2024-09-01
+date: 2025-09-01
 readingTime: 7
 hero:
   image: /images/problem-solver-header.jpg
