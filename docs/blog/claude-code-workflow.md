@@ -1,23 +1,15 @@
 ---
-title: The 6-Step Workflow That Makes It Work - The Claude Code Chronicles Part 2
+title: The 6-Step Workflow That Makes It Work
+subtitle: Part 2 of The Claude Code Chronicles
 description: Discover the systematic 6-step workflow that transforms how you build software with Claude Code, from issue creation to pull request
 date: 2025-11-11
+readingTime: 10
+hero:
+  image: /images/blog/chronicles/claude-code-cycle-diagram.svg
+  alt: Circular workflow diagram showing the 6-step development cycle
 ---
 
-<BlogHeading
-  title="The 6-Step Workflow That Makes It Work"
-  subtitle="Part 2 of The Claude Code Chronicles"
-  publishDate="November 11, 2025"
-  readingTime="10 minutes"
-/>
-
----
-
-<HeroImage
-  src="/images/blog/chronicles/claude-code-cycle-diagram.svg"
-  alt="Circular workflow diagram showing the 6-step development cycle"
-  blurred
-/>
+<BlogHeading />
 
 <PostPreview blurred>
   <template #stamp>

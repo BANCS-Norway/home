@@ -2,27 +2,18 @@
 title: The Claude Code Chronicles - Chapter 1
 description: A three-part series revealing the power of distributed AI development through GitHub Issues
 date: 2025-11-02
+readingTime: 4
+hero:
+  image: /images/blog/chronicles/landing-hero-reveal.jpg
+  alt: Progressive reveal - symbolizing the staggered content disclosure of the Chronicles series
+  attribution:
+    author: Daria Nekipelova
+    authorUrl: https://www.pexels.com/@daria-nekipelova-112078039/
+    source: Pexels
+    sourceUrl: https://www.pexels.com/photo/human-hand-from-behind-curtain-in-theatre-9665491/
 ---
 
-<BlogHeading
-  title="The Claude Code Chronicles - Chapter 1"
-  publishDate="November 2, 2025"
-  readingTime="4 minutes"
-/>
-
----
-
-<HeroImage
-  src="/images/blog/chronicles/landing-hero-reveal.jpg"
-  alt="Progressive reveal - symbolizing the staggered content disclosure of the Chronicles series"
->
-  <ImageAttribution
-    author="Daria Nekipelova"
-    authorUrl="https://www.pexels.com/@daria-nekipelova-112078039/"
-    source="Pexels"
-    sourceUrl="https://www.pexels.com/photo/human-hand-from-behind-curtain-in-theatre-9665491/"
-  />
-</HeroImage>
+<BlogHeading />
 
 **When one AI becomes many, and GitHub Issues become persistent memory**
 

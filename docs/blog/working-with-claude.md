@@ -1,27 +1,19 @@
-<BlogHeading
-  title="Working with Claude: An AI Pair Programming Experience"
-  publishDate="October 21, 2025"
-  readingTime="10 minutes"
-/>
-
-<picture>
-  <source
-    srcset="/images/working-with-claude-header.webp 1x, /images/working-with-claude-header@2x.webp 2x"
-    type="image/webp"
-  />
-  <img
-    src="/images/working-with-claude-header.jpg"
-    srcset="/images/working-with-claude-header.jpg 1x, /images/working-with-claude-header@2x.jpg 2x"
-    alt="Black and white bridge through misty forest representing collaboration and connection"
-    loading="lazy"
-    width="1919"
-    height="1280"
-  />
-</picture>
-
-*Photo by [Engin Akyurt](https://www.pexels.com/@enginakyurt/) on [Pexels](https://www.pexels.com/)*
-
 ---
+title: Working with Claude - An AI Pair Programming Experience
+description: Real-world experiences using Claude as an AI pair programming partner - best practices, lessons learned, and practical examples
+date: 2025-10-21
+readingTime: 10
+hero:
+  image: /images/working-with-claude-header.jpg
+  alt: Black and white bridge through misty forest representing collaboration and connection
+  attribution:
+    author: Engin Akyurt
+    authorUrl: https://www.pexels.com/@enginakyurt/
+    source: Pexels
+    sourceUrl: https://www.pexels.com/
+---
+
+<BlogHeading />
 
 ## Introduction
 
