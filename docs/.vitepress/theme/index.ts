@@ -17,6 +17,7 @@ import RevealStamp from './components/RevealStamp.vue'
 import SeriesNav from './components/SeriesNav.vue'
 import HeroImage from './components/HeroImage.vue'
 import ImageAttribution from './components/ImageAttribution.vue'
+import BlogIndex from './components/BlogIndex.vue'
 
 export default {
   extends: DefaultTheme,
@@ -40,5 +41,6 @@ export default {
     app.component('SeriesNav', SeriesNav)
     app.component('HeroImage', HeroImage)
     app.component('ImageAttribution', ImageAttribution)
+    app.component('BlogIndex', BlogIndex)
   }
 } satisfies Theme

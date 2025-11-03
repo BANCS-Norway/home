@@ -4,57 +4,9 @@ Welcome to the BANCS blog, where we share insights about software development, A
 
 ## Recent Posts
 
-<BlogCard>
+<BlogIndex />
 
-### [The Claude Code Chronicles - Chapter 1](/blog/claude-code-chronicles)
-**Date**: November 2, 2025
-
-A three-part series revealing the power of distributed AI development. Discover how GitHub Issues become persistent memory, enabling multiple Claude sessions to coordinate without talking. Staggered reveal: Nov 4, 11, and 25.
-
-**Topics**: Claude Code, AI Development, Distributed Systems, GitHub Workflow
-
-[Read more →](/blog/claude-code-chronicles)
-
-</BlogCard>
-
-<BlogCard>
-
-### [The Pause Isn't Procrastination - It's Part of Your Process](/blog/pause-not-procrastination)
-**Date**: October 26, 2025
-
-How AI-assisted development removed all natural pauses from our workflow - and why we need to intentionally build them back in. A meditation on creativity, breakthrough moments, and the wisdom of stepping away.
-
-**Topics**: AI Development, Creativity, Work-Life Balance, Developer Wellbeing
-
-[Read more →](/blog/pause-not-procrastination)
-
-</BlogCard>
-
-<BlogCard>
-
-### [From Problem-Solver to Systems Builder](/blog/from-problem-solver-to-systems-builder)
-**Date**: September 2024
-
-How Claude Code transformed me from solving individual problems to building systematic frameworks that enable entire teams.
-
-**Topics**: Claude Code, Systems Thinking, Development Workflow, Team Enablement
-
-[Read more →](/blog/from-problem-solver-to-systems-builder)
-
-</BlogCard>
-
-<BlogCard>
-
-### [Working with Claude: An AI Pair Programming Experience](/blog/working-with-claude)
-**Date**: October 21, 2025
-
-Discover how AI-powered development with Claude transforms the way we build software. From code generation to architecture decisions, learn best practices and real-world applications.
-
-**Topics**: AI, Claude, Pair Programming, Development
-
-[Read more →](/blog/working-with-claude)
-
-</BlogCard>
+## Coming Soon
 
 <BlogCard>
 
