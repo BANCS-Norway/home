@@ -5,8 +5,12 @@ description: Discover the systematic 6-step workflow that transforms how you bui
 date: 2025-11-11
 readingTime: 10
 hero:
-  image: /images/blog/chronicles/claude-code-cycle-diagram.svg
-  alt: Circular workflow diagram showing the 6-step development cycle
+  image: /images/blog/chronicles/pexels-sunflower-10492046.jpg
+  alt: Sunflower seed pattern showing natural spiral workflow and systematic growth
+  attribution:
+    author: Scott Schumacher
+    source: Pexels
+    sourceUrl: https://www.pexels.com/photo/yellow-sunflower-in-close-up-photography-10492046/
 ---
 
 <BlogHeading />

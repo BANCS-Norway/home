@@ -5,7 +5,7 @@ description: Part 3 of The Claude Code Chronicles - When multiple Claude session
 date: 2025-11-25
 readingTime: 10
 hero:
-  image: /images/blog/chronicles/the borg collective.jpg
+  image: /images/blog/chronicles/the-borg-collective.jpg
   alt: The Borg Collective - distributed AI consciousness
   attribution:
     author: Basile Morin
