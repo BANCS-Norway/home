@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/BANCS-Norway/home/compare/v1.20.0...v1.21.0) (2025-11-04)
+
+
+### Features
+
+* publish Post 1 of Chronicles series ([809d0c8](https://github.com/BANCS-Norway/home/commit/809d0c8852820d37c3053cd8737ddc6ebe0e504d)), closes [#96](https://github.com/BANCS-Norway/home/issues/96) [#100](https://github.com/BANCS-Norway/home/issues/100) [#108](https://github.com/BANCS-Norway/home/issues/108)
+
 # [1.20.0](https://github.com/BANCS-Norway/home/compare/v1.19.0...v1.20.0) (2025-11-03)
 
 
