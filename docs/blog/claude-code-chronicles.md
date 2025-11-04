@@ -43,25 +43,19 @@ This isn't theory. This is a live experiment you're watching unfold. Three posts
 
 ### Part 1: Why Claude Code is a Stalactite
 
-**[📖 Read Part 1 →](/blog/claude-code-stalactite)**
+**[📖 Read Part 1 →](/blog/claude-code-stalactite)** ✨ **JUST PUBLISHED**
 
-<PostPreview blurred>
-  <template #stamp>
-    <RevealStamp date="Tuesday, November 4th" relative />
-  </template>
+**The Metaphor That Explains Everything**
 
-  **The Metaphor That Explains Everything**
+Why does Claude remember context across sessions when every conversation starts fresh? The answer lies in geology—and transforms how you architect AI-assisted projects.
 
-  Why does Claude remember context across sessions when every conversation starts fresh? The answer lies in geology—and transforms how you architect AI-assisted projects.
+**You'll discover:**
+- Why GitHub Issues are crystallized knowledge
+- How one sentence can generate a complete spec
+- Why context limits aren't actually your problem
+- The moment Claude audits its own work
 
-  **You'll discover:**
-  - Why GitHub Issues are crystallized knowledge
-  - How one sentence can generate a complete spec
-  - Why context limits aren't actually your problem
-  - The moment Claude audits its own work
-
-  *A mental model shift that makes distributed AI development intuitive.*
-</PostPreview>
+*A mental model shift that makes distributed AI development intuitive.*
 
 ---
 
