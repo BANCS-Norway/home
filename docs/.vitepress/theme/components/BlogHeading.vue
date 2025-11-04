@@ -68,10 +68,15 @@ const author = computed(() => {
 // Check if content should be blurred based on future date
 const isBlurred = computed(() => {
   if (!frontmatter.value.date) return false
-  const postDate = new Date(frontmatter.value.date)
+
+  // Parse date as YYYY-MM-DD in UTC to match GitHub Actions deployment
+  const postDate = new Date(frontmatter.value.date + 'T00:00:00Z')
+
   const today = new Date()
-  today.setHours(0, 0, 0, 0) // Normalize to start of day
-  return postDate > today
+  // Compare at UTC midnight to be consistent globally
+  const todayUTC = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()))
+
+  return postDate > todayUTC
 })
 
 // Split title at colon or hyphen for responsive wrapping
