@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/BANCS-Norway/home/compare/v1.21.0...v1.22.0) (2025-11-08)
+
+
+### Features
+
+* add blog post on AI verification ([e3cd8d0](https://github.com/BANCS-Norway/home/commit/e3cd8d09a5f63a46765d8dffa8884a59a7a0450c)), closes [#170](https://github.com/BANCS-Norway/home/issues/170)
+
 # [1.21.0](https://github.com/BANCS-Norway/home/compare/v1.20.0...v1.21.0) (2025-11-04)
 
 
