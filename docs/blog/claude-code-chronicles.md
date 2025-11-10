@@ -43,7 +43,7 @@ This isn't theory. This is a live experiment you're watching unfold. Three posts
 
 ### Part 1: Why Claude Code is a Stalactite
 
-**[📖 Read Part 1 →](/blog/claude-code-stalactite)** ✨ **JUST PUBLISHED**
+**[📖 Read Part 1 →](/blog/claude-code-stalactite)** 📅 **Published November 4th**
 
 **The Metaphor That Explains Everything**
 
@@ -61,27 +61,21 @@ Why does Claude remember context across sessions when every conversation starts 
 
 ### Part 2: The 6-Step Workflow That Makes It Work
 
-**[📖 Read Part 2 →](/blog/claude-code-workflow)**
+**[📖 Read Part 2 →](/blog/claude-code-workflow)** ✨ **JUST PUBLISHED**
 
-<PostPreview blurred>
-  <template #stamp>
-    <RevealStamp date="Tuesday, November 11th" relative />
-  </template>
+**The Pattern That Prevents Chaos**
 
-  **The Pattern That Prevents Chaos**
+Understanding the stalactite is the "why." The workflow is the "how." Six steps that turn ephemeral conversations into production code without scope creep.
 
-  Understanding the stalactite is the "why." The workflow is the "how." Six steps that turn ephemeral conversations into production code without scope creep.
+**The 6-step cycle:**
+1. Issue-first thinking (before code exists)
+2. Worktree isolation (parallel universes)
+3. Batch development (small, complete chunks)
+4. Human review (the critical gate)
+5. Commit locally (never push mid-work)
+6. PR only when done (batches complete)
 
-  **The 6-step cycle:**
-  1. Issue-first thinking (before code exists)
-  2. Worktree isolation (parallel universes)
-  3. Batch development (small, complete chunks)
-  4. Human review (the critical gate)
-  5. Commit locally (never push mid-work)
-  6. PR only when done (batches complete)
-
-  *Real examples from this project—including the post you're reading now.*
-</PostPreview>
+*Real examples from this project—including the post you're reading now.*
 
 ---
 
