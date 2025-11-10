@@ -15,138 +15,329 @@ hero:
 
 <BlogHeading />
 
-<DisclaimerBox type="claude" />
+<DisclaimerBox type="claude" revealed />
 
-<PostPreview blurred>
-  <template #stamp>
-    <RevealStamp date="Tuesday, November 11th" />
-  </template>
+In my last post, I introduced the stalactite principle: Claude Code with GitHub Issues creates persistent, accumulating knowledge instead of ephemeral conversations.
 
-In Part 1, we discovered why Claude Code is like a stalactite - it builds knowledge drop by drop through persistent GitHub Issues. But knowledge alone isn't enough. You need a systematic workflow that transforms those drops into solid, production-ready features.
+**The response I got:** "Okay, this sounds great. But *how* do you actually do this?"
 
-After six months of daily development with Claude Code, I've refined a 6-step workflow that eliminates context switching, prevents scope creep, and ensures every commit is intentional. This isn't theoretical - it's battle-tested through hundreds of issues and pull requests.
+**Today:** I'm sharing the exact 6-step workflow I use for every feature and fix. From problem statement to merged PR to updated documentation, with only minimal prompts from me.
 
-## Why Traditional Workflows Break with AI
+## The Problem with Traditional AI Workflows
 
-Most developers work in two modes: planning and coding. AI tools like Claude Code introduce a third mode: collaboration. Without a clear workflow, you end up in a chaotic cycle of half-finished features, unclear commit history, and the nagging question: "Did I commit that change?"
+I used to work like this:
 
-The 6-step workflow solves this by making collaboration explicit. Every step has a clear purpose, and Claude knows exactly what to do at each stage. No ambiguity, no confusion, just systematic progress.
+Start a Claude Code session. Build a feature. Context gets heavy. Claude gets confused. I commit half-finished work just to clear the context. Close the session. Next day, start fresh and try to remember where I was.
+
+Sound familiar?
+
+The problem isn't Claude Code. It's trying to cram an entire feature into a single session without structure. Without checkpoints. Without a system that survives context limits and interruptions.
+
+I needed a workflow that:
+- Works across multiple sessions (context resets don't destroy progress)
+- Creates natural checkpoints (batches of 2-3 tasks, not everything at once)
+- Documents automatically (I hate manual documentation)
+- Stays out of my way (minimal prompts from me)
+
+**The difference:** One workflow keeps you building. The other keeps you fighting context limits and forgotten decisions.
 
 ## The 6-Step Workflow
 
-This workflow ensures every feature starts with an issue and ends with a clean pull request. Here's how it works:
+Each step deposits knowledge. The cycle repeats. The stalactite grows.
 
-### Step 1: Check Current Branch
+![The Claude Code 6-step workflow cycle](/images/blog/chronicles/claude-code-cycle-diagram.svg)
 
-Before starting any work, verify where you are. Are you on main? A feature branch? This simple check prevents the most common mistake in Git: working on the wrong branch.
+### Step 1: Create the Issue
 
-```bash
-git branch --show-current
+I was looking at PageSpeed Insights results one day. The report showed several performance problems. Instead of diving into fixes immediately, I tried something:
+
+**My prompt:**
+```
+"PageSpeed Insights found concerns about my page, create an issue for this please."
 ```
 
-If you're on main, you need an issue and a feature branch. If you're on a feature branch, you're ready to continue work. This one command saves hours of cleanup later.
+Ten seconds later, Claude Code gave me [Issue #96](https://github.com/BANCS-Norway/home/issues/96) with:
+- 5 distinct problem areas (images, JavaScript, fonts, caching, CSS)
+- Technical analysis of each problem
+- Proposed solutions with tradeoffs
+- Complete testing plan
+- Effort estimates
 
-### Step 2: Ask About Issue
+**I gave one sentence. Claude generated a complete project specification.**
 
-Every feature needs an issue. Not because of bureaucracy, but because issues provide:
-- Persistent context that survives browser refreshes
-- A single source of truth for what needs to be done
-- Clear acceptance criteria before you start coding
-- Automatic documentation of why decisions were made
+But here's the real value: I could review this *before any code changed*. Catch misunderstandings. Adjust the approach. Clarify requirements. All before a single line of code got modified.
 
-Claude asks: "Should I create a new issue for this work, or is there an existing issue?" This forces intentionality. You're not just coding - you're solving a documented problem.
+**Your prompt:**
+```
+"I have [problem/feature], please create an issue for me."
+```
 
-### Step 3: Gather Issue Details
+**Time investment:** 10 seconds to type. 2 minutes to review.
 
-If creating a new issue, Claude collects:
-- Clear description of the work
-- Issue type (docs, style, feature)
-- Task list with checkboxes
-- Acceptance criteria
+<InfinityDivider />
 
-This isn't busywork. It's the scaffolding that keeps complex features on track. When you return to a feature three days later, the issue tells you exactly where you left off.
+### Step 2: Create Feature Branch and Start Work
 
-### Step 4: Create Feature Branch
+Claude creates a feature branch following your project's naming convention, then starts work in small batches:
 
-Branch naming follows a strict convention: `{type}/{issue-number}_descriptive-title`
+**Your prompt:**
+```
+"Please start working on [issue #96](https://github.com/BANCS-Norway/home/issues/96) in batches of 2-3 tasks."
+```
 
-Examples:
-- `docs/42_refactor-claude-md`
-- `feature/23_add-search-functionality`
-- `style/15_update-button-colors`
+**Why batches are crucial:**
 
-This convention makes branch purpose obvious at a glance. Six months from now, you'll know exactly what `docs/42_refactor-claude-md` was about without opening the issue.
+When I first tried Claude Code, I'd give it the whole issue at once. "Optimize all these PageSpeed items." It would work for a while, context would balloon, and Claude would start getting confused or missing things.
 
-### Step 5: Add Status Label
+Batches solve this. Claude picks 2-3 related tasks, implements them, shows you what changed, then asks: "Ready to commit?"
 
-Mark the issue with "status: in progress". This one label provides:
-- Team visibility (someone's working on this)
-- Personal tracking (which issues am I actively developing)
-- Process clarity (which issues are stalled, which are moving)
+This creates natural checkpoint moments. Small, reviewable changes. Steady progress without context overload.
 
-Status labels turn GitHub Issues into a lightweight project management system. No external tools needed.
+**Batch 1 on [Issue #96](https://github.com/BANCS-Norway/home/issues/96):** Logo conversion to WebP + image lazy loading
+**Batch 2:** Font loading optimization + theme script deferral
+**Batch 3:** Security headers + accessibility fixes
 
-### Step 6: Ready to Start
+Seven batches total. Each one small enough to review in 2 minutes. Each one a complete checkpoint.
 
-Claude confirms: "Branch created. Ready to start work on issue #42?" This explicit confirmation creates a mental checkpoint. You're no longer in planning mode - you're in execution mode.
+**Pro tip:** If Claude seems stuck or confused, it's trying to do too much at once. "Let's tackle this in smaller batches" fixes it immediately.
 
-## Real Example: Issue #96 to PR #99
+<InfinityDivider />
 
-Let's see this workflow in action. Issue #96 was about adding a landing page for The Claude Code Chronicles blog series. Here's how the 6-step workflow played out:
+### Step 3: Review and Commit
 
-**Steps 1-3**: Verified we were on main, created Issue #96 with clear tasks and acceptance criteria. The issue documented exactly what "landing page" meant - no assumptions.
+**Your actions:**
+1. Review the changes Claude Code made
+2. Approve or request adjustments
+3. Claude drafts the commit message
+4. You review and commit
 
-**Step 4**: Created branch `blog/96_chronicles-landing` following the naming convention. The branch name immediately tells anyone browsing the repository what this work is about.
+**Critical commit message tip:** Claude Code loves to list changed files in commit messages. Remove those. You want meaningful descriptions, not file inventories.
 
-**Step 5**: Added "status: in progress" label. The issue moved from "planned" to "active" in our mental model of the project.
+**What Claude might generate:**
+```
+feat: optimize logo loading with WebP format
 
-**Step 6**: Started development with full context. Every commit referenced #96, creating a clear history trail from issue to implementation.
+- Added WebP conversion for logo
+- Implemented lazy loading for images
+- Files changed: docs/public/bancs.webp, docs/index.md, docs/.vitepress/config.ts
+```
 
-The result? PR #99 was clean, focused, and merged without confusion. The commit history reads like a story: "This is what we set out to do, here's how we did it, and here's why we made each decision."
+**What you should use:**
+```
+feat: optimize logo loading with WebP format
 
-## What Claude Code Handles Automatically
+Converted logo to WebP format (73% size reduction) with PNG fallback.
+Implemented lazy loading for blog post images to improve initial page load.
+```
 
-With this workflow in place, Claude Code manages:
-- Branch verification before starting work
-- Issue creation with proper formatting
-- Status label management
-- Conventional commit messages
-- Batch development with review checkpoints
-- Git operations (except pushing - that's always you)
+See the difference? The second one tells you *why* and *what improved*. The first one just lists mechanics.
 
-You focus on decisions: "Should we build this feature?" Claude handles mechanics: "Here's how we'll build it systematically."
+<InfinityDivider />
+
+### Step 4: Repeat Until Complete
+
+**The loop:** Repeat steps 2-3 until the entire issue is solved.
+
+For [Issue #96](https://github.com/BANCS-Norway/home/issues/96), this was:
+- 2 batches on day one (logo + images)
+- Session ended (context limit approaching)
+- 3 batches the next morning (fonts + scripts + CSS)
+- Another session break (life happened)
+- 2 final batches a day later (security + accessibility)
+
+**Seven batches. Three separate Claude Code sessions. Zero lost context.**
+
+Each time I started a new session, I just said: "Continue work on [issue #96](https://github.com/BANCS-Norway/home/issues/96) in batches." Claude read the issue, saw what was already committed, and picked up exactly where we left off.
+
+This is the stalactite principle in action. The GitHub Issue persists. The commits persist. The context survives session boundaries.
+
+**When all batches are complete:**
+
+```
+"Please squash these commits and rewrite the commit message."
+```
+
+Claude combines all batch commits into one clean commit with a comprehensive message summarizing the entire feature. Clean git history, clear change narrative.
+
+<InfinityDivider />
+
+### Step 5: Push and Create PR
+
+**Critical: You always push. Claude never touches the remote.**
+
+When the feature is complete and squashed:
+
+**You push manually:**
+```bash
+git push -u origin feature/96-pagespeed-optimization
+```
+
+Then ask Claude to help with the PR:
+
+**Your prompt:**
+```
+"Please create a PR for this work."
+```
+
+**What Claude Code does:**
+```bash
+gh pr create --title "PageSpeed Optimization" --body "..."
+```
+
+Claude creates a pull request with:
+- Summary of all work completed
+- References to the original issue
+- Links to related commits
+- Clear description for reviewers
+
+**Your job:** Review and merge the PR in GitHub UI.
+
+**Why you push, not Claude:** Full control over what reaches the remote repository. Especially important with multiple parallel sessions. You decide exactly when and what gets pushed. No surprises. No accidental pushes to wrong branches.
+
+<InfinityDivider />
+
+### Step 6: Update the Issue
+
+After you merge the PR:
+
+**Your prompt:**
+```
+"The PR is merged, please update the issue."
+```
+
+**What Claude Code does:**
+- Updates the issue with:
+  - ✅ Completed items with actual results and metrics
+  - ❌ Not implemented items with honest explanations
+  - Links to merged PR
+  - Any discovered limitations or gotchas
+
+For [Issue #96](https://github.com/BANCS-Norway/home/issues/96), this meant:
+- ✅ 7 successful optimizations with before/after metrics
+- ❌ 2 items not feasible (VitePress internals, GitHub Pages limitations)
+- Complete explanation of *why* some things couldn't be done
+
+**The magic:** The issue now reflects reality, not just plans. Future sessions read accurate state. When you return three months later, the issue tells you exactly what happened and why.
+
+**The loop completes:** Issue updated, stalactite layer deposited, ready for the next problem.
+
+## What This Workflow Actually Gives You
+
+After using this workflow for six months, here's what changed:
+
+**Before:** Features took 3-4 sessions to complete because I kept losing context. Documentation was always stale. I'd forget why I made decisions.
+
+**After:** Features complete faster because context persists across sessions. Documentation updates automatically. Issues contain the complete story of what happened and why.
+
+**What you're NOT doing anymore:**
+✓ Manually writing comprehensive issue descriptions
+✓ Fighting context limits mid-feature
+✓ Manually drafting commit messages
+✓ Updating documentation after the fact
+✓ Remembering why you made a decision three months ago
+
+**What you ARE doing:**
+✓ Giving minimal prompts
+✓ Reviewing batches (2 minutes each)
+✓ Making decisions
+✓ Staying in control
+
+**Total prompts for a complex feature:** 6 core prompts + batch reviews
+**Total documentation written by you:** Zero
+**Context that survives across sessions:** Everything
 
 ## Why This Works for Solo Developers
 
-You might think this workflow is overkill for solo projects. I thought the same thing. But here's what changed my mind:
+Here's the reality of solo development:
 
-**Context persistence**: You will get interrupted. Phone calls, meetings, life. Issues ensure you never lose your place.
+**You're the only one who knows why.** Why you chose that approach. Why you skipped that optimization. Why you structured it this way. There's no team to fill in gaps, no pair programmer to remember details, no documentation team to capture decisions.
 
-**Decision documentation**: Six months from now, you'll ask "Why did I build it this way?" The issue contains your reasoning.
+**You will get interrupted.** Phone call from a client. Meeting with a stakeholder. Life. When you return three days later, the context is gone. What were you working on? Where did you leave off? Why were you doing it that way?
 
-**Scope control**: Task lists and acceptance criteria prevent the dreaded "while I'm here, I'll also..." that derails features.
+**This workflow solves both problems:**
 
-**Professional habits**: When you eventually work on team projects, these workflows are second nature.
+The GitHub Issue captures the "why" before you forget. The batched commits show incremental progress. The updated issue at the end documents what actually happened versus what you planned.
 
-The 6-step workflow isn't about process for process sake. It's about building muscle memory for sustainable development. Whether you're working solo today or joining a team tomorrow, the habits are identical.
+When you return three days later, you don't reconstruct context from git logs. You read the issue and continue exactly where you left off.
 
-## Try It Yourself
+**The transformation:** You go from "solo developer drowning in context" to "solo developer with institutional memory." No hiring required.
 
-Next time you start a feature, follow the 6 steps exactly. No shortcuts, no "I'll create the issue later." Notice how it changes your mindset from "I'm going to code" to "I'm going to solve this specific, documented problem."
+## Try It Yourself (And Adapt It)
 
-That shift in perspective is the difference between code that works today and systems that scale for years.
+This workflow works for me. It might not work exactly the same way for you, and that's fine.
 
----
+**Here's what I suggest:**
 
-📅 **Publishing Date:** Tuesday, November 11th, 2025
+Pick your next small feature (1-2 hours of work). Try the 6 steps:
 
-🔙 [Back to Series Overview](/blog/claude-code-chronicles)
+1. Ask Claude to create an issue
+2. Start work in batches of 2-3 tasks
+3. Review and commit each batch
+4. Repeat until done
+5. Push and create a PR (you, not Claude)
+6. Update the issue after merge
+
+**Notice what works. Notice what doesn't.**
+
+Maybe you prefer larger batches. Maybe you don't need commit squashing. Maybe you work in a single session and don't need multi-session persistence. Maybe your commit messages are fine without the file list removal.
+
+**Adapt the workflow to your needs.** The core principle stays the same: GitHub Issues as persistent memory, batches as checkpoints. But the details are yours to adjust.
+
+**Start small.** See if the stalactite principle holds for your work. See if batches prevent context overload. See if issues actually save you time or just feel like overhead.
+
+Then decide if it's worth it.
+
+## Configuring Safe Boundaries
+
+If you decide to use this workflow seriously, here's how I enforce strict safety:
+
+I use `.claude/settings.local.json` to configure exactly what Claude can and cannot do:
+
+```json
+{
+  "permissions": {
+    "deny": [
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)"
+    ],
+    "ask": [
+      "Bash(git restore:*)",
+      "Bash(git commit:*)",
+      "Bash(git reset:*)"
+    ]
+  }
+}
+```
+
+**Deny array:** Claude will NEVER be allowed to run these commands, even if it tries.
+- `git pull`, `git push`, and `git fetch` are completely blocked
+- YOU control all interaction with the remote repository
+- This prevents unexpected changes to/from remote
+- Critical when running multiple parallel sessions. No accidental pushes from the wrong session.
+
+**Ask array:** Claude must ask for permission before running these:
+- `git restore` - Reverting changes should be deliberate
+- `git commit` - You review before committing (batch checkpoint)
+- `git reset` - Potentially destructive, requires confirmation
+
+**The boundary:** Claude handles the mechanics (staging, branch management, PR descriptions). You make all the critical decisions (commit, push, restore, reset). You stay in complete control.
+
+## What's Coming Next
+
+You now have a workflow that turns Claude Code into a persistent, self-documenting development partner that survives context limits and session boundaries.
+
+But I haven't told you about the most powerful part yet.
+
+**Next post (November 25, 2025):** The moment I realized I could run multiple Claude Code instances in parallel. Each working on different issues, all sharing the same memory through GitHub.
+
+When one Claude becomes many.
+
+Meet **the Collective**.
 
 ---
 
 **Attribution**: This blog post was co-written with [Claude](https://claude.ai) (Chat for ideation and outline, Code for assembly and refinement). The experiences, insights, and creative direction are human; the execution and polish are collaborative.
-
-</PostPreview>
 
 ---
 
