@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/BANCS-Norway/home/compare/v1.23.0...v1.24.0) (2025-11-25)
+
+
+### Features
+
+* reveal Post 3 of Claude Code Chronicles series ([b8b9804](https://github.com/BANCS-Norway/home/commit/b8b98049708cbf651367ce7994ce0610b53da5dc)), closes [#100](https://github.com/BANCS-Norway/home/issues/100) [#98](https://github.com/BANCS-Norway/home/issues/98) [#31](https://github.com/BANCS-Norway/home/issues/31)
+
 # [1.23.0](https://github.com/BANCS-Norway/home/compare/v1.22.0...v1.23.0) (2025-11-11)
 
 
