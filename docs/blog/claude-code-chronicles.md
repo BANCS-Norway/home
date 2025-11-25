@@ -37,9 +37,9 @@ This is the story of that discovery, and the system that emerged from it.
 
 ## The Series
 
-This isn't theory. This is a live experiment you're watching unfold. Three posts, published over three weeks, each revealing a layer of how solo developers can harness distributed AI development.
+🎉 **Series Complete!** All three posts are now available. Journey from persistent memory to distributed AI development below.
 
-**All three posts are bookmarkable now.** The content reveals progressively, but the ideas are already working in production.
+This isn't theory. This is a live experiment you just witnessed unfold. Three posts, published over three weeks, each revealing a layer of how solo developers can harness distributed AI development.
 
 ### Part 1: Why Claude Code is a Stalactite
 
@@ -61,7 +61,7 @@ Why does Claude remember context across sessions when every conversation starts 
 
 ### Part 2: The 6-Step Workflow That Makes It Work
 
-**[📖 Read Part 2 →](/blog/claude-code-workflow)** ✨ **JUST PUBLISHED**
+**[📖 Read Part 2 →](/blog/claude-code-workflow)** 📅 **Published November 11th**
 
 **The Pattern That Prevents Chaos**
 
@@ -81,25 +81,19 @@ Understanding the stalactite is the "why." The workflow is the "how." Six steps 
 
 ### Part 3: The Collective - When One Claude Becomes Many
 
-**[📖 Read Part 3 →](/blog/claude-code-collective)**
+**[📖 Read Part 3 →](/blog/claude-code-collective)** ✨ **JUST PUBLISHED**
 
-<PostPreview blurred>
-  <template #stamp>
-    <RevealStamp date="Tuesday, November 25th" relative />
-  </template>
+**When One Becomes Many**
 
-  **When One Becomes Many**
+Here's where it gets wild: multiple Claude sessions, working on different issues, coordinating through GitHub. Solo developer, distributed AI team.
 
-  Here's where it gets wild: multiple Claude sessions, working on different issues, coordinating through GitHub. Solo developer, distributed AI team.
+**The mental model shift:**
+- From "chatting with AI" to "orchestrating intelligence"
+- How parallel Claude sessions coordinate without talking
+- Real examples: Issue #31 roadmap, parallel terminal workflows
+- When to use this approach (and when not to)
 
-  **The mental model shift:**
-  - From "chatting with AI" to "orchestrating intelligence"
-  - How parallel Claude sessions coordinate without talking
-  - Real examples: Omega explored, Tech documented, Hunter planned
-  - When NOT to use this approach (critical guardrails)
-
-  *The culmination: a development model that shouldn't work—but does.*
-</PostPreview>
+*The culmination: a development model that shouldn't work—but does.*
 
 ---
 

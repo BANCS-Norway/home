@@ -15,7 +15,7 @@ hero:
 
 <BlogHeading />
 
-<DisclaimerBox type="claude" revealed />
+<DisclaimerBox type="claude" />
 
 In my last post, I introduced the stalactite principle: Claude Code with GitHub Issues creates persistent, accumulating knowledge instead of ephemeral conversations.
 
