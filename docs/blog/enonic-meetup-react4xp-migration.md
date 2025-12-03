@@ -203,13 +203,13 @@ On December 4, 2025, I presented at the [Enonic Oslo Meetup](https://www.meetup.
 
 ## The Forced Upgrade
 
-In early October 2024, [Liberalistene.no](https://liberalistene.no) was running smoothly on Enonic Cloud with React4XP v3. Then came the notification: Enonic needed to upgrade XP to the latest version, and **React4XP v3 was blocking the upgrade**.
+In early October 2025, [Liberalistene.no](https://liberalistene.no) was running smoothly on Enonic Cloud with React4XP v3. Then came the notification: Enonic needed to upgrade XP to the latest version, and **React4XP v3 was blocking the upgrade**.
 
-We had no choice. We had to migrate to React4XP v6. Deadline: October 19, 2024.
+We had no choice. We had to migrate to React4XP v6 as fast as possible.
 
 ## The Migration Journey
 
-**October 3, 2024** - We started the migration, but not just React4XP. We decided to modernize the entire infrastructure:
+**October 3, 2025** - We started the migration, but not just React4XP. We decided to modernize the entire infrastructure:
 
 - Node 16 → 22
 - Gradle 6.5 → 8.5
@@ -219,11 +219,9 @@ We had no choice. We had to migrate to React4XP v6. Deadline: October 19, 2024.
 
 The 9 layouts migrated from Thymeleaf to React/TSX went smoothly. Then came the challenge: **36 Parts** that needed migration.
 
-**October 10-15, 2024** - Five days of struggle. Content Studio started breaking when we worked on pages. We tried increasingly desperate workarounds and hacks. The AI pair programmer I was working with (Claude Code) was making crazier and crazier suggestions as the problem persisted.
+**October 10-15, 2025** - Five days of struggle. Content Studio started breaking when we worked on pages. We tried increasingly desperate workarounds and hacks. The AI pair programmer I was working with (Claude Code) was making crazier and crazier suggestions as the problem persisted.
 
-The deadline loomed: October 19.
-
-**October 16, 2024** - Finally, I did what I should have done days earlier: I asked the [Enonic Slack developer channel](https://enonic.slack.com) for help.
+**October 16, 2025** - Finally, I did what I should have done days earlier: I asked the [Enonic Slack developer channel](https://enonic.slack.com) for help.
 
 Pavel responded: *"I can't reproduce the error... what versions are you on?"*
 
@@ -231,7 +229,7 @@ The answer was simple and frustrating: **Upgrade Content Studio**.
 
 The React4XP v6 documentation never mentioned the Content Studio version requirement. All those workarounds, all that time lost—for a simple environment issue. 🤦
 
-**October 19, 2024** - We went live. Content Studio upgraded, migration complete, **398 files changed**. We made the deadline. 🎉
+**October 19, 2025** - We went live. Content Studio upgraded, migration complete, **398 files changed**. 🎉
 
 ## The Architectural Breakthrough: PartShim
 
