@@ -146,3 +146,269 @@ img[loading="lazy"] {
 .VPNavBar {
   transition: backdrop-filter 0.5s !important;
 }
+
+/* Remove top borders from headings in Reveal.js presentations */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  border-top: none !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Reveal.js presentation slide styles */
+.reveal .slide-title {
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+}
+
+.reveal .slide-subtitle {
+  font-size: 1.5em;
+  color: #666;
+  margin-bottom: 1em;
+}
+
+.reveal .slide-heading {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.reveal .slide-heading-small {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.reveal .slide-heading-large {
+  font-size: 3em;
+  margin-top: 2em;
+}
+
+.reveal .slide-text-large {
+  font-size: 1.2em;
+  margin-top: 2em;
+}
+
+.reveal .slide-text-medium {
+  font-size: 1em;
+  margin-top: 1em;
+  color: #888;
+}
+
+.reveal .slide-text-small {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.reveal .slide-content {
+  text-align: left;
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reveal .slide-content-small {
+  text-align: left;
+  font-size: 1em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reveal .slide-content-tiny {
+  text-align: left;
+  font-size: 0.9em;
+  max-width: 800px;
+  margin: 1.5em auto;
+}
+
+.reveal .slide-content-center {
+  text-align: left;
+  font-size: 1em;
+  max-width: 800px;
+  margin: 2em auto;
+}
+
+.reveal .slide-text {
+  margin: 1em 0;
+}
+
+.reveal .slide-text-tight {
+  margin: 0.8em 0;
+}
+
+.reveal .slide-text-spaced {
+  margin: 1.5em 0;
+}
+
+.reveal .slide-text-bold {
+  font-weight: bold;
+}
+
+.reveal .slide-text-italic {
+  font-style: italic;
+}
+
+.reveal .slide-text-danger {
+  color: #d63031;
+  font-weight: bold;
+}
+
+.reveal .slide-text-success {
+  color: #00b894;
+  font-weight: bold;
+}
+
+.reveal .slide-text-warning {
+  color: #e17055;
+}
+
+.reveal .slide-text-muted {
+  color: #666;
+}
+
+.reveal .slide-text-highlight {
+  font-size: 1.5em;
+  color: #00b894;
+  font-weight: bold;
+}
+
+.reveal .slide-text-large-bold {
+  font-size: 1.3em;
+  color: #d63031;
+}
+
+.reveal .slide-text-xl {
+  font-size: 1.3em;
+}
+
+.reveal .slide-text-2xl {
+  font-size: 1.5em;
+}
+
+.reveal .slide-heading-danger {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #d63031;
+}
+
+.reveal .slide-heading-success {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #00b894;
+}
+
+.reveal .slide-list {
+  margin-left: 2em;
+}
+
+.reveal .slide-numbers {
+  font-size: 1.3em;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  list-style-position: inside;
+}
+
+.reveal .slide-numbers li {
+  margin: 0.8em 0;
+}
+
+.reveal .slide-code-caption {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 1em;
+}
+
+.reveal .slide-image {
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.reveal .slide-result {
+  margin: 2em 0;
+  font-size: 1.2em;
+}
+
+.reveal .slide-transform {
+  margin: 1.5em 0;
+  font-size: 1.3em;
+  color: #0984e3;
+  font-weight: bold;
+}
+
+.reveal .slide-link {
+  color: #4338ca;
+  text-decoration: underline;
+}
+
+.reveal .slide-link-wrapper {
+  font-size: 1.5em;
+  margin: 2em 0;
+}
+
+.reveal .slide-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reveal .slide-table {
+  font-size: 1.1em;
+  border-collapse: collapse;
+  margin: 0 auto;
+  display: table;
+}
+
+.reveal .slide-table thead {
+  display: table-header-group;
+}
+
+.reveal .slide-table tbody {
+  display: table-row-group;
+}
+
+.reveal .slide-table tr {
+  display: table-row;
+}
+
+.reveal .slide-table th,
+.reveal .slide-table td {
+  padding: 1.2em;
+  border: 2px solid #ddd;
+  text-align: center;
+}
+
+.reveal .slide-table th {
+  font-size: 1.1em;
+}
+
+.reveal .slide-table td {
+  padding: 1em;
+}
+
+.reveal .slide-table .metric {
+  font-weight: 600;
+}
+
+.reveal .slide-table .danger {
+  color: #d63031;
+}
+
+.reveal .slide-table .success {
+  color: #00b894;
+}
+
+.reveal .slide-table thead tr {
+  background-color: #f0f0f0;
+}
+
+.reveal .slide-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

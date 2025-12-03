@@ -40,7 +40,7 @@ const forbiddenPatterns = [
     message: 'Inline styles are not allowed. Use markdown or VitePress components.'
   },
   {
-    pattern: /class\s*=\s*["'](?!vp-|language-|blog-card|mb-)[^"']*["']/gi,
+    pattern: /class\s*=\s*["'](?!vp-|language-|blog-card|mb-|slide-|reveal|metric|danger|success)[^"']*["']/gi,
     message: 'Custom CSS classes are not allowed (except whitelisted ones). Use standard markdown or VitePress components.'
   },
   {
