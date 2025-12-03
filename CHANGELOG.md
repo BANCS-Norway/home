@@ -1,3 +1,10 @@
+## [1.25.2](https://github.com/BANCS-Norway/home/compare/v1.25.1...v1.25.2) (2025-12-03)
+
+
+### Bug Fixes
+
+* add Enonic XP version number to React4XP migration blog post ([cf8f112](https://github.com/BANCS-Norway/home/commit/cf8f1122f9ab6681284011a565b9c6c26663b400)), closes [#182](https://github.com/BANCS-Norway/home/issues/182)
+
 ## [1.25.1](https://github.com/BANCS-Norway/home/compare/v1.25.0...v1.25.1) (2025-12-03)
 
 # [1.25.0](https://github.com/BANCS-Norway/home/compare/v1.24.0...v1.25.0) (2025-12-03)
