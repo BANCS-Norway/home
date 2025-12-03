@@ -19,6 +19,7 @@ import HeroImage from './components/HeroImage.vue'
 import ImageAttribution from './components/ImageAttribution.vue'
 import BlogIndex from './components/BlogIndex.vue'
 import InfinityDivider from './components/InfinityDivider.vue'
+import RevealPresentation from './components/RevealPresentation.vue'
 
 export default {
   extends: DefaultTheme,
@@ -44,5 +45,6 @@ export default {
     app.component('ImageAttribution', ImageAttribution)
     app.component('BlogIndex', BlogIndex)
     app.component('InfinityDivider', InfinityDivider)
+    app.component('RevealPresentation', RevealPresentation)
   }
 } satisfies Theme
