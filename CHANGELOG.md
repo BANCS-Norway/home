@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/BANCS-Norway/home/compare/v1.24.0...v1.25.0) (2025-12-03)
+
+
+### Features
+
+* add interactive Reveal.js presentation for Enonic meetup talk ([d108b91](https://github.com/BANCS-Norway/home/commit/d108b9115b04355bf9c462ebb712d6ca04ad7cb5)), closes [#174](https://github.com/BANCS-Norway/home/issues/174)
+
 # [1.24.0](https://github.com/BANCS-Norway/home/compare/v1.23.0...v1.24.0) (2025-11-25)
 
 
