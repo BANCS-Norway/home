@@ -412,3 +412,7 @@ img[loading="lazy"] {
 .reveal .slide-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+
+.reveal .slide-table tbody tr:last-child td {
+  border-bottom: 2px solid #ddd;
+}
