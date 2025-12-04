@@ -1,3 +1,10 @@
+## [1.25.3](https://github.com/BANCS-Norway/home/compare/v1.25.2...v1.25.3) (2025-12-04)
+
+
+### Bug Fixes
+
+* correct timeline in Enonic meetup blog post ([8573001](https://github.com/BANCS-Norway/home/commit/8573001d89dc2a34edb69f9a177ea154626af2e1)), closes [#184](https://github.com/BANCS-Norway/home/issues/184)
+
 ## [1.25.2](https://github.com/BANCS-Norway/home/compare/v1.25.1...v1.25.2) (2025-12-03)
 
 
