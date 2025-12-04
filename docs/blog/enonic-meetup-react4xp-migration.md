@@ -203,9 +203,11 @@ On December 4, 2025, I presented at the [Enonic Oslo Meetup](https://www.meetup.
 
 ## The Forced Upgrade
 
-In early October 2025, [Liberalistene.no](https://liberalistene.no) was running smoothly on Enonic Cloud with React4XP v3. Then came the notification: Enonic needed to upgrade Enonic XP to version 7.15, and **React4XP v3 was blocking the upgrade**.
+In mid-August 2025, [Liberalistene.no](https://liberalistene.no) was running smoothly on Enonic Cloud with React4XP v3. Then came the notification: Enonic needed to upgrade Enonic XP to version 7.15, and **React4XP v3 was blocking the upgrade**.
 
 We had no choice. We had to migrate to React4XP v6 as fast as possible.
+
+But "as fast as possible" didn't mean immediately. My workload at the time made it impossible to start right away. The migration had to wait until October when I could dedicate the focused time it deserved.
 
 ## The Migration Journey
 
