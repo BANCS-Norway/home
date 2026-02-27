@@ -1,3 +1,10 @@
+# [1.26.0](https://github.com/BANCS-Norway/home/compare/v1.25.3...v1.26.0) (2026-02-27)
+
+
+### Features
+
+* add blog post about taking stewardship of serverless-offline-sns ([d9b9dd6](https://github.com/BANCS-Norway/home/commit/d9b9dd628fc3c86959a8343045d9e541cbdb71f8)), closes [#189](https://github.com/BANCS-Norway/home/issues/189)
+
 ## [1.25.3](https://github.com/BANCS-Norway/home/compare/v1.25.2...v1.25.3) (2025-12-04)
 
 
