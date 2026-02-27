@@ -42,6 +42,12 @@ div[class*='language-'] {
   background-color: var(--vp-c-bg-alt) !important;
 }
 
+/* Inline code - dark mode contrast fix */
+.dark :not(pre) > code {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
 /* Logo styling */
 .VPNavBarTitle .logo {
   transition: transform 300ms;
