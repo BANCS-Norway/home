@@ -91,8 +91,6 @@ The Serverless Framework made it possible for a small team to build and operate 
 
 We've been taking from that ecosystem for years. Publishing something this small — properly, with types and tests and a release pipeline — is one way to put things back. Our plan to give back to the community started with [taking stewardship of serverless-offline-sns](/blog/serverless-offline-sns-stewardship) earlier this year — a plugin nearly 10 years old that hundreds of teams depend on for local development. This is the next step.
 
-There's a version of this where the plugin stays internal forever, and we keep a comment in the codebase that says "this could probably be extracted." That version is easier. But the ecosystem doesn't get better from things that stay internal.
-
 ## Get Involved
 
 The plugin is published and actively maintained at [github.com/BANCS-Norway/serverless-stages-plugin](https://github.com/BANCS-Norway/serverless-stages-plugin).
@@ -108,6 +106,10 @@ If you use the plugin:
 - ⭐ Star the repository so others can find it
 - 🐛 Report issues — edge cases you've hit in production are the most useful
 - 💡 Submit pull requests — the contributor guide is there to help you
+
+---
+
+There's a version of this where the plugin stays internal forever, and we keep a comment in the codebase that says "this could probably be extracted." That version is easier. But the ecosystem doesn't get better from things that stay internal.
 
 Small things done properly matter. Five years late is better than never.
 
