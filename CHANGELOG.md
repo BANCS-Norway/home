@@ -1,3 +1,10 @@
+## [1.27.1](https://github.com/BANCS-Norway/home/compare/v1.27.0...v1.27.1) (2026-03-25)
+
+
+### Bug Fixes
+
+* restructure closing of serverless-stages-plugin blog post ([cafb800](https://github.com/BANCS-Norway/home/commit/cafb80066352d740ebb197b9652ada7a29ea3713)), closes [#195](https://github.com/BANCS-Norway/home/issues/195)
+
 # [1.27.0](https://github.com/BANCS-Norway/home/compare/v1.26.1...v1.27.0) (2026-03-25)
 
 
