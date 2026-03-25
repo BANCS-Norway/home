@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/BANCS-Norway/home/compare/v1.26.1...v1.27.0) (2026-03-25)
+
+
+### Features
+
+* add blog post about serverless-stages-plugin open source release ([64cee7f](https://github.com/BANCS-Norway/home/commit/64cee7fab9a6464893d11b5d614f51a5d7d193ed)), closes [#193](https://github.com/BANCS-Norway/home/issues/193)
+
 ## [1.26.1](https://github.com/BANCS-Norway/home/compare/v1.26.0...v1.26.1) (2026-02-27)
 
 # [1.26.0](https://github.com/BANCS-Norway/home/compare/v1.25.3...v1.26.0) (2026-02-27)
