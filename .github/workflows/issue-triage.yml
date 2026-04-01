@@ -1,0 +1,68 @@
+name: Issue Triage
+
+# Requires secret: CLAUDE_CODE_OAUTH_TOKEN
+# Add via: GitHub repo → Settings → Secrets and variables → Actions → New repository secret
+
+on:
+  issues:
+    types: [opened, labeled, unlabeled, edited, reopened]
+
+permissions:
+  issues: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run triage
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          allowed_tools: "Bash(gh:*)"
+          prompt: |
+            You are an automated issue triage assistant for the BANCS Norway home repository.
+            A GitHub issue event just fired. Here are the details:
+
+            - Event type: ${{ github.event.action }}
+            - Issue number: #${{ github.event.issue.number }}
+            - Issue title: ${{ github.event.issue.title }}
+            - Issue body: ${{ github.event.issue.body }}
+            - Issue author: ${{ github.event.issue.user.login }}
+            - Current labels: ${{ join(github.event.issue.labels.*.name, ', ') }}
+
+            Your job depends on the event type:
+
+            ## opened
+            - Read the issue title and body
+            - Apply appropriate labels using `gh issue edit ${{ github.event.issue.number }} --add-label "..."`:
+              - Type: `bug`, `enhancement`, `documentation`, `question`, `chore`
+              - Priority: `priority: high`, `priority: medium`, `priority: low` (use sparingly)
+              - Status: `status: needs-triage` (default for new issues)
+            - Only apply labels that already exist in the repo — check with `gh label list` first
+            - Post a comment acknowledging the issue and explaining the labels applied
+
+            ## labeled or unlabeled
+            - Note which label was added or removed (check event context)
+            - If `status: needs-triage` was removed, no action needed — a human has triaged it
+            - If a `priority:` label was added by a maintainer, post a brief acknowledgement comment
+            - Do not add or remove labels yourself in response to label events — this prevents loops
+
+            ## edited
+            - Re-evaluate the issue title and body for label accuracy
+            - If labels are clearly wrong given the new content, update them with a comment explaining the change
+            - If labels still fit, do nothing
+
+            ## reopened
+            - Remove `status: closed` label if present
+            - Add `status: needs-triage` label
+            - Post a comment noting the issue was reopened and needs re-evaluation
+
+            ## General rules
+            - Be concise in comments — one short paragraph is enough
+            - Always explain your reasoning when adding or changing labels
+            - Never remove labels that were set by a human maintainer
+            - If unsure about classification, apply `status: needs-triage` and ask a clarifying question in a comment
+            - Do not comment more than once per event — check existing comments with `gh issue view ${{ github.event.issue.number }} --comments` before posting
