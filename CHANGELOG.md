@@ -1,3 +1,10 @@
+# [1.28.0](https://github.com/BANCS-Norway/home/compare/v1.27.1...v1.28.0) (2026-04-01)
+
+
+### Features
+
+* add blog post — Two Sides of the Same Coin ([1a5e6b5](https://github.com/BANCS-Norway/home/commit/1a5e6b52d9d021f6edebaeeec3ea4b08e7d07f81)), closes [#197](https://github.com/BANCS-Norway/home/issues/197)
+
 ## [1.27.1](https://github.com/BANCS-Norway/home/compare/v1.27.0...v1.27.1) (2026-03-25)
 
 
