@@ -20,6 +20,7 @@ import ImageAttribution from './components/ImageAttribution.vue'
 import BlogIndex from './components/BlogIndex.vue'
 import InfinityDivider from './components/InfinityDivider.vue'
 import RevealPresentation from './components/RevealPresentation.vue'
+import UpcomingPosts from './components/UpcomingPosts.vue'
 
 export default {
   extends: DefaultTheme,
@@ -46,5 +47,6 @@ export default {
     app.component('BlogIndex', BlogIndex)
     app.component('InfinityDivider', InfinityDivider)
     app.component('RevealPresentation', RevealPresentation)
+    app.component('UpcomingPosts', UpcomingPosts)
   }
 } satisfies Theme

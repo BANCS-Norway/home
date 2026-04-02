@@ -6,20 +6,7 @@ Welcome to the BANCS blog, where we share insights about software development, A
 
 <BlogIndex />
 
-## Coming Soon
-
-<BlogCard>
-
-### Building a Modern Blog with VitePress
-**Date**: Coming Soon
-
-A comprehensive guide to setting up a professional blog using VitePress, TypeScript, and Tailwind CSS. Includes deployment to GitHub Pages and custom domain configuration.
-
-**Topics**: VitePress, TypeScript, Tailwind, GitHub Pages
-
-*Coming Soon*
-
-</BlogCard>
+<UpcomingPosts />
 
 ## Topics
 
