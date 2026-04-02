@@ -1,3 +1,10 @@
+# [1.29.0](https://github.com/BANCS-Norway/home/compare/v1.28.0...v1.29.0) (2026-04-02)
+
+
+### Features
+
+* add UpcomingPosts widget to blog index ([56e4360](https://github.com/BANCS-Norway/home/commit/56e4360616bb24890ad2de05d17cda5ea572db2f)), closes [#203](https://github.com/BANCS-Norway/home/issues/203)
+
 # [1.28.0](https://github.com/BANCS-Norway/home/compare/v1.27.1...v1.28.0) (2026-04-01)
 
 
