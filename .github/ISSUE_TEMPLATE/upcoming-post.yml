@@ -1,0 +1,65 @@
+name: Upcoming Blog Post
+description: Plan and track an upcoming post for bancs.no
+labels: ["upcoming-post"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Post Title
+      placeholder: "e.g. The Bad Batch: Adding Memory and Personality to Claude Code"
+    validations:
+      required: true
+
+  - type: input
+    id: series
+    attributes:
+      label: Series (optional)
+      placeholder: "e.g. Claude Code Chronicles"
+
+  - type: input
+    id: estimated
+    attributes:
+      label: Estimated publish
+      placeholder: "e.g. 2025-Q2 or 2025-06"
+
+  - type: input
+    id: tags
+    attributes:
+      label: Tags
+      placeholder: "claude-code, methodology, open-source"
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One paragraph — what is this post about?
+    validations:
+      required: true
+
+  - type: textarea
+    id: sections
+    attributes:
+      label: Sections
+      description: |
+        Use this exact format — one section per block.
+        The site parser relies on `### ` headings followed by a description line.
+      value: |
+        ### Section Title
+        One or two sentences describing what this section covers.
+
+        ### Section Title
+        One or two sentences describing what this section covers.
+    validations:
+      required: true
+
+  - type: textarea
+    id: takeaways
+    attributes:
+      label: Key Takeaways
+      description: 3–5 bullet points the reader walks away with.
+      value: |
+        -
+        -
+        -
+    validations:
+      required: true
