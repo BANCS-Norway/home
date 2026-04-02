@@ -1,3 +1,10 @@
+# [1.30.0](https://github.com/BANCS-Norway/home/compare/v1.29.0...v1.30.0) (2026-04-02)
+
+
+### Features
+
+* add /upcoming page for previewing planned blog posts ([7bb067c](https://github.com/BANCS-Norway/home/commit/7bb067c02fc9f0ec1f0a4640365cf299de79e660)), closes [#204](https://github.com/BANCS-Norway/home/issues/204)
+
 # [1.29.0](https://github.com/BANCS-Norway/home/compare/v1.28.0...v1.29.0) (2026-04-02)
 
 
