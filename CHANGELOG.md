@@ -1,3 +1,10 @@
+## [1.30.1](https://github.com/BANCS-Norway/home/compare/v1.30.0...v1.30.1) (2026-04-03)
+
+
+### Bug Fixes
+
+* update org number and VAT registration status for BANCS AS ([b4f25a7](https://github.com/BANCS-Norway/home/commit/b4f25a725f4367585ed4e0e37a08a203d6696320)), closes [#215](https://github.com/BANCS-Norway/home/issues/215)
+
 # [1.30.0](https://github.com/BANCS-Norway/home/compare/v1.29.0...v1.30.0) (2026-04-02)
 
 
