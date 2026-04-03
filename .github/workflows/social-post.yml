@@ -1,0 +1,220 @@
+name: Schedule backfill social post
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  process:
+    name: Generate Instagram crop and open PR
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'social-post')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Parse issue body
+        id: parse
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python3 << 'PYEOF'
+          import os, re, sys
+
+          body = os.environ['ISSUE_BODY']
+          github_output = os.environ['GITHUB_OUTPUT']
+
+          def extract(heading):
+              pattern = rf'### {re.escape(heading)}\s*\n\s*(.+?)(?:\s*\n\s*###|\s*$)'
+              m = re.search(pattern, body, re.DOTALL)
+              if m:
+                  val = m.group(1).strip()
+                  return '' if val == '_No response_' else val
+              return ''
+
+          slug        = extract('Blog post slug')
+          social_date = extract('Social posting date (YYYY-MM-DD)')
+          focal_point = extract('Instagram crop focal point (optional)') or 'center'
+
+          if not slug or not social_date:
+              print('ERROR: Missing required fields', file=sys.stderr)
+              sys.exit(1)
+
+          # Normalise focal point to ImageMagick gravity
+          gravity_map = {'top': 'North', 'center': 'Center', 'centre': 'Center', 'bottom': 'South'}
+          gravity = gravity_map.get(focal_point.lower(), 'Center')
+
+          with open(github_output, 'a') as f:
+              f.write(f'slug={slug}\n')
+              f.write(f'social_date={social_date}\n')
+              f.write(f'focal_point={focal_point}\n')
+              f.write(f'gravity={gravity}\n')
+
+          print(f'Parsed: slug={slug!r}, social_date={social_date!r}, gravity={gravity!r}')
+          PYEOF
+
+      - name: Verify blog post exists
+        id: verify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.parse.outputs.slug }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          BLOG_FILE="docs/blog/${SLUG}.md"
+
+          if [ ! -f "$BLOG_FILE" ]; then
+            gh issue comment "$ISSUE_NUMBER" \
+              --body "❌ Blog post not found: \`docs/blog/${SLUG}.md\`
+
+          Please check the slug and try again."
+            exit 1
+          fi
+
+          echo "found=true" >> $GITHUB_OUTPUT
+          echo "file=$BLOG_FILE" >> $GITHUB_OUTPUT
+          echo "Blog post found: $BLOG_FILE"
+
+      - name: Parse hero image from frontmatter
+        id: hero
+        env:
+          BLOG_FILE: ${{ steps.verify.outputs.file }}
+        run: |
+          python3 << 'PYEOF'
+          import yaml, os, sys
+
+          blog_file = os.environ['BLOG_FILE']
+          github_output = os.environ['GITHUB_OUTPUT']
+
+          with open(blog_file) as f:
+              raw = f.read()
+
+          parts = raw.split('---\n', 2)
+          if len(parts) < 3:
+              print('ERROR: No frontmatter found', file=sys.stderr)
+              sys.exit(1)
+
+          fm = yaml.safe_load(parts[1])
+          hero = fm.get('hero', {}) or {}
+          hero_image = hero.get('image', '')
+
+          if not hero_image:
+              print('ERROR: No hero.image in frontmatter', file=sys.stderr)
+              sys.exit(1)
+
+          with open(github_output, 'a') as f:
+              f.write(f'image={hero_image}\n')
+
+          print(f'Hero image: {hero_image}')
+          PYEOF
+
+      - name: Generate Instagram crop
+        id: crop
+        env:
+          SLUG: ${{ steps.parse.outputs.slug }}
+          GRAVITY: ${{ steps.parse.outputs.gravity }}
+          HERO_IMAGE: ${{ steps.hero.outputs.image }}
+        run: |
+          INPUT="docs/public${HERO_IMAGE}"
+          OUTPUT="docs/public/images/blog/${SLUG}/hero-instagram.jpg"
+
+          if [ ! -f "$INPUT" ]; then
+            echo "Hero image not found at $INPUT — skipping crop"
+            echo "generated=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          mkdir -p "$(dirname "$OUTPUT")"
+
+          # Resize so smallest dimension is 1080, then gravity-crop to 1080x1080
+          convert "$INPUT" \
+            -resize "1080x1080^" \
+            -gravity "$GRAVITY" \
+            -extent 1080x1080 \
+            "$OUTPUT"
+
+          echo "generated=true" >> $GITHUB_OUTPUT
+          echo "path=$OUTPUT" >> $GITHUB_OUTPUT
+          echo "instagram_path=/images/blog/${SLUG}/hero-instagram.jpg" >> $GITHUB_OUTPUT
+          echo "Crop generated: $OUTPUT"
+
+      - name: Update frontmatter
+        env:
+          BLOG_FILE: ${{ steps.verify.outputs.file }}
+          SLUG: ${{ steps.parse.outputs.slug }}
+          SOCIAL_DATE: ${{ steps.parse.outputs.social_date }}
+          INSTAGRAM_PATH: ${{ steps.crop.outputs.instagram_path }}
+          CROP_GENERATED: ${{ steps.crop.outputs.generated }}
+        run: |
+          python3 << 'PYEOF'
+          import yaml, os, re
+
+          blog_file  = os.environ['BLOG_FILE']
+          social_date = os.environ['SOCIAL_DATE']
+          instagram_path = os.environ.get('INSTAGRAM_PATH', '')
+          crop_generated = os.environ.get('CROP_GENERATED', 'false') == 'true'
+
+          with open(blog_file) as f:
+              raw = f.read()
+
+          parts = raw.split('---\n', 2)
+          fm = yaml.safe_load(parts[1])
+
+          # Set socialDate
+          fm['socialDate'] = social_date
+
+          # Set hero.instagram if crop was generated
+          if crop_generated and instagram_path:
+              if 'hero' not in fm or fm['hero'] is None:
+                  fm['hero'] = {}
+              fm['hero']['instagram'] = instagram_path
+
+          updated_fm = yaml.dump(fm, allow_unicode=True, sort_keys=False, default_flow_style=False)
+          new_content = f'---\n{updated_fm}---\n{parts[2]}'
+
+          with open(blog_file, 'w') as f:
+              f.write(new_content)
+
+          print(f'Frontmatter updated: socialDate={social_date!r}, instagram={instagram_path!r}')
+          PYEOF
+
+      - name: Open PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.parse.outputs.slug }}
+          SOCIAL_DATE: ${{ steps.parse.outputs.social_date }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          CROP_GENERATED: ${{ steps.crop.outputs.generated }}
+        run: |
+          BRANCH="chore/social-post-${SLUG}-${SOCIAL_DATE}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH"
+          git add docs/blog/${SLUG}.md
+          [ "$CROP_GENERATED" = "true" ] && git add docs/public/images/blog/${SLUG}/hero-instagram.jpg
+
+          git commit -m "chore(ci): add socialDate and Instagram crop for ${SLUG}
+
+          Closes #${ISSUE_NUMBER}"
+
+          git push origin "$BRANCH"
+
+          CROP_NOTE=""
+          [ "$CROP_GENERATED" = "true" ] && CROP_NOTE="- Instagram crop generated at \`docs/public/images/blog/${SLUG}/hero-instagram.jpg\`" || CROP_NOTE="- ⚠️ Hero image not found — Instagram crop skipped"
+
+          gh pr create \
+            --title "chore(ci): schedule social post for ${SLUG} (${SOCIAL_DATE})" \
+            --body "Closes #${ISSUE_NUMBER}
+
+          ## Summary
+          - \`socialDate: ${SOCIAL_DATE}\` added to frontmatter
+          ${CROP_NOTE}
+
+          When this PR merges, \`social-schedule.yml\` will pick up the \`socialDate\` and schedule posts via Publer at 09:00 Europe/Oslo."
