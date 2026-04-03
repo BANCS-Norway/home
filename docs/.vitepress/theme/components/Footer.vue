@@ -21,7 +21,7 @@ import { version } from '../../../../package.json'
         <a
           href="/about"
           class="text-(--vp-c-brand) underline hover:no-underline"
-        >BANCS AS</a> · Org.nr: 927 177 579 · Allegaten 6, 4400 Flekkefjord ·
+        >BANCS AS</a> · Org.nr: 927 177 579 MVA · Allegaten 6, 4400 Flekkefjord ·
         <a
           href="mailto:contact@bancs.no"
           class="text-(--vp-c-brand) underline hover:no-underline"

@@ -34,10 +34,10 @@ Norway
 
 ## Foretaksinformasjon (Company Information)
 
-**Organisasjonsnummer:** 927 177 579
-**Registrert adresse:** Allegaten 6, 4400 Flekkefjord
-**E-post:** contact@bancs.no
-**MVA-registrert:** Nei (terskel er 50 000 NOK)
+**Organisasjonsnummer:** 927 177 579\
+**Registrert adresse:** Allegaten 6, 4400 Flekkefjord\
+**E-post:** contact@bancs.no\
+**MVA-registrert:** Ja
 
 ## Response Time
 
