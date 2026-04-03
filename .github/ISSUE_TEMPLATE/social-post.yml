@@ -1,0 +1,25 @@
+name: Schedule Social Post
+description: Schedule social media posts for an existing blog post via Publer
+labels: ["social-post"]
+body:
+  - type: input
+    id: slug
+    attributes:
+      label: Blog post slug
+      placeholder: "e.g. serverless-stages-plugin"
+    validations:
+      required: true
+
+  - type: input
+    id: social_date
+    attributes:
+      label: Social posting date (YYYY-MM-DD)
+      placeholder: "e.g. 2026-04-10"
+    validations:
+      required: true
+
+  - type: input
+    id: focal_point
+    attributes:
+      label: Instagram crop focal point (optional)
+      placeholder: "top, center, or bottom — defaults to center"
