@@ -285,6 +285,10 @@ jobs:
 
           # 09:00 Europe/Oslo — calculate UTC offset (CET=+01:00, CEST=+02:00)
           import subprocess, datetime
+          today = datetime.date.today()
+          social_date = datetime.date.fromisoformat(post_date)
+          is_future = social_date > today
+
           tz_offset = subprocess.run(
               ['date', '-d', f'{post_date} 09:00:00', '+%z'],
               env={**os.environ, 'TZ': 'Europe/Oslo'}, capture_output=True, text=True
@@ -299,14 +303,26 @@ jobs:
           instagram_media_id = os.environ.get('INSTAGRAM_MEDIA_ID', '')
 
           def schedule(account_id, text, platform, media_id=None):
-              post = {
-                  'accounts': [{'id': account_id, 'scheduled_at': scheduled_at}],
-                  'networks': {platform: {'text': text}}
-              }
+              # Use "photo" type when media is attached, "status" for text-only
+              post_type = 'photo' if media_id else 'status'
+              network = {'type': post_type, 'text': text}
               if media_id:
-                  post['networks'][platform]['media'] = [{'id': media_id, 'type': 'image'}]
+                  network['media'] = [{'id': media_id, 'type': 'image'}]
 
-              payload = json.dumps({'bulk': {'state': 'scheduled', 'posts': [post]}}).encode()
+              # Post immediately if social date is today or in the past
+              if is_future:
+                  state = 'scheduled'
+                  account_entry = {'id': account_id, 'scheduled_at': scheduled_at}
+              else:
+                  state = 'published'
+                  account_entry = {'id': account_id}
+
+              post = {
+                  'accounts': [account_entry],
+                  'networks': {platform: network}
+              }
+
+              payload = json.dumps({'bulk': {'state': state, 'posts': [post]}}).encode()
               req = urllib.request.Request(
                   'https://app.publer.com/api/v1/posts/schedule',
                   data=payload,
@@ -314,6 +330,7 @@ jobs:
                       'Authorization': f'Bearer-API {api_key}',
                       'Publer-Workspace-Id': workspace_id,
                       'Content-Type': 'application/json',
+                      'User-Agent': 'Mozilla/5.0 (compatible; bancs-social-bot/1.0)',
                   }
               )
               try:
@@ -355,22 +372,27 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           python3 << 'PYEOF'
-          import os, subprocess
+          import os, subprocess, datetime
 
           date = os.environ['POST_DATE']
           title = os.environ['POST_TITLE']
+          is_future = datetime.date.fromisoformat(date) > datetime.date.today()
 
-          scheduled = subprocess.run(
-              ['date', '-d', f'{date} 09:00:00', '+%A %B %-d, %Y at 09:00 CET'],
-              env={**os.environ, 'TZ': 'Europe/Oslo'},
-              capture_output=True, text=True
-          ).stdout.strip()
+          if is_future:
+              scheduled = subprocess.run(
+                  ['date', '-d', f'{date} 09:00:00', '+%A %B %-d, %Y at 09:00 CET'],
+                  env={**os.environ, 'TZ': 'Europe/Oslo'},
+                  capture_output=True, text=True
+              ).stdout.strip()
+              heading = f'## Scheduled for {scheduled}'
+          else:
+              heading = '## Posted immediately'
 
           def status(val):
               return 'checked' if val == 'true' else 'x'
 
           lines = [
-              f'## Scheduled for {scheduled}',
+              heading,
               '',
               f'**{title}**',
               '',

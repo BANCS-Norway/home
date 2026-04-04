@@ -129,11 +129,21 @@ jobs:
             exit 0
           fi
 
+          if [ -f "$OUTPUT" ]; then
+            echo "Instagram crop already exists at $OUTPUT — skipping generation (may be a custom image)"
+            echo "generated=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
           mkdir -p "$(dirname "$OUTPUT")"
 
-          # Resize so smallest dimension is 1080, then gravity-crop to 1080x1080
+          # Resize so smallest dimension is 1080, then gravity-crop to 1080x1080.
+          # If the image is narrower or shorter than 1080px, padding will be added.
+          # White is used as the filler colour — it looks better than black for most
+          # blog hero images, and true transparency is not supported by Instagram.
           convert "$INPUT" \
             -resize "1080x1080^" \
+            -background white \
             -gravity "$GRAVITY" \
             -extent 1080x1080 \
             "$OUTPUT"
