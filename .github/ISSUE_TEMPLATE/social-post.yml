@@ -22,4 +22,9 @@ body:
     id: focal_point
     attributes:
       label: Instagram crop focal point (optional)
+      description: >
+        If the hero image doesn't fill the full 1080×1080 crop, the remaining area
+        is filled with white. To use a custom Instagram image instead, place it at
+        docs/public/images/blog/{slug}/hero-instagram.jpg before triggering this workflow
+        — the auto-crop will be skipped if that file already exists.
       placeholder: "top, center, or bottom — defaults to center"
