@@ -113,6 +113,9 @@ jobs:
           print(f'Hero image: {hero_image}')
           PYEOF
 
+      - name: Install ImageMagick
+        run: sudo apt-get install -y imagemagick
+
       - name: Generate Instagram crop
         id: crop
         env:
