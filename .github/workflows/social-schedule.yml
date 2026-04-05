@@ -294,11 +294,16 @@ jobs:
           social_date = datetime.date.fromisoformat(post_date)
           is_future = social_date > today
 
-          tz_offset = subprocess.run(
-              ['date', '-d', f'{post_date} 09:00:00', '+%z'],
-              env={**os.environ, 'TZ': 'Europe/Oslo'}, capture_output=True, text=True
-          ).stdout.strip()
-          scheduled_at = f'{post_date}T09:00:00{tz_offset[:3]}:{tz_offset[3:]}'
+          if is_future:
+              tz_offset = subprocess.run(
+                  ['date', '-d', f'{post_date} 09:00:00', '+%z'],
+                  env={**os.environ, 'TZ': 'Europe/Oslo'}, capture_output=True, text=True
+              ).stdout.strip()
+              scheduled_at = f'{post_date}T09:00:00{tz_offset[:3]}:{tz_offset[3:]}'
+          else:
+              # Schedule 30 minutes from now — gives time to review before it goes out
+              now_plus_30 = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=30)
+              scheduled_at = now_plus_30.strftime('%Y-%m-%dT%H:%M:%S+00:00')
 
           with open('/tmp/linkedin_post.txt') as f:
               linkedin_text = f.read()
@@ -314,13 +319,8 @@ jobs:
               if media_id:
                   network['media'] = [{'id': media_id, 'type': 'image'}]
 
-              # Post immediately if social date is today or in the past
-              if is_future:
-                  state = 'scheduled'
-                  account_entry = {'id': account_id, 'scheduled_at': scheduled_at}
-              else:
-                  state = 'published'
-                  account_entry = {'id': account_id}
+              state = 'scheduled'
+              account_entry = {'id': account_id, 'scheduled_at': scheduled_at}
 
               post = {
                   'accounts': [account_entry],
@@ -391,7 +391,8 @@ jobs:
               ).stdout.strip()
               heading = f'## Scheduled for {scheduled}'
           else:
-              heading = '## Posted immediately'
+              now_plus_30 = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=30)
+              heading = f'## Scheduled for today at {now_plus_30.strftime("%H:%M")} UTC (~30 min from now)'
 
           def status(val):
               return 'checked' if val == 'true' else 'x'
