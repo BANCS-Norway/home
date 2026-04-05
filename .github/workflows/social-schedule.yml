@@ -34,7 +34,7 @@ jobs:
           # Find .md files added/modified in docs/blog/ (excluding index.md)
           # Pick the one with most additions — that's the new post, not index edits
           BLOG_FILE=$(gh pr view "$PR_NUMBER" --json files \
-            --jq '.files[] | select(.path | test("^docs/blog/(?!index\\.md).+\\.md$")) | "\(.additions) \(.path)"' \
+            --jq '.files[] | select(.path | test("^docs/blog/.+\\.md$")) | select(.path | test("index\\.md") | not) | "\(.additions) \(.path)"' \
             | sort -rn | head -1 | awk '{print $2}')
 
           if [ -z "$BLOG_FILE" ]; then
