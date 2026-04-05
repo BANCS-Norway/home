@@ -1,3 +1,10 @@
+## [1.30.9](https://github.com/BANCS-Norway/home/compare/v1.30.8...v1.30.9) (2026-04-05)
+
+
+### Bug Fixes
+
+* add socialDate for stalactite-autodream ([ae1a7a3](https://github.com/BANCS-Norway/home/commit/ae1a7a3e1e3b89406268150ebf9cb6d8ae801139)), closes [#268](https://github.com/BANCS-Norway/home/issues/268)
+
 ## [1.30.8](https://github.com/BANCS-Norway/home/compare/v1.30.7...v1.30.8) (2026-04-05)
 
 
