@@ -1,6 +1,5 @@
 name: Upcoming Blog Post
 description: Plan and track an upcoming post for bancs.no
-labels: ["upcoming-post"]
 body:
   - type: input
     id: title
