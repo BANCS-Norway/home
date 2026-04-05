@@ -26,6 +26,7 @@ body:
     id: tags
     attributes:
       label: Tags
+      description: "Comma-separated, e.g. claude-code, methodology, open-source"
       placeholder: "claude-code, methodology, open-source"
 
   - type: textarea
@@ -58,8 +59,8 @@ body:
       label: Key Takeaways
       description: 3–5 bullet points the reader walks away with.
       value: |
-        -
-        -
-        -
+        - First takeaway
+        - Second takeaway
+        - Third takeaway
     validations:
       required: true
