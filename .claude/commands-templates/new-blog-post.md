@@ -22,7 +22,8 @@ This command helps you create a new blog post following the project's blog workf
    - Create: `docs/blog/{slug}.md`
    - Use the template from CONTRIBUTING.md
    - Fill in title, author, topics
-   - Add current date
+   - Add current date as `date: YYYY-MM-DD`
+   - Add `socialDate: YYYY-MM-DD` with the same value as `date` (author can change it independently before publishing)
    - Include placeholder sections (Introduction, Main Content, Conclusion)
 
 4. **Create Examples Directory**
