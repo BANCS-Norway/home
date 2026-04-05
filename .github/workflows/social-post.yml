@@ -129,12 +129,14 @@ jobs:
           if [ ! -f "$INPUT" ]; then
             echo "Hero image not found at $INPUT — skipping crop"
             echo "generated=false" >> $GITHUB_OUTPUT
+            echo "skipped_reason=no_hero" >> $GITHUB_OUTPUT
             exit 0
           fi
 
           if [ -f "$OUTPUT" ]; then
             echo "Instagram crop already exists at $OUTPUT — skipping generation (may be a custom image)"
             echo "generated=false" >> $GITHUB_OUTPUT
+            echo "skipped_reason=exists" >> $GITHUB_OUTPUT
             exit 0
           fi
 
@@ -203,6 +205,7 @@ jobs:
           SOCIAL_DATE: ${{ steps.parse.outputs.social_date }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CROP_GENERATED: ${{ steps.crop.outputs.generated }}
+          CROP_SKIPPED_REASON: ${{ steps.crop.outputs.skipped_reason }}
         run: |
           BRANCH="fix/social-post-${SLUG}-${SOCIAL_DATE}"
 
@@ -220,7 +223,13 @@ jobs:
           git push origin "$BRANCH"
 
           CROP_NOTE=""
-          [ "$CROP_GENERATED" = "true" ] && CROP_NOTE="- Instagram crop generated at \`docs/public/images/blog/${SLUG}/hero-instagram.jpg\`" || CROP_NOTE="- ⚠️ Hero image not found — Instagram crop skipped"
+          if [ "$CROP_GENERATED" = "true" ]; then
+            CROP_NOTE="- Instagram crop generated at \`docs/public/images/blog/${SLUG}/hero-instagram.jpg\`"
+          elif [ "$CROP_SKIPPED_REASON" = "exists" ]; then
+            CROP_NOTE="- Instagram crop already exists — skipped"
+          else
+            CROP_NOTE="- ⚠️ Hero image not found — Instagram crop skipped"
+          fi
 
           gh pr create \
             --title "fix: add socialDate for ${SLUG} (${SOCIAL_DATE})" \
