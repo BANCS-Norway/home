@@ -1,18 +1,20 @@
 ---
 title: Two Sides of the Same Coin
 subtitle: The Stalactite Principle and autoDream, Five Months Apart
-description: In November 2025 I documented the Stalactite Principle. In March 2026, a packaging error exposed Claude Code's internals. Researchers found autoDream. They're not parallel discoveries. They're the same coin.
+description: In November 2025 I documented the Stalactite Principle. In March 2026,
+  a packaging error exposed Claude Code's internals. Researchers found autoDream.
+  They're not parallel discoveries. They're the same coin.
 date: 2026-04-02
 readingTime: 4
 tags:
-  - claude-code
-  - ai
-  - memory
-  - architecture
+- claude-code
+- ai
+- memory
+- architecture
 hero:
   image: /images/blog/stalactite-autodream/coin.png
-  alt: A 1907 Double Eagle gold coin showing both obverse and reverse — two sides of the same coin
-
+  alt: A 1907 Double Eagle gold coin showing both obverse and reverse — two sides
+    of the same coin
   attribution:
     author: National Numismatic Collection, Smithsonian Institution
     authorUrl: https://americanhistory.si.edu/collections/numismatics
@@ -20,6 +22,8 @@ hero:
     sourceUrl: https://commons.wikimedia.org/wiki/File:NNC-US-1907-G%2420-Saint_Gaudens_(Roman,_ultra_high_relief,_wire_edge).jpg
     license: Public Domain
     licenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
+  instagram: /images/blog/stalactite-autodream/hero-instagram.jpg
+socialDate: '2026-04-05'
 ---
 
 <BlogHeading />
