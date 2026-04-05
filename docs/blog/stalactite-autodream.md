@@ -23,7 +23,7 @@ hero:
     license: Public Domain
     licenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
   instagram: /images/blog/stalactite-autodream/hero-instagram.jpg
-socialDate: '2026-04-06'
+socialDate: '2026-04-05'
 ---
 
 <BlogHeading />
