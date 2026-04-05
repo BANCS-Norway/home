@@ -146,7 +146,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: "--allowedTools Read,Bash"
+          claude_args: "--allowedTools Read,Write,Bash"
           show_full_output: ${{ vars.CLAUDE_DEBUG || 'false' }}
           prompt: |
             You are a social media copywriter for Benny Molowny Thomas, a Norwegian solo developer
