@@ -36,6 +36,7 @@ jobs:
             - Issue title: ${{ github.event.issue.title }}
             - Issue body: ${{ github.event.issue.body }}
             - Issue author: ${{ github.event.issue.user.login }}
+            - Author association: ${{ github.event.issue.author_association }}
             - Current labels: ${{ join(github.event.issue.labels.*.name, ', ') }}
 
             Your job depends on the event type:
@@ -64,6 +65,11 @@ jobs:
             - Remove `status: closed` label if present
             - Add `status: needs-triage` label
             - Post a comment noting the issue was reopened and needs re-evaluation
+
+            ## Special handling: upcoming-post template
+            If the issue body matches the upcoming-post template (contains fields like "Post Title", "Summary", "Sections", "Key Takeaways"):
+            - If author_association is OWNER, MEMBER, or COLLABORATOR: apply the `upcoming-post` label and skip normal triage labeling
+            - Otherwise: do NOT apply `upcoming-post`; post a comment thanking them and explaining the `upcoming-post` label is applied by a maintainer after review
 
             ## General rules
             - Be concise in comments — one short paragraph is enough
