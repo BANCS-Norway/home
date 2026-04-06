@@ -276,15 +276,15 @@ jobs:
               "template": "<chosen template name>",
               "head": {
                 "brand": "BANCS.no",
-                "attribution": "<photo credit, max 60 chars, empty string if none>",
+                "attribution": "<photographer or source credit — truncate to max 55 chars, empty string if none>",
                 "title": "<post title, max 55 chars>",
                 "caption": "<hook sentence that makes someone swipe, max 35 words>"
               },
               "pages": [
                 {
-                  "eyebrow": "<H2 section label, max 28 chars>",
-                  "title": "<section title, max 38 chars, 1-2 lines>",
-                  "body": "<section body, max 45 words, plain text only — no markdown, no asterisks, no bullets>"
+                  "eyebrow": "<short topic label for this slide, max 28 chars — e.g. 'The Discovery' or 'Why It Matters'>",
+                  "title": "<the key point of this section in punchy form, max 38 chars — this is the large bold heading>",
+                  "body": "<section body expanding on the title, max 45 words, plain text only — no markdown, no asterisks, no bullets>"
                 }
               ],
               "tail": {
@@ -298,6 +298,7 @@ jobs:
 
             Rules:
             - 3 to 5 content pages — pick the key sections, do not force every H2
+            - eyebrow and title must differ — eyebrow is a small label, title is the big point
             - Plain text only in all text fields — no markdown, no special characters
             - Stay within word and character budgets — square slides are constrained
             - Do not include a "tag" field anywhere — it is auto-generated
@@ -332,20 +333,28 @@ jobs:
           PUBLER_INSTAGRAM_ACCOUNT_ID: ${{ secrets.PUBLER_INSTAGRAM_ACCOUNT_ID }}
           POST_DATE: ${{ steps.parse.outputs.date }}
           POST_URL: ${{ steps.find.outputs.url }}
+          POST_TITLE: ${{ steps.parse.outputs.title }}
         run: |
           python3 << 'PYEOF'
-          import os, json, urllib.request, urllib.error
+          import os, json, time, urllib.request, urllib.error, subprocess, datetime
+          from pathlib import Path
 
           api_key      = os.environ['PUBLER_API_KEY']
           workspace_id = os.environ['PUBLER_WORKSPACE_ID']
           post_date    = os.environ['POST_DATE']
           post_url     = os.environ['POST_URL']
+          post_title   = os.environ['POST_TITLE']
+
+          HEADERS = {
+              'Authorization': f'Bearer-API {api_key}',
+              'Publer-Workspace-Id': workspace_id,
+              'Content-Type': 'application/json',
+              'User-Agent': 'Mozilla/5.0 (compatible; bancs-social-bot/1.0)',
+          }
 
           # 09:00 Europe/Oslo — calculate UTC offset (CET=+01:00, CEST=+02:00)
-          import subprocess, datetime
-          today = datetime.date.today()
           social_date = datetime.date.fromisoformat(post_date)
-          is_future = social_date > today
+          is_future = social_date > datetime.date.today()
 
           if is_future:
               tz_offset = subprocess.run(
@@ -358,54 +367,117 @@ jobs:
               now_plus_30 = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=30)
               scheduled_at = now_plus_30.strftime('%Y-%m-%dT%H:%M:%S+00:00')
 
+          # ── Upload PDF carousel ───────────────────────────────────────────────
+
+          print('Uploading PDF carousel...')
+          pdf_bytes = Path('/tmp/carousel.pdf').read_bytes()
+          boundary  = '----FormBoundary7MA4YWxkTrZu0gW'
+          body = (
+              f'--{boundary}\r\n'
+              f'Content-Disposition: form-data; name="file"; filename="carousel.pdf"\r\n'
+              f'Content-Type: application/pdf\r\n\r\n'
+          ).encode() + pdf_bytes + (
+              f'\r\n--{boundary}\r\n'
+              f'Content-Disposition: form-data; name="in_library"\r\n\r\n'
+              f'true'
+              f'\r\n--{boundary}--\r\n'
+          ).encode()
+
+          upload_req = urllib.request.Request(
+              'https://app.publer.com/api/v1/media',
+              data=body,
+              headers={
+                  'Authorization': f'Bearer-API {api_key}',
+                  'Publer-Workspace-Id': workspace_id,
+                  'User-Agent': 'Mozilla/5.0 (compatible; bancs-social-bot/1.0)',
+                  'Content-Type': f'multipart/form-data; boundary={boundary}',
+              }
+          )
+          try:
+              with urllib.request.urlopen(upload_req) as resp:
+                  upload_result = json.loads(resp.read())
+          except urllib.error.HTTPError as e:
+              raise SystemExit(f'PDF upload failed — {e.code}: {e.read().decode()}')
+
+          # PDF uploads are async — poll job_id to get slide image IDs
+          media_ids = []
+          upload_job_id = upload_result.get('job_id')
+
+          if upload_job_id:
+              print(f'  Processing (job_id: {upload_job_id}) — polling...')
+              poll_req = urllib.request.Request(
+                  f'https://app.publer.com/api/v1/job_status/{upload_job_id}',
+                  headers=HEADERS,
+              )
+              for attempt in range(15):
+                  time.sleep(3)
+                  try:
+                      with urllib.request.urlopen(poll_req) as resp:
+                          poll = json.loads(resp.read())
+                          if poll.get('status') == 'complete':
+                              media_ids = [item['id'] for item in poll.get('data', [])]
+                              print(f'  Complete — {len(media_ids)} slides: {media_ids}')
+                              break
+                          else:
+                              print(f'  [{attempt + 1}/15] status: {poll.get("status")}')
+                  except urllib.error.HTTPError as e:
+                      print(f'  [{attempt + 1}/15] poll error — {e.code}')
+              else:
+                  raise SystemExit('Timed out waiting for PDF processing.')
+          else:
+              media_ids = [upload_result['id']]
+              print(f'  Uploaded — id: {media_ids[0]}')
+
+          if not media_ids:
+              raise SystemExit('No slide IDs returned from Publer — cannot schedule.')
+
+          slide_media = [{'id': mid, 'type': 'photo'} for mid in media_ids]
+
+          # ── Schedule posts ────────────────────────────────────────────────────
+
           with open('/tmp/linkedin_post.txt') as f:
               linkedin_text = f.read()
-          twitter_text  = open('/tmp/claude-output.json').read()
-          twitter_text  = json.loads(twitter_text)['twitter'] + ' ' + post_url
+          twitter_text = json.loads(Path('/tmp/claude-output.json').read_text())['twitter'] + ' ' + post_url
+          instagram_text = json.loads(Path('/tmp/claude-output.json').read_text())['twitter']
 
-          def schedule(account_id, text, platform, media_id=None):
-              # Use "photo" type when media is attached, "status" for text-only
-              post_type = 'photo' if media_id else 'status'
-              network = {'type': post_type, 'text': text}
-              if media_id:
-                  network['media'] = [{'id': media_id, 'type': 'image'}]
-
-              state = 'scheduled'
-              account_entry = {'id': account_id, 'scheduled_at': scheduled_at}
-
-              post = {
-                  'accounts': [account_entry],
-                  'networks': {platform: network}
-              }
-
-              payload = json.dumps({'bulk': {'state': state, 'posts': [post]}}).encode()
+          def schedule(label, account_id, platform, network_payload):
+              payload = json.dumps({
+                  'bulk': {
+                      'state': 'scheduled',
+                      'posts': [{'accounts': [{'id': account_id, 'scheduled_at': scheduled_at}],
+                                 'networks': {platform: network_payload}}]
+                  }
+              }).encode()
               req = urllib.request.Request(
                   'https://app.publer.com/api/v1/posts/schedule',
-                  data=payload,
-                  headers={
-                      'Authorization': f'Bearer-API {api_key}',
-                      'Publer-Workspace-Id': workspace_id,
-                      'Content-Type': 'application/json',
-                      'User-Agent': 'Mozilla/5.0 (compatible; bancs-social-bot/1.0)',
-                  }
+                  data=payload, headers=HEADERS,
               )
               try:
                   with urllib.request.urlopen(req) as resp:
                       result = json.loads(resp.read())
-                      print(f'{platform}: scheduled (job_id: {result.get("job_id", "?")})')
+                      print(f'{label}: submitted (job_id: {result.get("job_id", "?")})')
                       return True
               except urllib.error.HTTPError as e:
-                  print(f'{platform}: failed — {e.read().decode()}')
+                  print(f'{label}: failed — {e.read().decode()}')
                   return False
 
-          linkedin_ok  = schedule(os.environ['PUBLER_LINKEDIN_ACCOUNT_ID'],  linkedin_text,  'linkedin')
-          twitter_ok   = schedule(os.environ['PUBLER_TWITTER_ACCOUNT_ID'],   twitter_text,   'twitter')
+          print('Scheduling posts...')
+          linkedin_ok  = schedule('LinkedIn',  os.environ['PUBLER_LINKEDIN_ACCOUNT_ID'],  'linkedin', {
+              'type': 'photo', 'title': post_title, 'text': linkedin_text, 'media': slide_media,
+          })
+          instagram_ok = schedule('Instagram', os.environ['PUBLER_INSTAGRAM_ACCOUNT_ID'], 'instagram', {
+              'type': 'photo', 'text': instagram_text, 'media': slide_media,
+          })
+          twitter_ok   = schedule('Twitter/X', os.environ['PUBLER_TWITTER_ACCOUNT_ID'],   'twitter', {
+              'type': 'status', 'text': twitter_text,
+          })
 
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'linkedin_ok={"true" if linkedin_ok else "false"}\n')
+              f.write(f'instagram_ok={"true" if instagram_ok else "false"}\n')
               f.write(f'twitter_ok={"true" if twitter_ok else "false"}\n')
 
-          if not linkedin_ok and not twitter_ok:
+          if not any([linkedin_ok, instagram_ok, twitter_ok]):
               raise SystemExit('All Publer API calls failed')
           PYEOF
 
@@ -416,6 +488,7 @@ jobs:
           POST_TITLE: ${{ steps.parse.outputs.title }}
           POST_DATE: ${{ steps.parse.outputs.date }}
           LINKEDIN_OK: ${{ steps.publer.outputs.linkedin_ok }}
+          INSTAGRAM_OK: ${{ steps.publer.outputs.instagram_ok }}
           TWITTER_OK: ${{ steps.publer.outputs.twitter_ok }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
@@ -438,17 +511,18 @@ jobs:
               heading = f'## Scheduled for today at {now_plus_30.strftime("%H:%M")} UTC (~30 min from now)'
 
           def status(val):
-              return 'checked' if val == 'true' else 'x'
+              return '✅' if val == 'true' else '❌'
 
           lines = [
               heading,
               '',
               f'**{title}**',
               '',
-              '| Platform | Status |',
-              '|----------|--------|',
-              f'| LinkedIn | {status(os.environ["LINKEDIN_OK"])} |',
-              f'| Twitter/X | {status(os.environ["TWITTER_OK"])} |',
+              '| Platform | Status | Format |',
+              '|----------|--------|--------|',
+              f'| LinkedIn  | {status(os.environ["LINKEDIN_OK"])}  | PDF carousel |',
+              f'| Instagram | {status(os.environ["INSTAGRAM_OK"])} | PDF carousel |',
+              f'| Twitter/X | {status(os.environ["TWITTER_OK"])}  | Text |',
               '',
               '_Generated by Claude Sonnet 4.6, scheduled via Publer._',
           ]
