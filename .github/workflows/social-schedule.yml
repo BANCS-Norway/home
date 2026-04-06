@@ -92,7 +92,6 @@ jobs:
           # Hero fields
           hero = fm.get('hero', {}) or {}
           hero_attribution = (hero.get('attribution') or {}).get('author', '')
-          hero_instagram = hero.get('instagram', '')  # square crop for Instagram, min 1080x1080
 
           # relatedArticles — future feature, parsed now so the field is supported
           related = fm.get('relatedArticles', []) or []
@@ -124,7 +123,6 @@ jobs:
               out.write(f"date={date}\n")
               out.write(f"subtitle={subtitle}\n")
               out.write(f"hero_attribution={hero_attribution}\n")
-              out.write(f"hero_instagram={hero_instagram}\n")
               out.write(f"prev_title={prev_title}\n")
               out.write(f"prev_url={prev_url}\n")
               out.write(f"next_title={next_title}\n")
@@ -164,8 +162,7 @@ jobs:
             with exactly this structure — no markdown fences, no explanation, just the JSON:
             {
               "linkedin_body": "Post body mirroring H2 sections with condensed text and code blocks interleaved as in the original. Ends with: Read the complete article: <url>. No disclaimer or attribution — those are added separately.",
-              "twitter": "Max 260 chars. Punchy and direct. URL is appended separately — do not include it.",
-              "instagram": "150-300 chars. Conversational. 3-5 relevant hashtags at the end. No URL."
+              "twitter": "Max 260 chars. Punchy and direct. URL is appended separately — do not include it."
             }
 
       - name: Validate Claude output
@@ -176,7 +173,7 @@ jobs:
             exit 1
           fi
 
-          jq -e '.linkedin_body and .twitter and .instagram' /tmp/claude-output.json > /dev/null \
+          jq -e '.linkedin_body and .twitter' /tmp/claude-output.json > /dev/null \
             || { echo "Unexpected JSON structure in Claude output"; cat /tmp/claude-output.json; exit 1; }
 
           echo "Claude output validated successfully"
@@ -235,38 +232,6 @@ jobs:
           print(f"LinkedIn post assembled ({len(full_post)} chars)")
           PYEOF
 
-      - name: Upload Instagram image to Publer
-        if: steps.find.outputs.found == 'true' && steps.parse.outputs.hero_instagram != ''
-        id: instagram_media
-        env:
-          PUBLER_API_KEY: ${{ secrets.PUBLER_API_KEY }}
-          PUBLER_WORKSPACE_ID: ${{ secrets.PUBLER_WORKSPACE_ID }}
-          HERO_INSTAGRAM: ${{ steps.parse.outputs.hero_instagram }}
-        run: |
-          # hero_instagram is a path like /images/blog/post-slug/hero-instagram.jpg
-          # Map to the file in the repo under docs/public/
-          IMAGE_FILE="docs/public${HERO_INSTAGRAM}"
-
-          if [ ! -f "$IMAGE_FILE" ]; then
-            echo "Instagram image not found at $IMAGE_FILE — skipping Instagram media upload"
-            echo "media_id=" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          RESPONSE=$(curl -sf -X POST "https://app.publer.com/api/v1/media" \
-            -H "Authorization: Bearer-API $PUBLER_API_KEY" \
-            -H "Publer-Workspace-Id: $PUBLER_WORKSPACE_ID" \
-            -F "file=@$IMAGE_FILE") || { echo "Publer media upload failed"; echo "media_id=" >> $GITHUB_OUTPUT; exit 0; }
-
-          MEDIA_ID=$(echo "$RESPONSE" | jq -r '.id // empty')
-          if [ -z "$MEDIA_ID" ]; then
-            echo "Publer media upload returned no ID: $RESPONSE"
-            echo "media_id=" >> $GITHUB_OUTPUT
-          else
-            echo "Instagram image uploaded, media_id: $MEDIA_ID"
-            echo "media_id=$MEDIA_ID" >> $GITHUB_OUTPUT
-          fi
-
       - name: Schedule via Publer
         if: steps.find.outputs.found == 'true'
         id: publer
@@ -278,7 +243,6 @@ jobs:
           PUBLER_INSTAGRAM_ACCOUNT_ID: ${{ secrets.PUBLER_INSTAGRAM_ACCOUNT_ID }}
           POST_DATE: ${{ steps.parse.outputs.date }}
           POST_URL: ${{ steps.find.outputs.url }}
-          INSTAGRAM_MEDIA_ID: ${{ steps.instagram_media.outputs.media_id }}
         run: |
           python3 << 'PYEOF'
           import os, json, urllib.request, urllib.error
@@ -309,8 +273,6 @@ jobs:
               linkedin_text = f.read()
           twitter_text  = open('/tmp/claude-output.json').read()
           twitter_text  = json.loads(twitter_text)['twitter'] + ' ' + post_url
-          instagram_text = json.loads(open('/tmp/claude-output.json').read())['instagram']
-          instagram_media_id = os.environ.get('INSTAGRAM_MEDIA_ID', '')
 
           def schedule(account_id, text, platform, media_id=None):
               # Use "photo" type when media is attached, "status" for text-only
@@ -349,19 +311,12 @@ jobs:
 
           linkedin_ok  = schedule(os.environ['PUBLER_LINKEDIN_ACCOUNT_ID'],  linkedin_text,  'linkedin')
           twitter_ok   = schedule(os.environ['PUBLER_TWITTER_ACCOUNT_ID'],   twitter_text,   'twitter')
-          instagram_ok = schedule(
-              os.environ['PUBLER_INSTAGRAM_ACCOUNT_ID'],
-              instagram_text,
-              'instagram',
-              media_id=instagram_media_id or None
-          )
 
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write(f'linkedin_ok={"true" if linkedin_ok else "false"}\n')
               f.write(f'twitter_ok={"true" if twitter_ok else "false"}\n')
-              f.write(f'instagram_ok={"true" if instagram_ok else "false"}\n')
 
-          if not linkedin_ok and not twitter_ok and not instagram_ok:
+          if not linkedin_ok and not twitter_ok:
               raise SystemExit('All Publer API calls failed')
           PYEOF
 
@@ -373,7 +328,6 @@ jobs:
           POST_DATE: ${{ steps.parse.outputs.date }}
           LINKEDIN_OK: ${{ steps.publer.outputs.linkedin_ok }}
           TWITTER_OK: ${{ steps.publer.outputs.twitter_ok }}
-          INSTAGRAM_OK: ${{ steps.publer.outputs.instagram_ok }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           python3 << 'PYEOF'
@@ -406,7 +360,6 @@ jobs:
               '|----------|--------|',
               f'| LinkedIn | {status(os.environ["LINKEDIN_OK"])} |',
               f'| Twitter/X | {status(os.environ["TWITTER_OK"])} |',
-              f'| Instagram | {status(os.environ["INSTAGRAM_OK"])} |',
               '',
               '_Generated by Claude Sonnet 4.6, scheduled via Publer._',
           ]
