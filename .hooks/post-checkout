@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# post-checkout: copies files listed in .worktreeinclude into a new worktree.
+#
+# Runs automatically on `git worktree add`. Activate for this repo with:
+#   git config core.hooksPath .hooks
+#
+# Remove this hook when git supports .worktreeinclude natively.
+
+PREV_HEAD="$1"
+CHECKOUT_TYPE="$3"
+NULL_SHA="0000000000000000000000000000000000000000"
+
+# Only act on branch/worktree checkouts, not file checkouts
+[ "$CHECKOUT_TYPE" -eq 1 ] || exit 0
+
+# Only act on new worktree creation (no previous HEAD)
+[ "$PREV_HEAD" = "$NULL_SHA" ] || exit 0
+
+# .worktreeinclude is committed, so it exists in this worktree
+[ -f ".worktreeinclude" ] || exit 0
+
+# Find the main repo root — always the first entry in worktree list
+MAIN_ROOT=$(git worktree list --porcelain | awk 'NR==1{print $2}')
+
+# Don't run in the main worktree itself
+[ "$(pwd)" = "$MAIN_ROOT" ] && exit 0
+
+echo "Syncing files from .worktreeinclude..."
+
+while IFS= read -r file || [ -n "$file" ]; do
+    [[ -z "$file" || "$file" =~ ^# ]] && continue
+    file=$(echo "$file" | xargs)
+
+    src="$MAIN_ROOT/$file"
+    dest="./$file"
+
+    if [ -f "$src" ]; then
+        cp "$src" "$dest"
+        echo "  ✓ $file"
+    else
+        echo "  ! $file not found in main repo — skipping"
+    fi
+done < .worktreeinclude
