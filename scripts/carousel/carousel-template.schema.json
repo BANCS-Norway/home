@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "carousel-template",
+  "title": "CarouselTemplate",
+  "description": "A pdfme-compatible carousel template definition for BANCS social carousels.",
+  "type": "object",
+  "required": ["name", "description", "dimensions", "fonts", "urlField", "head", "page", "tail"],
+  "additionalProperties": false,
+  "properties": {
+    "name":        { "type": "string" },
+    "description": { "type": "string" },
+    "dimensions": {
+      "type": "object",
+      "required": ["W", "H"],
+      "additionalProperties": false,
+      "properties": {
+        "W": { "type": "number", "description": "Canvas width in mm" },
+        "H": { "type": "number", "description": "Canvas height in mm" }
+      }
+    },
+    "fonts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/FontDef" }
+    },
+    "urlField": {
+      "type": "string",
+      "description": "Name of the tail field that receives a URI annotation (clickable hotspot)"
+    },
+    "head": { "$ref": "#/$defs/FieldDefArray" },
+    "page": { "$ref": "#/$defs/FieldDefArray" },
+    "tail": { "$ref": "#/$defs/FieldDefArray" }
+  },
+  "$defs": {
+    "FontDef": {
+      "type": "object",
+      "required": ["name", "fallback"],
+      "additionalProperties": false,
+      "properties": {
+        "name":     { "type": "string", "description": "Key used in TextField.fontName" },
+        "fallback": { "type": "boolean", "description": "Exactly one font per template must be true" },
+        "path":     { "type": "string", "description": "Path to TTF/OTF file. Omit for known fonts." }
+      }
+    },
+    "Position": {
+      "type": "object",
+      "required": ["x", "y"],
+      "additionalProperties": false,
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      }
+    },
+    "FieldDefArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/FieldDef" }
+    },
+    "FieldDef": {
+      "oneOf": [
+        { "$ref": "#/$defs/TextField" },
+        { "$ref": "#/$defs/RectangleField" },
+        { "$ref": "#/$defs/ImageField" }
+      ]
+    },
+    "BaseField": {
+      "type": "object",
+      "required": ["name", "position", "width", "height"],
+      "properties": {
+        "name":     { "type": "string" },
+        "position": { "$ref": "#/$defs/Position" },
+        "width":    { "type": "number" },
+        "height":   { "type": "number" }
+      }
+    },
+    "TextField": {
+      "allOf": [
+        { "$ref": "#/$defs/BaseField" },
+        {
+          "type": "object",
+          "required": ["type", "fontSize", "fontColor", "fontName", "alignment", "verticalAlignment", "lineHeight"],
+          "properties": {
+            "type":              { "const": "text" },
+            "fontSize":          { "type": "number" },
+            "fontColor":         { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+            "fontName":          { "type": "string", "description": "Must match a name declared in fonts[]" },
+            "alignment":         { "type": "string", "enum": ["left", "center", "right"] },
+            "verticalAlignment": { "type": "string", "enum": ["top", "middle", "bottom"] },
+            "lineHeight":        { "type": "number" }
+          }
+        }
+      ]
+    },
+    "RectangleField": {
+      "allOf": [
+        { "$ref": "#/$defs/BaseField" },
+        {
+          "type": "object",
+          "required": ["type", "color", "borderWidth", "borderColor"],
+          "properties": {
+            "type":        { "const": "rectangle" },
+            "rotate":      { "type": "number" },
+            "opacity":     { "type": "number", "minimum": 0, "maximum": 1 },
+            "color":       { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+            "borderWidth": { "type": "number" },
+            "borderColor": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+          }
+        }
+      ]
+    },
+    "ImageField": {
+      "allOf": [
+        { "$ref": "#/$defs/BaseField" },
+        {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": { "const": "image" }
+          }
+        }
+      ]
+    }
+  }
+}
