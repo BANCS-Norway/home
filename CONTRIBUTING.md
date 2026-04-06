@@ -28,7 +28,12 @@ git fork https://github.com/BANCS-Norway/home
 git clone https://github.com/YOUR-USERNAME/home.git
 cd pages
 npm install
+git config core.hooksPath .hooks
 ```
+
+If you work with git worktrees and need local env files (e.g. `.env`) synced automatically,
+copy `.env.example` to `.env` and fill in your values. The `post-checkout` hook will
+copy it into any new worktree you create.
 
 #### 2. Create Your Post
 
