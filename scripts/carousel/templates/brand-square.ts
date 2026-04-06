@@ -16,7 +16,7 @@ const C = {
   accent:  '#38bdf8',
   heading: '#f1f5f9',
   body:    '#a8b8cb',
-  muted:   '#475569',
+  muted:   '#94a3b8',
 };
 
 // Image — 5% smaller than inner width, centred
