@@ -1,3 +1,10 @@
+## [1.30.11](https://github.com/BANCS-Norway/home/compare/v1.30.10...v1.30.11) (2026-04-07)
+
+
+### Bug Fixes
+
+* **ci:** switch from prompt_file to step output for claude-code-action ([596093c](https://github.com/BANCS-Norway/home/commit/596093c1414f4e4842f25c63dc0a251967199943)), closes [#287](https://github.com/BANCS-Norway/home/issues/287)
+
 ## [1.30.10](https://github.com/BANCS-Norway/home/compare/v1.30.9...v1.30.10) (2026-04-07)
 
 
