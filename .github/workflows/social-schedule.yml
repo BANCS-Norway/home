@@ -173,7 +173,7 @@ jobs:
             exit 1
           fi
 
-          jq -e '.linkedin_body and .twitter and .instagram' /tmp/claude-output.json > /dev/null \
+          jq -e '.linkedin_body and .twitter and .instagram_body and (.instagram_hashtags | type == "array")' /tmp/claude-output.json > /dev/null \
             || { echo "Unexpected JSON structure in Claude output"; cat /tmp/claude-output.json; exit 1; }
 
           echo "Claude output validated successfully"
@@ -396,7 +396,10 @@ jobs:
           with open('/tmp/linkedin_post.txt') as f:
               linkedin_text = f.read()
           twitter_text = json.loads(Path('/tmp/claude-output.json').read_text())['twitter'] + ' ' + post_url
-          instagram_text = json.loads(Path('/tmp/claude-output.json').read_text())['instagram']
+          claude_out = json.loads(Path('/tmp/claude-output.json').read_text())
+          instagram_text = claude_out['instagram_body'].strip() + '\n\n' + '\n'.join(
+              f"#{tag.lstrip('#')}" for tag in claude_out['instagram_hashtags']
+          )
 
           def schedule(label, account_id, platform, network_payload):
               payload = json.dumps({

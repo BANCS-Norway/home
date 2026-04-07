@@ -9,7 +9,8 @@ Evaluate the generated content against these hard constraints and quality signal
 
 Hard constraints (measurable — check exactly):
 - twitter: max 260 characters, must NOT contain a URL
-- instagram: 150–300 characters, must contain 3–5 hashtags (lines starting with #), must NOT contain a URL
+- instagram_body: 150–250 characters, conversational, must NOT contain a URL or hashtags
+- instagram_hashtags: array of 3–5 plain strings without the # prefix
 - linkedin_body: must end with "Read the complete article: <url>", must NOT contain a disclaimer or attribution block
 - carousel head.title: max 55 characters
 - carousel head.caption: max 35 words
@@ -36,7 +37,8 @@ Write your evaluation as valid JSON to /tmp/validation-report.json — no markdo
   "overall": "pass" | "warn" | "fail",
   "checks": {
     "twitter":           { "status": "pass|warn|fail", "char_count": <n>, "notes": "..." },
-    "instagram":         { "status": "pass|warn|fail", "char_count": <n>, "hashtag_count": <n>, "notes": "..." },
+    "instagram_body":    { "status": "pass|warn|fail", "char_count": <n>, "notes": "..." },
+    "instagram_hashtags": { "status": "pass|warn|fail", "hashtag_count": <n>, "notes": "..." },
     "linkedin_body":     { "status": "pass|warn|fail", "notes": "..." },
     "carousel_template": { "status": "pass|warn|fail", "notes": "..." },
     "carousel_head":     { "status": "pass|warn|fail", "notes": "..." },

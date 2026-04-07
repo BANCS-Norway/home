@@ -14,5 +14,6 @@ with exactly this structure — no markdown fences, no explanation, just the JSO
 {
   "linkedin_body": "Post body mirroring H2 sections with condensed text and code blocks interleaved as in the original. Ends with: Read the complete article: $URL. No disclaimer or attribution — those are added separately.",
   "twitter": "Max 260 chars. Punchy and direct. URL is appended separately — do not include it.",
-  "instagram": "150-300 chars. Conversational. 3-5 relevant hashtags at the end. No URL."
+  "instagram_body": "150-250 chars. Conversational and human — not a LinkedIn excerpt. No URL, no hashtags.",
+  "instagram_hashtags": ["3-5 relevant hashtags as plain words without the # prefix, e.g. ClaudeCode"]
 }
