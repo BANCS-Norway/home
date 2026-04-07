@@ -22,11 +22,11 @@ export default {
       },
       keyframes: {
         reveal: {
-          'from': {
+          from: {
             filter: 'blur(5px)',
             opacity: '0.7',
           },
-          'to': {
+          to: {
             filter: 'blur(0)',
             opacity: '1',
           },

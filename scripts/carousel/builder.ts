@@ -31,7 +31,7 @@ const FONTS_DIR  = resolve(__dirname, 'fonts');
 // ---------------------------------------------------------------------------
 
 const KNOWN_FONTS: Record<string, string> = {
-  'Inter':        'Inter-Regular.ttf',
+  Inter:        'Inter-Regular.ttf',
   'Inter-Bold':   'Inter-Bold.ttf',
   'Inter-Medium': 'Inter-Medium.ttf',
 };
@@ -136,7 +136,7 @@ export async function addUriAnnotation(pdfBytes: Uint8Array, def: CarouselTempla
   const urlFieldDef = def.tail.find(f => f.name === def.urlField);
   if (!urlFieldDef) throw new Error(`urlField "${def.urlField}" not found in tail schema`);
 
-  const { W, H } = def.dimensions;
+  const { W: _W, H } = def.dimensions;
   const MM = 72 / 25.4;
 
   const x = urlFieldDef.position.x * MM;

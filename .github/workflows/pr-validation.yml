@@ -31,6 +31,9 @@ jobs:
           HUSKY: 0
         run: npm ci
 
+      - name: Lint
+        run: npm run lint
+
       - name: Validate blog styles
         run: npm run validate:styles
 

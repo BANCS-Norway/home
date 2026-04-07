@@ -41,11 +41,11 @@ const badgeClasses = computed(() => [
     </div>
 
     <!-- Stamp slot (rendered outside blurred content) -->
-    <slot name="stamp"></slot>
+    <slot name="stamp" />
 
     <!-- Content wrapper with blur -->
     <div :class="contentClasses">
-      <slot></slot>
+      <slot />
     </div>
   </div>
 </template>

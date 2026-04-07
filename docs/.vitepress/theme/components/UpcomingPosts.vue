@@ -79,18 +79,36 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p v-if="loading" class="text-[var(--vp-c-text-2)] italic">Loading...</p>
+  <p
+    v-if="loading"
+    class="text-[var(--vp-c-text-2)] italic"
+  >
+    Loading...
+  </p>
 
   <template v-else-if="!error">
     <h2>Planned posts</h2>
-    <ul v-if="posts.length > 0" class="list-none p-0">
-      <li v-for="post in posts" :key="post.number" class="mb-4">
+    <ul
+      v-if="posts.length > 0"
+      class="list-none p-0"
+    >
+      <li
+        v-for="post in posts"
+        :key="post.number"
+        class="mb-4"
+      >
         <a
           :href="`/upcoming?issue=${post.number}`"
           class="text-[var(--vp-c-brand-1)] hover:text-[var(--vp-c-brand-2)] font-medium no-underline"
         >{{ post.title }}</a>
-        <span v-if="post.estimated" class="text-[var(--vp-c-text-2)] text-sm ml-2">— {{ post.estimated }}</span>
-        <div v-if="post.tags.length > 0" class="flex flex-wrap gap-1 mt-1">
+        <span
+          v-if="post.estimated"
+          class="text-[var(--vp-c-text-2)] text-sm ml-2"
+        >— {{ post.estimated }}</span>
+        <div
+          v-if="post.tags.length > 0"
+          class="flex flex-wrap gap-1 mt-1"
+        >
           <span
             v-for="tag in post.tags"
             :key="tag"
@@ -100,7 +118,10 @@ onMounted(async () => {
       </li>
     </ul>
 
-    <p v-else class="text-[var(--vp-c-text-2)] italic">
+    <p
+      v-else
+      class="text-[var(--vp-c-text-2)] italic"
+    >
       Nothing planned yet — watch this space.
     </p>
   </template>

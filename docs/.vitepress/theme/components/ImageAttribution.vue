@@ -9,22 +9,36 @@ interface Props {
   modifications?: string
 }
 
-const props = defineProps<Props>()
+const _props = defineProps<Props>()
 </script>
 
 <template>
   <span>
     Photo by
-    <a v-if="authorUrl" :href="authorUrl" target="_blank" rel="noopener">{{ author }}</a>
+    <a
+      v-if="authorUrl"
+      :href="authorUrl"
+      target="_blank"
+      rel="noopener"
+    >{{ author }}</a>
     <span v-else>{{ author }}</span>
     <template v-if="source || sourceUrl">
       on
-      <a v-if="sourceUrl" :href="sourceUrl" target="_blank" rel="noopener">{{ source || 'source' }}</a>
+      <a
+        v-if="sourceUrl"
+        :href="sourceUrl"
+        target="_blank"
+        rel="noopener"
+      >{{ source || 'source' }}</a>
       <span v-else>{{ source }}</span>
     </template>
     <template v-if="license">
       <template v-if="licenseUrl">
-        , <a :href="licenseUrl" target="_blank" rel="noopener">{{ license }}</a>
+        , <a
+          :href="licenseUrl"
+          target="_blank"
+          rel="noopener"
+        >{{ license }}</a>
       </template>
       <template v-else>
         , {{ license }}
