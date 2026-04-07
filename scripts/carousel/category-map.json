@@ -1,0 +1,36 @@
+{
+  "description": "Maps natural post tags to carousel templates. The first tag on a post that appears in any category's tag list determines the template. Tags not listed here are ignored for template selection.",
+  "categories": [
+    {
+      "template": "category-claude",
+      "label": "Claude & AI",
+      "description": "Claude, AI tools, and Anthropic-related content. Indigo/violet palette.",
+      "tags": ["claude-code", "claude", "ai", "anthropic", "llm", "claude-code-action"]
+    },
+    {
+      "template": "category-tech",
+      "label": "Tech & Engineering",
+      "description": "Technology, engineering practices, and developer tools. Teal-black/cyan palette.",
+      "tags": ["typescript", "serverless", "ci-cd", "developer-tools", "github-actions", "node", "npm", "vitepress", "vue", "react", "python", "aws", "infrastructure"]
+    },
+    {
+      "template": "category-opensource",
+      "label": "Open Source",
+      "description": "Open source projects, contributions, and community. Forest/green palette.",
+      "tags": ["open-source", "community", "contributions", "plugin", "library", "package"]
+    },
+    {
+      "template": "category-mindset",
+      "label": "Mindset & Workflow",
+      "description": "Leadership, workflow, growth mindset, and solo developer topics. Amber-black/golden palette.",
+      "tags": ["workflow", "productivity", "solo-dev", "leadership", "process", "methodology", "consulting", "freelance"]
+    },
+    {
+      "template": "category-brand",
+      "label": "BANCS",
+      "description": "BANCS org news, announcements, and updates. Navy/sky-blue palette.",
+      "tags": ["announcement", "bancs", "news", "update", "launch", "milestone"]
+    }
+  ],
+  "fallback": "Select the most appropriate template based on the post content if no tag matches."
+}
