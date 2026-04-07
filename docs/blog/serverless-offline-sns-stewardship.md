@@ -1,14 +1,16 @@
 ---
 title: Giving Back - Taking Stewardship of serverless-offline-sns
-description: BANCS has formally taken over maintenance of serverless-offline-sns after nearly 10 years under its original author. Here's the full story of why we stepped up, what we found, and what we've done with it.
+description: BANCS has formally taken over maintenance of serverless-offline-sns after
+  nearly 10 years under its original author. Here's the full story of why we stepped
+  up, what we found, and what we've done with it.
 date: 2026-02-27
 readingTime: 9
 tags:
-  - open-source
-  - serverless
-  - aws
-  - community
-  - stewardship
+- open-source
+- serverless
+- aws
+- community
+- stewardship
 hero:
   image: /images/blog/serverless-offline-sns-stewardship.jpg
   alt: A lighthouse standing firm against crashing waves in black and white
@@ -20,6 +22,7 @@ hero:
     license: Unsplash License
     licenseUrl: https://unsplash.com/license
     modifications: Converted to grayscale
+socialDate: '2026-04-09'
 ---
 
 <BlogHeading />
