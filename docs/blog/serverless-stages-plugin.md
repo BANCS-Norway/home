@@ -1,17 +1,20 @@
 ---
-title: "31 Lines, 5 Years, and Finally: Open Source"
-description: The serverless-stages-plugin has been silently protecting production deploys in a flood prediction system since March 2021. This is the story of extracting it, doing it properly, and giving it back.
+title: '31 Lines, 5 Years, and Finally: Open Source'
+description: The serverless-stages-plugin has been silently protecting production
+  deploys in a flood prediction system since March 2021. This is the story of extracting
+  it, doing it properly, and giving it back.
 date: 2026-03-25
 readingTime: 6
 tags:
-  - open-source
-  - serverless
-  - typescript
-  - npm
-  - testing
+- open-source
+- serverless
+- typescript
+- npm
+- testing
 hero:
   image: /images/blog/serverless-stages-plugin/creation-of-adam.jpg
-  alt: Michelangelo's Creation of Adam — two hands reaching toward each other, in black and white
+  alt: Michelangelo's Creation of Adam — two hands reaching toward each other, in
+    black and white
   attribution:
     author: Michelangelo
     authorUrl: https://en.wikipedia.org/wiki/Michelangelo
@@ -20,6 +23,7 @@ hero:
     license: Public Domain
     licenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
     modifications: Converted to grayscale and cropped
+socialDate: '2026-04-12'
 ---
 
 <BlogHeading />
