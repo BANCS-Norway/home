@@ -1,3 +1,10 @@
+## [1.30.12](https://github.com/BANCS-Norway/home/compare/v1.30.11...v1.30.12) (2026-04-07)
+
+
+### Bug Fixes
+
+* add socialDate for serverless-offline-sns-stewardship ([ea8e753](https://github.com/BANCS-Norway/home/commit/ea8e75339ea73c8d39198629feecc6bd425caca4)), closes [#291](https://github.com/BANCS-Norway/home/issues/291)
+
 ## [1.30.11](https://github.com/BANCS-Norway/home/compare/v1.30.10...v1.30.11) (2026-04-07)
 
 
