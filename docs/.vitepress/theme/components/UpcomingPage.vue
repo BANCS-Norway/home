@@ -202,14 +202,19 @@ onMounted(async () => {
 
 <template>
   <div class="max-w-3xl mx-auto px-4 py-12 sm:py-16">
-
     <!-- Loading -->
-    <p v-if="state === 'loading'" class="text-[var(--vp-c-text-2)] italic text-center py-16">
+    <p
+      v-if="state === 'loading'"
+      class="text-[var(--vp-c-text-2)] italic text-center py-16"
+    >
       Loading...
     </p>
 
     <!-- Redirecting -->
-    <p v-else-if="state === 'redirecting'" class="text-[var(--vp-c-text-2)] italic text-center py-16">
+    <p
+      v-else-if="state === 'redirecting'"
+      class="text-[var(--vp-c-text-2)] italic text-center py-16"
+    >
       Taking you to the published post...
     </p>
 
@@ -236,7 +241,6 @@ onMounted(async () => {
 
     <!-- Preview -->
     <template v-else-if="state === 'preview' && post">
-
       <!-- Under construction hero -->
       <div class="flex flex-col items-center mb-10">
         <picture class="flex justify-center w-full max-h-[28vh]">
@@ -268,13 +272,19 @@ onMounted(async () => {
 
       <!-- Meta row -->
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-8 text-sm text-[var(--vp-c-text-2)]">
-        <span v-if="post.series" class="font-medium text-[var(--vp-c-brand-1)]">
+        <span
+          v-if="post.series"
+          class="font-medium text-[var(--vp-c-brand-1)]"
+        >
           {{ post.series }}
         </span>
         <span v-if="post.estimated">
           {{ post.estimated }}
         </span>
-        <div v-if="post.tags.length > 0" class="flex flex-wrap gap-1">
+        <div
+          v-if="post.tags.length > 0"
+          class="flex flex-wrap gap-1"
+        >
           <span
             v-for="tag in post.tags"
             :key="tag"
@@ -284,12 +294,18 @@ onMounted(async () => {
       </div>
 
       <!-- Summary -->
-      <p v-if="post.summary" class="text-lg leading-relaxed text-[var(--vp-c-text-1)] mb-10">
+      <p
+        v-if="post.summary"
+        class="text-lg leading-relaxed text-[var(--vp-c-text-1)] mb-10"
+      >
         {{ post.summary }}
       </p>
 
       <!-- Planned sections -->
-      <div v-if="post.sections.length > 0" class="mb-10">
+      <div
+        v-if="post.sections.length > 0"
+        class="mb-10"
+      >
         <h2 class="!text-xl font-semibold mb-4 text-[var(--vp-c-text-1)] border-b border-[var(--vp-c-divider)] pb-2">
           Planned sections
         </h2>
@@ -304,7 +320,10 @@ onMounted(async () => {
             </span>
             <div>
               <span class="font-semibold text-[var(--vp-c-text-1)]">{{ sec.title }}</span>
-              <span v-if="sec.description" class="block text-sm text-[var(--vp-c-text-2)] mt-0.5">
+              <span
+                v-if="sec.description"
+                class="block text-sm text-[var(--vp-c-text-2)] mt-0.5"
+              >
                 {{ sec.description }}
               </span>
             </div>
@@ -313,7 +332,10 @@ onMounted(async () => {
       </div>
 
       <!-- Key takeaways -->
-      <div v-if="post.takeaways.length > 0" class="mb-10">
+      <div
+        v-if="post.takeaways.length > 0"
+        class="mb-10"
+      >
         <h2 class="!text-xl font-semibold mb-4 text-[var(--vp-c-text-1)] border-b border-[var(--vp-c-divider)] pb-2">
           Key takeaways
         </h2>
@@ -333,9 +355,16 @@ onMounted(async () => {
       <div class="mt-12 pt-8 border-t border-[var(--vp-c-divider)] text-center">
         <p class="text-[var(--vp-c-text-2)] mb-4">
           Want to know when this publishes? Follow us on
-          <a href="https://github.com/BANCS-Norway" class="text-[var(--vp-c-brand-1)] no-underline hover:underline" rel="noopener">GitHub</a>
+          <a
+            href="https://github.com/BANCS-Norway"
+            class="text-[var(--vp-c-brand-1)] no-underline hover:underline"
+            rel="noopener"
+          >GitHub</a>
           or subscribe to the
-          <a href="/blog/" class="text-[var(--vp-c-brand-1)] no-underline hover:underline">RSS feed</a>.
+          <a
+            href="/blog/"
+            class="text-[var(--vp-c-brand-1)] no-underline hover:underline"
+          >RSS feed</a>.
         </p>
         <a
           href="/blog/"
@@ -344,8 +373,6 @@ onMounted(async () => {
           Back to the blog
         </a>
       </div>
-
     </template>
-
   </div>
 </template>

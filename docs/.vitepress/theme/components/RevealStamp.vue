@@ -101,7 +101,11 @@ const stampResponsiveClasses = computed(() => {
 
 <template>
   <div :class="[variantClasses, stampResponsiveClasses]">
-    <div :class="textClasses">{{ text }}</div>
-    <div :class="dateClasses">{{ date }}</div>
+    <div :class="textClasses">
+      {{ text }}
+    </div>
+    <div :class="dateClasses">
+      {{ date }}
+    </div>
   </div>
 </template>

@@ -125,7 +125,10 @@ const imageClasses = computed(() => [
     </div>
 
     <!-- Attribution slot -->
-    <div v-if="$slots.default" class="text-xs text-gray-500 dark:text-gray-400 italic mt-2 text-center">
+    <div
+      v-if="$slots.default"
+      class="text-xs text-gray-500 dark:text-gray-400 italic mt-2 text-center"
+    >
       <slot />
     </div>
   </div>
