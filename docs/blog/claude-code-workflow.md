@@ -4,6 +4,10 @@ subtitle: Part 2 of The Claude Code Chronicles
 description: Discover the systematic 6-step workflow that transforms how you build software with Claude Code, from issue creation to pull request
 date: 2025-11-11
 readingTime: 10
+tags:
+  - claude-code
+  - workflow
+  - solo-dev
 hero:
   image: /images/blog/chronicles/pexels-sunflower-10492046.jpg
   alt: Sunflower seed pattern showing natural spiral workflow and systematic growth

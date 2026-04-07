@@ -4,6 +4,10 @@ subtitle: Part 1 of The Claude Code Chronicles
 description: Part 1 of The Claude Code Chronicles - Understanding persistent knowledge accumulation
 date: 2025-11-04
 readingTime: 5
+tags:
+  - claude-code
+  - methodology
+  - solo-dev
 hero:
   image: /images/blog/chronicles/pexels-paulseling-12275644.jpg
   alt: Crystal formations representing persistent knowledge accumulation

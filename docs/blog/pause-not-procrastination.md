@@ -3,6 +3,10 @@ title: The Pause Isn't Procrastination - It's Part of Your Process
 description: A meditation on creativity, AI, and the wisdom of stepping away
 date: 2025-10-26
 readingTime: 12
+tags:
+  - productivity
+  - solo-dev
+  - mindset
 hero:
   image: /images/ripples-grayscale.jpg
   alt: Ripples in calm water

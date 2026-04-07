@@ -5,11 +5,12 @@ description: The story of migrating Liberalistene.no from React4XP v3 to v6 in 2
 date: 2025-12-04
 readingTime: 10
 tags:
-  - enonic
   - react4xp
+  - enonicxp
+  - cms
+  - react
+  - frontend
   - migration
-  - architecture
-  - ai-assisted
 ---
 
 <BlogHeading />

@@ -4,6 +4,10 @@ subtitle: Part 3 of The Claude Code Chronicles
 description: Discover how multiple Claude Code instances coordinate through GitHub Issues to create a distributed AI development team
 date: 2025-11-25
 readingTime: 10
+tags:
+  - claude-code
+  - methodology
+  - solo-dev
 hero:
   image: /images/blog/chronicles/the-borg-collective.jpg
   alt: The Borg Collective - distributed AI consciousness
