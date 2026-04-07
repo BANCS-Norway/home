@@ -22,7 +22,7 @@ hero:
     sourceUrl: https://commons.wikimedia.org/wiki/File:NNC-US-1907-G%2420-Saint_Gaudens_(Roman,_ultra_high_relief,_wire_edge).jpg
     license: Public Domain
     licenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
-socialDate: '2026-04-06'
+socialDate: '2026-04-15'
 ---
 
 <BlogHeading />
