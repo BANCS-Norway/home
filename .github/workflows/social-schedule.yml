@@ -149,11 +149,16 @@ jobs:
 
       - name: Prepare social content prompt
         if: steps.find.outputs.found == 'true'
+        id: social_prompt
         env:
           TITLE: ${{ steps.parse.outputs.title }}
           DATE: ${{ steps.parse.outputs.date }}
           URL: ${{ steps.find.outputs.url }}
-        run: envsubst < scripts/prompts/social-content.txt > /tmp/social-prompt.txt
+        run: |
+          content=$(envsubst < scripts/prompts/social-content.txt)
+          echo "content<<PROMPT_EOF" >> $GITHUB_OUTPUT
+          echo "$content" >> $GITHUB_OUTPUT
+          echo "PROMPT_EOF" >> $GITHUB_OUTPUT
 
       - name: Generate social content via Claude
         if: steps.find.outputs.found == 'true'
@@ -163,7 +168,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: "--allowedTools Read,Write,Bash"
           show_full_output: ${{ vars.CLAUDE_DEBUG || 'false' }}
-          prompt_file: /tmp/social-prompt.txt
+          prompt: ${{ steps.social_prompt.outputs.content }}
 
       - name: Validate Claude output
         if: steps.find.outputs.found == 'true'
@@ -245,12 +250,17 @@ jobs:
 
       - name: Prepare carousel slides prompt
         if: steps.find.outputs.found == 'true'
+        id: carousel_prompt
         env:
           TITLE: ${{ steps.parse.outputs.title }}
           URL: ${{ steps.find.outputs.url }}
           HERO_ATTRIBUTION: ${{ steps.parse.outputs.hero_attribution }}
           TAGS: ${{ steps.parse.outputs.tags }}
-        run: envsubst < scripts/prompts/carousel-slides.txt > /tmp/carousel-prompt.txt
+        run: |
+          content=$(envsubst < scripts/prompts/carousel-slides.txt)
+          echo "content<<PROMPT_EOF" >> $GITHUB_OUTPUT
+          echo "$content" >> $GITHUB_OUTPUT
+          echo "PROMPT_EOF" >> $GITHUB_OUTPUT
 
       - name: Generate carousel slides via Claude
         if: steps.find.outputs.found == 'true'
@@ -259,7 +269,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: "--allowedTools Read,Write"
           show_full_output: ${{ vars.CLAUDE_DEBUG || 'false' }}
-          prompt_file: /tmp/carousel-prompt.txt
+          prompt: ${{ steps.carousel_prompt.outputs.content }}
 
       - name: Validate carousel slides
         if: steps.find.outputs.found == 'true'
