@@ -8,7 +8,7 @@ Read the following files:
 Evaluate the generated content against these hard constraints and quality signals.
 
 Hard constraints (measurable — check exactly):
-- twitter: max 260 characters, must NOT contain a URL
+- twitter: max 280 characters, must NOT contain a URL
 - instagram_body: 150–250 characters, conversational, must NOT contain a URL or hashtags
 - instagram_hashtags: array of 3–5 plain strings without the # prefix
 - linkedin_body: must end with "Read the complete article: <url>", must NOT contain a disclaimer or attribution block

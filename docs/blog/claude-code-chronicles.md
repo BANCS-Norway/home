@@ -3,6 +3,10 @@ title: The Claude Code Chronicles - Chapter 1
 description: A three-part series revealing the power of distributed AI development through GitHub Issues
 date: 2025-11-02
 readingTime: 4
+tags:
+  - claude-code
+  - methodology
+  - solo-dev
 hero:
   image: /images/blog/chronicles/landing-hero-reveal.jpg
   alt: Progressive reveal - symbolizing the staggered content disclosure of the Chronicles series

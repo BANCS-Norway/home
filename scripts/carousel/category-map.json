@@ -11,7 +11,7 @@
       "template": "category-tech",
       "label": "Tech & Engineering",
       "description": "Technology, engineering practices, and developer tools. Teal-black/cyan palette.",
-      "tags": ["typescript", "serverless", "ci-cd", "developer-tools", "github-actions", "node", "npm", "vitepress", "vue", "react", "python", "aws", "infrastructure"]
+      "tags": ["typescript", "serverless", "ci-cd", "developer-tools", "github-actions", "node", "npm", "vitepress", "vue", "react", "react4xp", "enonicxp", "cms", "python", "aws", "infrastructure"]
     },
     {
       "template": "category-opensource",

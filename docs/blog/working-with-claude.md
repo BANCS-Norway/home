@@ -3,6 +3,10 @@ title: Working with Claude - An AI Pair Programming Experience
 description: Real-world experiences using Claude as an AI pair programming partner - best practices, lessons learned, and practical examples
 date: 2025-10-21
 readingTime: 10
+tags:
+  - claude-code
+  - ai
+  - workflow
 hero:
   image: /images/working-with-claude-header.jpg
   alt: Black and white bridge through misty forest representing collaboration and connection

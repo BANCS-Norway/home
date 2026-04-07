@@ -13,7 +13,7 @@ Generate social media content and write it as valid JSON to /tmp/claude-output.j
 with exactly this structure — no markdown fences, no explanation, just the JSON:
 {
   "linkedin_body": "Post body mirroring H2 sections with condensed text and code blocks interleaved as in the original. Ends with: Read the complete article: $URL. No disclaimer or attribution — those are added separately.",
-  "twitter": "Max 260 chars. Punchy and direct. URL is appended separately — do not include it.",
+  "twitter": "Max 280 chars. Punchy and direct. URL is appended separately — do not include it.",
   "instagram_body": "150-250 chars. Conversational and human — not a LinkedIn excerpt. No URL, no hashtags.",
   "instagram_hashtags": ["3-5 relevant hashtags as plain words without the # prefix, e.g. ClaudeCode"]
 }

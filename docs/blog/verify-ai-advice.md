@@ -3,6 +3,10 @@ title: "A Cautionary Tale: Always Verify What AI Tells You"
 description: How trusting AI advice without verification cost me my weekly Claude limit - and why exhaustion makes it worse
 date: 2025-11-07
 readingTime: 6
+tags:
+  - ai
+  - claude-code
+  - workflow
 hero:
   image: /images/blog/verify-ai/following-blind-hero.jpg
   alt: Person following another blindly through forest - metaphor for trusting AI without verification

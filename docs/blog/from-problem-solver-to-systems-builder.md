@@ -3,6 +3,10 @@ title: From Problem-Solver to Systems Builder - My Claude Code Transformation
 description: How Claude Code transformed me from solving individual problems to building systematic frameworks that enable entire teams
 date: 2025-09-01
 readingTime: 7
+tags:
+  - claude-code
+  - methodology
+  - consulting
 hero:
   image: /images/problem-solver-header.jpg
   alt: Aerial view of Arctic river delta in black and grey, representing transformation and systems thinking
