@@ -228,10 +228,16 @@ def main():
     with open("/tmp/claude-output.json") as f:
         social = json.load(f)
 
-    required = {"linkedin_body", "twitter", "instagram"}
+    required = {"linkedin_body", "twitter", "instagram_body", "instagram_hashtags"}
     missing = required - social.keys()
     if missing:
         raise SystemExit(f"Missing keys in claude-output.json: {missing}\n{json.dumps(social, indent=2)}")
+
+    # Assemble instagram text: body + blank line + hashtags on separate lines
+    instagram_text = social["instagram_body"].strip() + "\n\n" + "\n".join(
+        f"#{tag.lstrip('#')}" for tag in social["instagram_hashtags"]
+    )
+    social["instagram"] = instagram_text
 
     print("  → /tmp/claude-output.json validated")
 
