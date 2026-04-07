@@ -122,12 +122,16 @@ jobs:
           hero_image_url  = (hero.get('image') or '')
           hero_image_path = ('docs/public' + hero_image_url) if hero_image_url.startswith('/') else ''
 
+          tags = fm.get('tags', []) or []
+          tags_str = ', '.join(tags)
+
           with open(github_output, 'a') as out:
               out.write(f"title={title}\n")
               out.write(f"date={date}\n")
               out.write(f"subtitle={subtitle}\n")
               out.write(f"hero_attribution={hero_attribution}\n")
               out.write(f"hero_image_path={hero_image_path}\n")
+              out.write(f"tags={tags_str}\n")
               out.write(f"prev_title={prev_title}\n")
               out.write(f"prev_url={prev_url}\n")
               out.write(f"next_title={next_title}\n")
@@ -143,6 +147,14 @@ jobs:
           print(f"Parsed: {title!r} ({date})")
           PYEOF
 
+      - name: Prepare social content prompt
+        if: steps.find.outputs.found == 'true'
+        env:
+          TITLE: ${{ steps.parse.outputs.title }}
+          DATE: ${{ steps.parse.outputs.date }}
+          URL: ${{ steps.find.outputs.url }}
+        run: envsubst < scripts/prompts/social-content.txt > /tmp/social-prompt.txt
+
       - name: Generate social content via Claude
         if: steps.find.outputs.found == 'true'
         id: claude
@@ -151,24 +163,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: "--allowedTools Read,Write,Bash"
           show_full_output: ${{ vars.CLAUDE_DEBUG || 'false' }}
-          prompt: |
-            You are a social media copywriter for Benny Molowny Thomas, a Norwegian solo developer
-            and consultant at BANCS AS. He writes about Claude Code methodology, open source, and
-            software development. His tone is direct, technically credible, and occasionally dry.
-            He does not use hype language.
-
-            Blog post title: ${{ steps.parse.outputs.title }}
-            Publish date: ${{ steps.parse.outputs.date }}
-            Post URL: ${{ steps.find.outputs.url }}
-
-            Read the full blog post content from /tmp/post_content.md.
-
-            Generate social media content and write it as valid JSON to /tmp/claude-output.json
-            with exactly this structure — no markdown fences, no explanation, just the JSON:
-            {
-              "linkedin_body": "Post body mirroring H2 sections with condensed text and code blocks interleaved as in the original. Ends with: Read the complete article: <url>. No disclaimer or attribution — those are added separately.",
-              "twitter": "Max 260 chars. Punchy and direct. URL is appended separately — do not include it."
-            }
+          prompt_file: /tmp/social-prompt.txt
 
       - name: Validate Claude output
         if: steps.find.outputs.found == 'true'
@@ -178,7 +173,7 @@ jobs:
             exit 1
           fi
 
-          jq -e '.linkedin_body and .twitter' /tmp/claude-output.json > /dev/null \
+          jq -e '.linkedin_body and .twitter and .instagram' /tmp/claude-output.json > /dev/null \
             || { echo "Unexpected JSON structure in Claude output"; cat /tmp/claude-output.json; exit 1; }
 
           echo "Claude output validated successfully"
@@ -248,6 +243,15 @@ jobs:
         if: steps.find.outputs.found == 'true'
         run: npm ci
 
+      - name: Prepare carousel slides prompt
+        if: steps.find.outputs.found == 'true'
+        env:
+          TITLE: ${{ steps.parse.outputs.title }}
+          URL: ${{ steps.find.outputs.url }}
+          HERO_ATTRIBUTION: ${{ steps.parse.outputs.hero_attribution }}
+          TAGS: ${{ steps.parse.outputs.tags }}
+        run: envsubst < scripts/prompts/carousel-slides.txt > /tmp/carousel-prompt.txt
+
       - name: Generate carousel slides via Claude
         if: steps.find.outputs.found == 'true'
         uses: anthropics/claude-code-action@v1
@@ -255,53 +259,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           claude_args: "--allowedTools Read,Write"
           show_full_output: ${{ vars.CLAUDE_DEBUG || 'false' }}
-          prompt: |
-            You are generating slide content for a PDF carousel to accompany a blog post on Instagram and LinkedIn.
-
-            Blog post title: ${{ steps.parse.outputs.title }}
-            Blog post URL: ${{ steps.find.outputs.url }}
-            Hero image credit: ${{ steps.parse.outputs.hero_attribution }}
-
-            Read the full blog post from /tmp/post_content.md.
-
-            Available carousel templates — pick the most appropriate:
-            - category-brand: BANCS org news and announcements. Navy/sky-blue palette.
-            - category-claude: Claude, AI tools, and Anthropic-related content. Indigo/violet palette.
-            - category-opensource: Open source projects, contributions, and community. Forest/green palette.
-            - category-tech: Technology, engineering practices, and developer tools. Teal-black/cyan palette.
-            - category-mindset: Leadership, culture, growth mindset, and people topics. Amber-black/golden palette.
-
-            Write the slide content as valid JSON to /tmp/carousel-slides.json — no markdown fences, no explanation, just the JSON:
-            {
-              "template": "<chosen template name>",
-              "head": {
-                "brand": "BANCS.no",
-                "attribution": "<photographer or source credit — truncate to max 55 chars, empty string if none>",
-                "title": "<post title, max 55 chars>",
-                "caption": "<hook sentence that makes someone swipe, max 35 words>"
-              },
-              "pages": [
-                {
-                  "eyebrow": "<short topic label for this slide, max 28 chars — e.g. 'The Discovery' or 'Why It Matters'>",
-                  "title": "<the key point of this section in punchy form, max 38 chars — this is the large bold heading>",
-                  "body": "<section body expanding on the title, max 45 words, plain text only — no markdown, no asterisks, no bullets>"
-                }
-              ],
-              "tail": {
-                "eyebrow": "Read the full article",
-                "title": "<compelling CTA or rephrased post title, max 48 chars>",
-                "thanks": "<1 sentence closing thought, max 25 words>",
-                "body": "bancs.no/blog",
-                "url": "${{ steps.find.outputs.url }}"
-              }
-            }
-
-            Rules:
-            - 3 to 5 content pages — pick the key sections, do not force every H2
-            - eyebrow and title must differ — eyebrow is a small label, title is the big point
-            - Plain text only in all text fields — no markdown, no special characters
-            - Stay within word and character budgets — square slides are constrained
-            - Do not include a "tag" field anywhere — it is auto-generated
+          prompt_file: /tmp/carousel-prompt.txt
 
       - name: Validate carousel slides
         if: steps.find.outputs.found == 'true'
@@ -438,7 +396,7 @@ jobs:
           with open('/tmp/linkedin_post.txt') as f:
               linkedin_text = f.read()
           twitter_text = json.loads(Path('/tmp/claude-output.json').read_text())['twitter'] + ' ' + post_url
-          instagram_text = json.loads(Path('/tmp/claude-output.json').read_text())['twitter']
+          instagram_text = json.loads(Path('/tmp/claude-output.json').read_text())['instagram']
 
           def schedule(label, account_id, platform, network_payload):
               payload = json.dumps({

@@ -1,0 +1,48 @@
+You are generating slide content for a PDF carousel to accompany a blog post on Instagram and LinkedIn.
+
+Blog post title: $TITLE
+Blog post URL: $URL
+Hero image credit: $HERO_ATTRIBUTION
+Post tags (in order of prominence, most important first): $TAGS
+
+Read the full blog post from /tmp/post_content.md.
+
+Read the category map from scripts/carousel/category-map.json.
+
+Template selection — follow this logic exactly:
+1. Go through the post tags in order (first tag has highest prominence).
+2. For each tag, check if it appears in any category's "tags" list in the map.
+3. Use the template from the first matching category found.
+4. If no tag matches any category, follow the "fallback" instruction in the map.
+
+Write the slide content as valid JSON to /tmp/carousel-slides.json — no markdown fences, no explanation, just the JSON:
+{
+  "template": "<chosen template name>",
+  "head": {
+    "brand": "BANCS.no",
+    "attribution": "<photographer or source credit — truncate to max 55 chars, empty string if none>",
+    "title": "<post title, max 55 chars>",
+    "caption": "<hook sentence that makes someone swipe, max 35 words>"
+  },
+  "pages": [
+    {
+      "eyebrow": "<short topic label for this slide, max 28 chars — e.g. 'The Discovery' or 'Why It Matters'>",
+      "title": "<the key point of this section in punchy form, max 38 chars — this is the large bold heading>",
+      "body": "<section body expanding on the title, max 45 words, plain text only — no markdown, no asterisks, no bullets>"
+    }
+  ],
+  "tail": {
+    "eyebrow": "Read the full article",
+    "title": "<compelling CTA or rephrased post title, max 48 chars>",
+    "thanks": "<1 sentence closing thought, max 25 words>",
+    "body": "bancs.no/blog",
+    "url": "$URL"
+  }
+}
+
+Rules:
+- 3 to 5 content pages — pick the key sections, do not force every H2
+- eyebrow and title must differ — eyebrow is a small label, title is the big point
+- Plain text only in all text fields — no markdown, no special characters
+- Stay within word and character budgets — square slides are constrained
+- Do not include a "tag" field anywhere — it is auto-generated

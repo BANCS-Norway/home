@@ -58,3 +58,6 @@ worktrees/
 .claude/commands/*
 !.claude/commands/project-setup.md
 !.claude/commands-templates/
+
+# Local test script artefacts
+claude-output.json
