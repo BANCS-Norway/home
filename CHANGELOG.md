@@ -1,3 +1,10 @@
+## [1.30.10](https://github.com/BANCS-Norway/home/compare/v1.30.9...v1.30.10) (2026-04-07)
+
+
+### Bug Fixes
+
+* **social:** split instagram into body + hashtags fields ([56a62aa](https://github.com/BANCS-Norway/home/commit/56a62aa1f33e6b7f386958923e369fbfc8af5934))
+
 ## [1.30.9](https://github.com/BANCS-Norway/home/compare/v1.30.8...v1.30.9) (2026-04-05)
 
 
