@@ -12,7 +12,7 @@ Read the full blog post content from /tmp/post_content.md.
 Generate social media content and write it as valid JSON to /tmp/claude-output.json
 with exactly this structure — no markdown fences, no explanation, just the JSON:
 {
-  "linkedin_body": "Post body mirroring H2 sections with condensed text and code blocks interleaved as in the original. Ends with: Read the complete article: $URL. No disclaimer or attribution — those are added separately.",
+  "linkedin_body": "2-3 sentences max. Open with the most interesting or surprising angle from the post — not a summary, not a list of sections. The carousel covers the content; this is just the hook that makes someone stop scrolling. End with: Read the complete article: $URL. No disclaimer or attribution — those are added separately.",
   "twitter": "Max 280 chars. Punchy and direct. URL is appended separately — do not include it.",
   "instagram_body": "150-250 chars. Conversational and human — not a LinkedIn excerpt. No URL, no hashtags.",
   "instagram_hashtags": ["3-5 relevant hashtags as plain words without the # prefix, e.g. ClaudeCode"]
