@@ -196,12 +196,11 @@ jobs:
           python3 << 'PYEOF'
           import os, json
 
-          DISCLAIMER = """> ℹ️ Disclaimer: I am not affiliated with, employed by, or sponsored by Anthropic. I am a paying Claude Pro subscriber and receive no compensation or endorsement for mentioning Claude in this article. All opinions and experiences shared are my own."""
-
-          ATTRIBUTION = """*Attribution: This blog post was co-written with Claude (Chat for ideation and outline, Code for assembly and refinement). The experiences, insights, and creative direction are human; the execution and polish are collaborative.*"""
-
           with open('/tmp/claude-output.json') as f:
-              body = json.load(f)['linkedin_body'].strip()
+              claude_out = json.load(f)
+
+          body    = claude_out['linkedin_body'].strip()
+          hashtags = ' '.join(f"#{tag.lstrip('#')}" for tag in claude_out['instagram_hashtags'])
 
           prev_title = os.environ.get('PREV_TITLE', '')
           prev_url   = os.environ.get('PREV_URL', '')
@@ -209,7 +208,7 @@ jobs:
           next_url   = os.environ.get('NEXT_URL', '')
           has_related = os.environ.get('HAS_RELATED', 'false') == 'true'
 
-          parts = [DISCLAIMER, '---', body]
+          parts = [body]
 
           # Series links (from SeriesNav)
           series_links = []
@@ -227,7 +226,7 @@ jobs:
               if related:
                   parts.append('Did you like this topic? Read more about it in these articles:\n\n' + related)
 
-          parts.extend(['---', ATTRIBUTION, '---'])
+          parts.append(hashtags)
 
           full_post = '\n\n'.join(parts)
 

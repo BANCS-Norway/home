@@ -31,19 +31,6 @@ import yaml
 REPO_ROOT    = Path(__file__).resolve().parent.parent
 PROMPTS_DIR  = REPO_ROOT / "scripts" / "prompts"
 
-DISCLAIMER = (
-    "> ℹ️ Disclaimer: I am not affiliated with, employed by, or sponsored by "
-    "Anthropic. I am a paying Claude Pro subscriber and receive no compensation "
-    "or endorsement for mentioning Claude in this article. All opinions and "
-    "experiences shared are my own."
-)
-
-ATTRIBUTION = (
-    "*Attribution: This blog post was co-written with Claude (Chat for ideation "
-    "and outline, Code for assembly and refinement). The experiences, insights, "
-    "and creative direction are human; the execution and polish are collaborative.*"
-)
-
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
 def hr(label=""):
@@ -144,8 +131,8 @@ def load_prompt(name: str, **vars) -> str:
 
 # ── Step 4: Assemble LinkedIn post ────────────────────────────────────────────
 
-def assemble_linkedin(meta: dict, linkedin_body: str) -> str:
-    parts = [DISCLAIMER, "---", linkedin_body.strip()]
+def assemble_linkedin(meta: dict, linkedin_body: str, hashtags: list) -> str:
+    parts = [linkedin_body.strip()]
 
     series_links = []
     if meta["prev_title"] and meta["prev_url"]:
@@ -158,7 +145,7 @@ def assemble_linkedin(meta: dict, linkedin_body: str) -> str:
     if meta["has_related"] and meta["related_links"]:
         parts.append("Did you like this topic? Read more about it in these articles:\n\n" + meta["related_links"])
 
-    parts.extend(["---", ATTRIBUTION, "---"])
+    parts.append(" ".join(f"#{tag.lstrip('#')}" for tag in hashtags))
     return "\n\n".join(parts)
 
 
@@ -270,7 +257,7 @@ def main():
     print(f"  {result.stdout.strip()}")
 
     # ── Assemble LinkedIn ──────────────────────────────────────────────────────
-    linkedin_post = assemble_linkedin(meta, social["linkedin_body"])
+    linkedin_post = assemble_linkedin(meta, social["linkedin_body"], social["instagram_hashtags"])
     Path("/tmp/linkedin_post.txt").write_text(linkedin_post)
 
     # ── Validate output ────────────────────────────────────────────────────────
