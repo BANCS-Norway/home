@@ -26,7 +26,7 @@ Quality signals (judgement — be honest and direct):
 - Tone: direct, technically credible, occasionally dry — no hype language, no fluff
 - Twitter: punchy and specific — does it make you want to click?
 - Instagram: conversational and human — does it feel native to the platform? Are the hashtags relevant?
-- LinkedIn body: does it mirror the H2 structure of the original post? Does it condense faithfully without losing the key insights?
+- LinkedIn body: does it open with a compelling hook? Is it 2-3 sentences max? Does it avoid reproducing the article structure — the carousel does that?
 - Carousel template choice: is the chosen template appropriate for the post topic?
 - Carousel head caption: does it make someone want to swipe?
 - Carousel pages: do the eyebrow/title/body combinations work as standalone slide content? Is each slide's big point clear at a glance?
