@@ -22,7 +22,7 @@ hero:
     license: Unsplash License
     licenseUrl: https://unsplash.com/license
     modifications: Converted to grayscale
-socialDate: '2026-04-10'
+socialDate: '2026-04-09'
 ---
 
 <BlogHeading />
