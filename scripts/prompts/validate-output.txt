@@ -8,6 +8,7 @@ Read the following files:
 Evaluate the generated content against these hard constraints and quality signals.
 
 Hard constraints (measurable — check exactly):
+- json_validity: read /tmp/claude-output.json as raw text and verify it contains no unescaped double-quote characters inside string values — this is the most common cause of invalid JSON
 - twitter: max 280 characters, must NOT contain a URL
 - instagram_body: 150–250 characters, conversational, must NOT contain a URL or hashtags
 - instagram_hashtags: array of 3–5 plain strings without the # prefix
@@ -36,6 +37,7 @@ Write your evaluation as valid JSON to /tmp/validation-report.json — no markdo
 {
   "overall": "pass" | "warn" | "fail",
   "checks": {
+    "json_validity":     { "status": "pass|warn|fail", "notes": "..." },
     "twitter":           { "status": "pass|warn|fail", "char_count": <n>, "notes": "..." },
     "instagram_body":    { "status": "pass|warn|fail", "char_count": <n>, "notes": "..." },
     "instagram_hashtags": { "status": "pass|warn|fail", "hashtag_count": <n>, "notes": "..." },
