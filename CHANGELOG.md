@@ -1,3 +1,10 @@
+## [1.30.16](https://github.com/BANCS-Norway/home/compare/v1.30.15...v1.30.16) (2026-04-09)
+
+
+### Bug Fixes
+
+* add socialDate for serverless-stages-plugin ([b6b9801](https://github.com/BANCS-Norway/home/commit/b6b9801136130b985fa6f059a2f3d38303d768f6)), closes [#293](https://github.com/BANCS-Norway/home/issues/293)
+
 ## [1.30.15](https://github.com/BANCS-Norway/home/compare/v1.30.14...v1.30.15) (2026-04-08)
 
 
