@@ -1,3 +1,10 @@
+## [1.30.19](https://github.com/BANCS-Norway/home/compare/v1.30.18...v1.30.19) (2026-04-14)
+
+
+### Bug Fixes
+
+* add top margin to Planned sections block on upcoming post page ([0e7ba9e](https://github.com/BANCS-Norway/home/commit/0e7ba9e3862dc030ddce061d9202e4b44c3ce146)), closes [#316](https://github.com/BANCS-Norway/home/issues/316)
+
 ## [1.30.18](https://github.com/BANCS-Norway/home/compare/v1.30.17...v1.30.18) (2026-04-14)
 
 
