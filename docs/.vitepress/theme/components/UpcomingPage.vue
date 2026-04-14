@@ -304,7 +304,7 @@ onMounted(async () => {
       <!-- Planned sections -->
       <div
         v-if="post.sections.length > 0"
-        class="mb-10"
+        class="mt-10 mb-10"
       >
         <h2 class="!text-xl font-semibold mb-4 text-[var(--vp-c-text-1)] border-b border-[var(--vp-c-divider)] pb-2">
           Planned sections
