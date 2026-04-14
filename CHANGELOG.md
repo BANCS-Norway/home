@@ -1,3 +1,10 @@
+## [1.30.18](https://github.com/BANCS-Norway/home/compare/v1.30.17...v1.30.18) (2026-04-14)
+
+
+### Bug Fixes
+
+* add anchor id and header-anchor link to Planned posts heading ([85a5022](https://github.com/BANCS-Norway/home/commit/85a50226660acce93768dc29adb17e7d5ab36b27)), closes [blog/#planned-posts](https://github.com/blog//issues/planned-posts) [#314](https://github.com/BANCS-Norway/home/issues/314)
+
 ## [1.30.17](https://github.com/BANCS-Norway/home/compare/v1.30.16...v1.30.17) (2026-04-09)
 
 
