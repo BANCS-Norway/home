@@ -109,6 +109,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Ensure anchored headings are not hidden behind the sticky nav */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+  scroll-margin-top: var(--vp-nav-height);
+}
+
 /* Link hover effects */
 a {
   transition: color 200ms;
