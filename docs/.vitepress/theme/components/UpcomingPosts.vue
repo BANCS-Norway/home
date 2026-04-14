@@ -87,7 +87,16 @@ onMounted(async () => {
   </p>
 
   <template v-else-if="!error">
-    <h2>Planned posts</h2>
+    <h2
+      id="planned-posts"
+      tabindex="-1"
+    >
+      Planned posts
+      <a
+        class="header-anchor"
+        href="#planned-posts"
+        aria-label="Permalink to &quot;Planned posts&quot;"
+      /></h2>
     <ul
       v-if="posts.length > 0"
       class="list-none p-0"
