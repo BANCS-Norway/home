@@ -1,3 +1,10 @@
+## [1.30.20](https://github.com/BANCS-Norway/home/compare/v1.30.19...v1.30.20) (2026-04-14)
+
+
+### Bug Fixes
+
+* scroll to #planned-posts anchor after async render ([57379c3](https://github.com/BANCS-Norway/home/commit/57379c31ec877bd298be45debdc9c4014fb0979d)), closes [#planned-posts](https://github.com/BANCS-Norway/home/issues/planned-posts) [#planned-posts](https://github.com/BANCS-Norway/home/issues/planned-posts) [#318](https://github.com/BANCS-Norway/home/issues/318)
+
 ## [1.30.19](https://github.com/BANCS-Norway/home/compare/v1.30.18...v1.30.19) (2026-04-14)
 
 
