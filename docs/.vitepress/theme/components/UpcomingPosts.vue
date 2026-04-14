@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 
 interface UpcomingPost {
   number: number
@@ -74,6 +74,10 @@ onMounted(async () => {
     error.value = true
   } finally {
     loading.value = false
+    if (window.location.hash === '#planned-posts') {
+      await nextTick()
+      document.getElementById('planned-posts')?.scrollIntoView()
+    }
   }
 })
 </script>
