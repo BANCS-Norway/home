@@ -74,9 +74,9 @@ onMounted(async () => {
     error.value = true
   } finally {
     loading.value = false
-    if (window.location.hash === '#planned-posts') {
+    if (window.location.hash) {
       await nextTick()
-      document.getElementById('planned-posts')?.scrollIntoView()
+      document.getElementById(window.location.hash.slice(1))?.scrollIntoView()
     }
   }
 })
@@ -100,7 +100,8 @@ onMounted(async () => {
         class="header-anchor"
         href="#planned-posts"
         aria-label="Permalink to &quot;Planned posts&quot;"
-      /></h2>
+      />
+    </h2>
     <ul
       v-if="posts.length > 0"
       class="list-none p-0"
