@@ -1,3 +1,10 @@
+## [1.30.21](https://github.com/BANCS-Norway/home/compare/v1.30.20...v1.30.21) (2026-04-14)
+
+
+### Bug Fixes
+
+* correct anchor scroll for all headings after async content load ([bc0b571](https://github.com/BANCS-Norway/home/commit/bc0b571bf15044ce3497b2430dc378f14f79ec26)), closes [#planned-posts](https://github.com/BANCS-Norway/home/issues/planned-posts) [#320](https://github.com/BANCS-Norway/home/issues/320)
+
 ## [1.30.20](https://github.com/BANCS-Norway/home/compare/v1.30.19...v1.30.20) (2026-04-14)
 
 
