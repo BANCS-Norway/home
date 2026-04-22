@@ -1,3 +1,10 @@
+# [1.31.0](https://github.com/BANCS-Norway/home/compare/v1.30.21...v1.31.0) (2026-04-22)
+
+
+### Features
+
+* **blog:** add Chronicles Part 6: The General Has Eyes ([0747c9e](https://github.com/BANCS-Norway/home/commit/0747c9e2450ee3bf4092ce06f6b50b90c2d4fd52)), closes [#1](https://github.com/BANCS-Norway/home/issues/1) [#311](https://github.com/BANCS-Norway/home/issues/311) [#324](https://github.com/BANCS-Norway/home/issues/324) [#323](https://github.com/BANCS-Norway/home/issues/323)
+
 ## [1.30.21](https://github.com/BANCS-Norway/home/compare/v1.30.20...v1.30.21) (2026-04-14)
 
 
