@@ -42,6 +42,7 @@ This guide has been split into focused documents for easier navigation:
 
 ### Core Guides
 
+- **[DESIGN.md](./DESIGN.md)** - Visual identity contract: color tokens, typography, components, anti-patterns. **Read before any UI/styling work.**
 - **[Git and GitHub Safety](./docs-internal/claude/git-safety.md)** - Git workflow and safety guidelines
 - **[Commit Guidelines](./docs-internal/claude/commit-guidelines.md)** - Conventional commits and semantic versioning
 - **[Development Workflow](./docs-internal/claude/workflow.md)** - Feature development process with batches

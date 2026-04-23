@@ -29,8 +29,9 @@
     "lint:fix": "eslint . --fix",
     "validate:styles": "tsx scripts/validate-blog-styles.ts",
     "validate:licenses": "tsx scripts/validate-example-licenses.ts",
+    "validate:design": "npx --yes @google/design.md lint DESIGN.md",
     "validate:accessibility": "playwright test",
-    "validate": "npm run lint && npm run validate:styles && npm run validate:licenses && npm run validate:accessibility",
+    "validate": "npm run lint && npm run validate:styles && npm run validate:licenses && npm run validate:design && npm run validate:accessibility",
     "test:a11y": "playwright test",
     "semantic-release": "semantic-release",
     "prepare": "husky"
