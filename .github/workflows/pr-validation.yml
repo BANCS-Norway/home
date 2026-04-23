@@ -40,6 +40,9 @@ jobs:
       - name: Validate example licenses
         run: npm run validate:licenses
 
+      - name: Validate DESIGN.md
+        run: npm run validate:design
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
