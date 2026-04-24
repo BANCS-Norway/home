@@ -129,7 +129,7 @@ BANCS uses a custom color palette based on our brand:
 --bancs-accent-alt: #8b5cf6 /* Purple accent */
 ```
 
-See [../design/](../design/) for complete brand guidelines.
+See [BANCS-Norway/design](https://github.com/BANCS-Norway/design) for complete brand guidelines (repo in progress).
 
 ## Deployment
 
@@ -194,7 +194,7 @@ See [LICENSE](./LICENSE) for details.
 - Built with [VitePress](https://vitepress.dev)
 - Styled with [Tailwind CSS](https://tailwindcss.com)
 - Deployed on [GitHub Pages](https://pages.github.com)
-- Logo design: See [../design/DESIGN-CONCEPT.md](../design/DESIGN-CONCEPT.md)
+- Logo design: BANCS internal design work, to be published at [BANCS-Norway/design](https://github.com/BANCS-Norway/design)
 - Site development assisted by [Claude](https://claude.ai) by Anthropic
 
 ---
