@@ -1,3 +1,10 @@
+## [1.31.1](https://github.com/BANCS-Norway/home/compare/v1.31.0...v1.31.1) (2026-04-24)
+
+
+### Bug Fixes
+
+* **blog:** resolve publish dates in Europe/Oslo at runtime ([3e3735c](https://github.com/BANCS-Norway/home/commit/3e3735ce60ee86b8a295e46e840205c5a5009e5d)), closes [#329](https://github.com/BANCS-Norway/home/issues/329)
+
 # [1.31.0](https://github.com/BANCS-Norway/home/compare/v1.30.21...v1.31.0) (2026-04-22)
 
 
