@@ -1,9 +1,20 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { data as posts } from '../posts.data'
 import BlogCard from './BlogCard.vue'
 
-// Filter to only show published posts (date <= today)
-const publishedPosts = posts.filter(post => post.isPublished)
+// Publish dates are evaluated at runtime in Europe/Oslo so a post dated
+// 2026-04-23 appears the moment Oslo rolls over to that day, regardless
+// of when the static build ran (the build host is UTC).
+function osloDate(d: Date | number): string {
+  return new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Oslo' })
+    .format(new Date(d))
+}
+
+const publishedPosts = computed(() => {
+  const today = osloDate(Date.now())
+  return posts.filter(post => osloDate(post.date.time) <= today)
+})
 </script>
 
 <template>

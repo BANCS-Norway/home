@@ -18,7 +18,6 @@ export interface Post {
   description: string
   tags: string[]
   excerpt?: string
-  isPublished: boolean  // For date-based progressive disclosure
 }
 
 /**
@@ -41,21 +40,6 @@ function formatDate(raw: string): { time: number; string: string } {
   }
 }
 
-/**
- * Checks if a post should be visible based on publication date
- * @param dateString - Date from frontmatter (YYYY-MM-DD)
- * @returns true if post should be visible (date <= today)
- */
-function isPublished(dateString: string): boolean {
-  const postDate = new Date(dateString)
-  const today = new Date()
-  // Set both to start of day for fair comparison
-  postDate.setHours(0, 0, 0, 0)
-  today.setHours(0, 0, 0, 0)
-
-  return postDate <= today
-}
-
 declare const data: Post[]
 export { data }
 
@@ -71,8 +55,7 @@ export default createContentLoader('blog/*.md', {
         date: formatDate(frontmatter.date),
         description: frontmatter.description || '',
         tags: frontmatter.tags || [],
-        excerpt,
-        isPublished: isPublished(frontmatter.date)
+        excerpt
       }))
       // Sort by date, newest first
       .sort((a, b) => b.date.time - a.date.time)
